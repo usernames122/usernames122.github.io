@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/designing-for-engagement by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:26:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="designing-for-engagement.html"/>
+    <link rel="alternate" hreflang="x-default" href="designing-for-engagement.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="designing-for-engagement.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="designing-for-engagement.html"/>
+    
+      
+        
+          <title> Designing for Engagement</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>Boost engagement in your game by understanding player&nbsp;motivations</p>">
+
+
+
+<meta name="keywords" content="analytics, engagement, metrics">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Designing for Engagement">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>Boost engagement in your game by understanding player&nbsp;motivations</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Analytics">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/analytics.html">ANALYTICS</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Designing for Engagement</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/analytics.html">ANALYTICS</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Designing for Engagement</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Engagement is an important metric that influences both retention and monetization. Engaged players will come back more often, play longer, and are more likely to spend money in your game.</p>
+<p>Creating engagement requires understanding what <b>motivates</b> engagement. In this article, we’ll examine five primary motivations for engagement: social, variety, convenience, achievement, and investment.</p>
+<table class="table table-striped table-bordered mt-4">
+<thead class="thead-dark">
+<tr>
+<th scope="col" colspan=2>Glossary of Terms</th>
+</tr>
+</thead>
+<thead>
+<tr class="border-secondary bg-secondary text-white">
+<th scope="col" class="border-secondary py-1">Term</th>
+<th scope="col" class="border-secondary py-1">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row"><b>Daily Active Users (DAU)</b></td>
+<td scope="row">The number of unique players playing your game in a day.</td>
+</tr>
+<tr>
+<td scope="row" class="text-nowrap"><b>Monthly Active Users (MAU)</b></td>
+<td scope="row">The total number of unique players who play your game in a month.</td>
+</tr>
+</tbody>
+</table>
+<h2>1. Social</h2>
+<p>Creating and enabling social connections between players is a strong motivator, especially on a platform like Roblox. Social features can encourage players to form an emotional investment in your game.</p>
+<table class="table table-striped table-bordered">
+<thead class="thead-dark">
+<tr>
+<th scope="col" class="w-25">Feature</th>
+<th scope="col" width="35%">Explanation</th>
+<th scope="col">Suggested Metrics</th>   
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row"><b>Social areas</b></td>
+<td scope="row">Provide areas in your game that encourage social gameplay, such as lobbies and roleplaying spaces.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Average number of new <span class="text-nowrap">in-game</span> friends made in a day</li>
+<li class="prereq">Average session length</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Community forums</b></td>
+<td scope="row">Build a community around your game through channels like Roblox groups, Twitter, and Discord.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Number of <b>new</b> monthly subscribers to social channels as a percent of your game's MAU</li>
+<li class="prereq">Number of <b>total</b> monthly subscribers to social channels as a percent of your game's MAU</li>
+<li class="prereq">Percentage of all subscribers that send at least one message through a channel (active subscribers)</li>
+<li class="prereq">Average number of messages sent per monthly active subscriber</li>
+<li class="prereq">Retention of subscribers vs. <span class="text-nowrap">non-subscribers</span></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Competitive and/or cooperative gameplay</b></td>
+<td scope="row">Design gameplay that requires multiplayer interactions, such as <span class="text-nowrap">player-vs-player</span> (PVP) battles or cooperative puzzle solving.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Percentage of games played in PVP mode or <span class="text-nowrap">co-op</span> mode</li>
+<li class="prereq">Retention of players who play PVP or <span class="text-nowrap">co-op</span> mode vs. players who play solo</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Avatar customization</b></td>
+<td scope="row">Players like to show off! Allow your players to customize their avatar with hats, unique <span class="text-nowrap">in-game</span> items, and other vanity items.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Percentage of DAU who open your <span class="text-nowrap">in-game</span> customization menu</li>
+<li class="prereq">Percentage of DAU who customize their avatar</li>
+<li class="prereq">Retention of players who customize their avatar vs. those who don't</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Social groups</b></td>
+<td scope="row">Allow your players to create <span class="text-nowrap">in-game</span> social groups like leagues, clans, guilds, and families.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Number of new social groups created per month as a percentage of your MAU</li>
+<li class="prereq">Average number of players per social group</li>
+<li class="prereq">Percentage of MAU who join a social group</li>
+<li class="prereq">Retention of players who join a social group vs. players who don't</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>2. Variety</h2>
+<p>Include a variety of gameplay modes and things to do to keep your game interesting to players.</p>
+<table class="table table-striped table-bordered">
+<thead class="thead-dark">
+<tr>
+<th scope="col" class="w-25">Feature</th>
+<th scope="col" width="35%">Explanation</th>
+<th scope="col">Suggested Metrics</th>   
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row"><b>Progression</b></td>
+<td scope="row">Unlock additional game modes or levels with new content through progression.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Percentage of players who reach Level 2, Level 10, etc.</li>
+<li class="prereq">Average time to Level X</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Provide both casual and enthusiast gameplay</b></td>
+<td scope="row"><b>Casual:</b> Roleplay, <span class="text-nowrap">round-based</span> play, mini games, <span class="text-nowrap">click-based</span> gameplay.<br><br><b>Enthusiast:</b> Grinding, exploration, <span class="text-nowrap">skill-based</span> gameplay, multiple ways to "win."</td>
+<td scope="row">
+<ul>
+<li class="prereq">Percentage of games played for each game mode</li>
+<li class="prereq">Percentage of games played by the average "casual" player vs. "enthusiast" player</li>
+<li class="prereq">Average session length for casual players vs. enthusiasts</li>
+<li class="prereq">Average number of sessions per month for casual players vs. enthusiasts</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Regular updates</b></td>
+<td scope="row">Train your players to expect updates with new content and/or features at regular intervals.</td>
+<td scope="row">
+<ul>
+<li class="prereq">DAU</li>
+<li class="prereq">DAU/MAU Ratio in months with updates vs. months without</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b><span class="text-nowrap">Player-vs-Player</span> (PVP) content</b></td>
+<td scope="row">PVP content is a scalable way to provide players with an almost unlimited variety of experiences.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Percentage of players who engage with PVP content</li>
+<li class="prereq">Retention of players who engage with PVP content vs. players who don't</li>
+</ul>
+</td>
+</tr>
+</tr>
+<tr>
+<td scope="row"><b>Emergent gameplay</b></td>
+<td scope="row">Emergent gameplay results when your game offers flexible systems or level design that allows players to do the unexpected and find ways of playing your game that you didn't intend.</td>
+<td scope="row">Identify the actions taken by players engaging in emergent gameplay to define related engagement metrics.</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Convenience</h2>
+<p>Make it easier for your players to start and continue playing your game by providing multiple ways to access it. Features like game update notifications can help <span class="text-nowrap">re-engage</span> players with new content.</p>
+<table class="table table-striped table-bordered">
+<thead class="thead-dark">
+<tr>
+<th scope="col" class="w-25">Feature</th>
+<th scope="col" width="35%">Explanation</th>
+<th scope="col">Suggested Metrics</th>   
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row"><b>Cross-platform availability</b></td>
+<td scope="row">Allow players to join your game on their computer, mobile, or Xbox for maximum engagement; make sure your game is fun and easy to play on all supported platforms.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Percentage of MAU who are on each supported platform</li>
+<li class="prereq">Average session length per platform</li>
+<li class="prereq">Average number of sessions per player in a month (per&nbsp;platform)</li>
+<li class="prereq">Retention per platform</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Game update notifications</b></td> 
+<td scope="row">Send <span class="text-nowrap"><code>articles/Promoting Your Roblox Game|game update notifications</code></span> to <span class="text-nowrap">re-engage</span> players who may not be actively following your game.</td>
+<td scope="row">Once <b>Game Update Notifications Analytics</b> are available:
+<ul>
+<li class="prereq">Number of views per notification</li>
+<li class="prereq">Percentage of players who see your notification who actually click through to your game</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Achievement</h2>
+<p>Some players are motivated by the sense of achievement, competition, and/or mastery. Balancing your progression is one way to create a sense of achievement and variety.</p>
+<table class="table table-striped table-bordered">
+<thead class="thead-dark">
+<tr>
+<th scope="col" class="w-25">Feature</th>
+<th scope="col" width="35%">Explanation</th>
+<th scope="col">Suggested Metrics</th>   
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row"><b>Leaderboards</b></td>
+<td scope="row">Inspire players to strive for the top and compete with one another by <span class="text-nowrap"><code>articles/Leaderboards|showing leaderboards</code></span>.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Leaderboard churn, meaning the percentage of new and existing players in the top&nbsp;5, top&nbsp;10, top&nbsp;100, etc. per month</li>
+<li class="prereq">Retention for players in the top rankings of your leaderboard</li>
+<li class="prereq">Average continuous time spent in a top rank</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Badges</b></td>
+<td scope="row"><span class="text-nowrap"><code>articles/Badges Special Game Awards|Create badges</code></span> that can be achieved through mastery of gameplay mechanics or spending time in your game.</td>
+<td scope="row">For each badge:
+<ul>
+<li class="prereq">Percentage of all players who have earned the badge</li>
+<li class="prereq">Average time until the badge is earned</li>
+<li class="prereq">Average session length for players who earn the badge</li>
+<li class="prereq">Average number of sessions per month for players who earn the badge</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b><span class="text-nowrap">Skill-based</span> gameplay</b></td>
+<td scope="row">Design gameplay mechanics such as combat moves that require precise timing or particular button combinations, allowing players to train and improve their skill at those mechanics.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Number of players who have used a <span class="text-nowrap">skill-based</span> mechanic X number of times as a percentage of MAU.</li>
+<li class="prereq">Average time until a skill level or mastery is attained</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Visual progress indicators</b></td>
+<td scope="row">Visual indicators such as an "experience&nbsp;points" bar that demonstrates a player's progress towards the next level, providing a satisfying reflection of their efforts and the remaining distance to the next goal.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Percentage of MAU who reach goals such as a certain level or achievement</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>5. Investment</h2>
+<p><b>Investment</b> refers not only to the money that players spend in your game, but also the amount of time, effort, and dedication they’ve put into it. The more they have contributed or built in your game, the more invested they are to continue playing.</p>
+<table class="table table-striped table-bordered mb-4">
+<thead class="thead-dark">
+<tr>
+<th scope="col" class="w-25">Feature</th>
+<th scope="col" width="35%">Explanation</th>
+<th scope="col">Suggested Metrics</th>   
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row"><b>Housing/property ownership</b></td>
+<td scope="row">Allow players to have a space that is theirs to customize, such as a home which they can buy or build out.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Percentage of MAU who acquire a house/property</li>
+<li class="prereq">Percentage of <span class="text-nowrap">property-owning</span> MAU who customize their property, such as painting, expanding, decorating, etc.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Building systems</b></td>
+<td scope="row">Enable players to demonstrate their creativity and ingenuity by creating items or structures in your game.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Percentage of MAU who use the building system</li>
+<li class="prereq">Average  number of creations per player in a month</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Currency over time</b></td>
+<td scope="row">Provide <span class="text-nowrap">short-term</span> and <span class="text-nowrap">long-term</span> goals (valuables or vanity items) that your players want to save up currency to buy.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Number of players with currency balances in certain ranges, for instance <span class="text-nowrap">"< 500",</span> <span class="text-nowrap">"< 1000",</span> <span class="text-nowrap">"< 10,000",</span> etc.</li>
+<li class="prereq">Number of purchases per item as a function of item price</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Skill-based gameplay</b></td>
+<td scope="row">Inspire players to invest time and effort into mastering skills in your game, creating a stronger sense of investment.</td>
+<td scope="row">
+<ul>
+<li class="prereq">Average gameplay time until the player uses a <span class="text-nowrap">skill-based</span> mechanic X number of times</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Now that you have an idea of how you can design for engagement, learn how to track the impact of your design in <span class="text-nowrap"><code>articles/Measuring Engagement|Measuring Engagement</code></span>.</p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>analytics</li>
+		  
+		    <li>engagement</li>
+		  
+		    <li>metrics</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="measuring-engagement.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt0be3f0b532650701/Measuring-Engagement-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="measuring-engagement.html">Measuring Engagement</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="introduction-to-analytics.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt1d67e71d47a965c3/Analytics-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="introduction-to-analytics.html">Intro to Analytics</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="using-the-analytics-service.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/bltf031ac74b468c96c/PlayFab-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="using-the-analytics-service.html">Using PlayFab Analytics</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/designing-for-engagement by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:26:31 GMT -->
+</html>

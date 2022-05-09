@@ -1,0 +1,2946 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/Pathfinding by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:28:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="Pathfinding.html"/>
+    <link rel="alternate" hreflang="x-default" href="Pathfinding.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="Pathfinding.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="Pathfinding.html"/>
+    
+      
+        
+          <title> Character Pathfinding</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>How to move an NPC along a complex path or around obstacles</p>">
+
+
+
+<meta name="keywords" content="npc, path, pathfinding">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Pathfinding">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>How to move an NPC along a complex path or around obstacles</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Gameplay">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/gameplay.html">GAMEPLAY</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Character Pathfinding</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/gameplay.html">GAMEPLAY</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Character Pathfinding</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">20  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p><strong>Pathfinding</strong> is the process of moving a character along a logical path to reach a destination, avoiding obstacles and (optionally) hazardous materials or defined regions.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt322eb044dafad7c3/Pathfinding-Intro.mp4"
+		width="864px"
+		height="486px"
+		style="margin-top: 5px; margin-bottom: 15px;"
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt322eb044dafad7c3/Pathfinding-Intro.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="margin-top: 20px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg-primary text-white collapsed" data-toggle="collapse" href="#ref_card-1" role="button" aria-expanded="false" aria-controls="card-1">Enabling the Navigation Mesh »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse " id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>To assist with pathfinding layout and debugging, Studio can render a <strong>navigation mesh</strong>. Colored areas show where a character can walk or swim, while non-colored areas are considered blocked. The small arrows indicate areas where a character must <strong>jump</strong> to reach.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt2442dcb671709aaa/Pathfinding-Navigation-Mesh.jpg" class="img-fluid half-sized">
+<p>To enable or disable the mesh:</p>
+<ol>
+<li>Open Studio’s settings <span class="text-nowrap">(<strong>File</strong> → <strong>Studio Settings…</strong>).</span></li>
+<li>In the <strong>Studio</strong> tab, enable the <span class="text-nowrap"><strong>Show Navigation Mesh</strong></span> setting.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Creating Paths</h2>
+<p>Pathfinding is initiated through <code>PathfindingService</code> and its <code>PathfindingService/CreatePath|CreatePath</code> function.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-1" data-toggle="tab" href="#nav-code-1" role="tab" aria-controls="nav-code-1" aria-selected="true">
+				<span class="txt">LocalScript</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			
+			<pre class="prettyprint  linenums:01 lang-lua"><span class='highlighted'>local PathfindingService = game:GetService("PathfindingService")</span>
+
+<span class='highlighted'>local path = PathfindingService:CreatePath()</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p><code>PathfindingService/CreatePath|CreatePath</code> accepts an optional table of parameters which <span class="text-nowrap">fine-tune</span> how the character (agent) moves along the path.</p>
+<table class="table table-striped table-bordered mb-2">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">Key</th>
+			<th scope="col">Description</th>
+			<th scope="col">Type</th>
+			<th scope="col">Default</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td scope="row"><b>AgentRadius</b></td>
+			<td scope="row">Agent radius, in studs. Useful for determining the minimum separation from obstacles.</td>
+			<td scope="row">integer</td>
+			<td scope="row">2</td>
+		</tr>
+		<tr>
+			<td scope="row"><b>AgentHeight</b></td>
+			<td scope="row">Agent height, in studs. Empty space smaller than this value, like the space under stairs, will be marked as <span class="text-nowrap">non-traversable</span>.</td>
+			<td scope="row">integer</td>
+			<td scope="row">5</td>
+		</tr>
+		<tr>
+			<td scope="row"><b>AgentCanJump</b></td>
+			<td scope="row">Whether <span class="text-nowrap">off-mesh</span> links for jumping are allowed.</td>
+			<td scope="row">boolean</td>
+			<td scope="row">true</td>
+		</tr>
+		<tr>
+			<td scope="row"><b>WaypointSpacing</b></td>
+			<td scope="row">Spacing between intermediate waypoints in path. If set to <span class="text-nowrap"><code>math.huge</code>,</span> there will be no intermediate waypoints, only “inflection&nbsp;points.”</td>
+			<td scope="row">number</td>
+			<td scope="row">4</td>
+		</tr>
+		<tr>
+			<td scope="row"><b>Costs</b></td>
+			<td scope="row">Table of materials or defined <code>PathfindingModifier|PathfindingModifiers</code> and their "cost" for traversal. Useful for making the agent prefer certain materials/regions over others. See <a href="#pathfinding-modifiers">Pathfinding&nbsp;Modifiers</a> for details.</td>
+			<td scope="row">table</td>
+			<td scope="row">nil</td>
+		</tr>
+	</tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-2" data-toggle="tab" href="#nav-code-2" role="tab" aria-controls="nav-code-2" aria-selected="true">
+				<span class="txt">LocalScript</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local PathfindingService = game:GetService("PathfindingService")
+ 
+<span class='highlighted'>local path = PathfindingService:CreatePath({</span>
+	<span class='highlighted'>AgentRadius = 3,</span>
+	<span class='highlighted'>AgentHeight = 6,</span>
+	<span class='highlighted'>AgentCanJump = false,</span>
+	<span class='highlighted'>Costs = {</span>
+		<span class='highlighted'>Water = 20</span>
+	<span class='highlighted'>}</span>
+<span class='highlighted'>})</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2 class="mt-3">Moving Along Paths</h2>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="margin-top: 10px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">Character Pathfinding Script</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-2">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>This section uses the following pathfinding script for the player’s character. To test while reading:</p>
+<ol>
+<li>Copy the following code into a <code>LocalScript</code> within <strong>StarterCharacterScripts</strong>.</li>
+<li>On line 11, change the <code>DataType/Vector3</code> destination to a point that the starting character will be able to reach through pathfinding.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+
+          
+            
+
+
+
+
+  
+  
+  
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-3" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-3" data-toggle="tab" href="#nav-code-3" role="tab" aria-controls="nav-code-3" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-3" data-toggle="tab" href="#nav-output-3" role="tab" aria-controls="nav-output-3" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-3" role="tabpanel" aria-labelledby="nav-code-tab-3">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local PathfindingService = game:GetService("PathfindingService")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local path = PathfindingService:CreatePath()
+
+local player = Players.LocalPlayer
+local character = player.Character
+local humanoid = character:WaitForChild("Humanoid")
+
+<span class='highlighted'>local TEST_DESTINATION = Vector3.new(100, 0, 100)</span>
+
+local waypoints
+local nextWaypointIndex
+local reachedConnection
+local blockedConnection
+
+local function followPath(destination)
+	-- Compute the path
+	local success, errorMessage = pcall(function()
+		path:ComputeAsync(character.PrimaryPart.Position, destination)
+	end)
+
+	if success and path.Status == Enum.PathStatus.Success then
+		-- Get the path waypoints
+		waypoints = path:GetWaypoints()
+
+		-- Detect if path becomes blocked
+		blockedConnection = path.Blocked:Connect(function(blockedWaypointIndex)
+			-- Check if the obstacle is further down the path
+			if blockedWaypointIndex >= nextWaypointIndex then
+				-- Stop detecting path blockage until path is re-computed
+				blockedConnection:Disconnect()
+				-- Call function to re-compute new path
+				followPath(destination)
+			end
+		end)
+
+		-- Detect when movement to next waypoint is complete
+		if not reachedConnection then
+			reachedConnection = humanoid.MoveToFinished:Connect(function(reached)
+				if reached and nextWaypointIndex < #waypoints then
+					-- Increase waypoint index and move to next waypoint
+					nextWaypointIndex += 1
+					humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
+				else
+					reachedConnection:Disconnect()
+					blockedConnection:Disconnect()
+				end
+			end)
+		end
+
+		-- Initially move to second waypoint (first waypoint is path start; skip it)
+		nextWaypointIndex = 2
+		humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
+	else
+		warn("Path not computed!", errorMessage)
+	end
+end
+
+followPath(TEST_DESTINATION)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-3" role="tabpanel" aria-labelledby="nav-output-tab-3">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Computing the Path</h3>
+<p>After you’ve created a valid path with <code>PathfindingService/CreatePath</code>, you need to <strong>compute</strong> the path by calling <code>Path/ComputeAsync</code> with a <code>DataType/Vector3</code> for both the starting point and destination.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt7f5908cc0ef7cc8a/Pathfinding-Start-End.jpg" class="img-fluid half-sized mb-3">
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-4" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-4" data-toggle="tab" href="#nav-code-4" role="tab" aria-controls="nav-code-4" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-4" data-toggle="tab" href="#nav-output-4" role="tab" aria-controls="nav-output-4" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-4" role="tabpanel" aria-labelledby="nav-code-tab-4">
+			
+			<pre class="prettyprint  linenums:5 lang-lua"><span class='highlighted'>local path = PathfindingService:CreatePath()</span>
+
+local player = Players.LocalPlayer
+local character = player.Character
+local humanoid = character:WaitForChild("Humanoid")
+
+local TEST_DESTINATION = Vector3.new(100, 0, 100)
+
+local waypoints
+local nextWaypointIndex
+local reachedConnection
+local blockedConnection
+
+local function followPath(destination)
+	-- Compute the path
+	<span class='highlighted'>local success, errorMessage = pcall(function()</span>
+		<span class='highlighted'>path:ComputeAsync(character.PrimaryPart.Position, destination)</span>
+	<span class='highlighted'>end)</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-4" role="tabpanel" aria-labelledby="nav-output-tab-4">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Getting Waypoints</h3>
+<p>Once the <code>Path</code> is computed, it will contain a series of <strong>waypoints</strong> that trace the path from start to end. These points can be gathered with the <code>Path/GetWaypoints|GetWaypoints</code> function.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-5" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-5" data-toggle="tab" href="#nav-code-5" role="tab" aria-controls="nav-code-5" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-5" data-toggle="tab" href="#nav-output-5" role="tab" aria-controls="nav-output-5" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-5" role="tabpanel" aria-labelledby="nav-code-tab-5">
+			
+			<pre class="prettyprint  linenums:13 lang-lua"><span class='highlighted'>local waypoints</span>
+local nextWaypointIndex
+local reachedConnection
+local blockedConnection
+
+local function followPath(destination)
+	-- Compute the path
+	local success, errorMessage = pcall(function()
+		path:ComputeAsync(character.PrimaryPart.Position, destination)
+	end)
+
+<span class='highlighted'>	if success and path.Status == Enum.PathStatus.Success then</span>
+		-- Get the path waypoints
+<span class='highlighted'>		waypoints = path:GetWaypoints()</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-5" role="tabpanel" aria-labelledby="nav-output-tab-5">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc1a2234f7b22e218/Pathfinding-Waypoints.jpg" class="img-fluid half-sized">
+<h3>Path Movement</h3>
+<p>Each waypoint consists of both a <span class="text-nowrap"><strong>Position</strong> (<code>DataType/Vector3</code>)</span> and <span class="text-nowrap"><strong>Action</strong> (<code>Enum/PathWaypointAction</code>).</span> To move a character containing a <code>Humanoid</code>, like a typical Roblox character, the easiest way is to call <code>Humanoid/MoveTo</code> from waypoint to waypoint, using the <code>Humanoid/MoveToFinished|MoveToFinished</code> event to detect when the character reaches each waypoint.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-6" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-6" data-toggle="tab" href="#nav-code-6" role="tab" aria-controls="nav-code-6" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-6" data-toggle="tab" href="#nav-output-6" role="tab" aria-controls="nav-output-6" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-6" role="tabpanel" aria-labelledby="nav-code-tab-6">
+			
+			<pre class="prettyprint  linenums:39 lang-lua">-- Detect when movement to next waypoint is complete
+		<span class='highlighted'>if not reachedConnection then</span>
+			<span class='highlighted'>reachedConnection = humanoid.MoveToFinished:Connect(function(reached)</span>
+				<span class='highlighted'>if reached and nextWaypointIndex < #waypoints then</span>
+					-- Increase waypoint index and move to next waypoint
+					<span class='highlighted'>nextWaypointIndex += 1</span>
+					<span class='highlighted'>humanoid:MoveTo(waypoints[nextWaypointIndex].Position)</span>
+				<span class='highlighted'>else</span>
+					<span class='highlighted'>reachedConnection:Disconnect()</span>
+					<span class='highlighted'>blockedConnection:Disconnect()</span>
+				<span class='highlighted'>end</span>
+			<span class='highlighted'>end)</span>
+		<span class='highlighted'>end</span>
+
+		-- Initially move to second waypoint (first waypoint is path start; skip it)
+<span class='highlighted'>		nextWaypointIndex = 2</span>
+<span class='highlighted'>		humanoid:MoveTo(waypoints[nextWaypointIndex].Position)</span>
+	else
+		warn("Path not computed!", errorMessage)
+	end
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-6" role="tabpanel" aria-labelledby="nav-output-tab-6">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/bltf1cb0b0fe510e43c/Pathfinding-Simple-Path.mp4"
+		width="864px"
+		height="486px"
+		style="margin-top: 5px; margin-bottom: 15px;"
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/bltf1cb0b0fe510e43c/Pathfinding-Simple-Path.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Handling Blocked Paths</h3>
+<p>Many Roblox worlds are dynamic — parts might move or fall, floors may collapse, etc. This can block a computed path and prevent the character from reaching its destination. To handle this, you can connect the <code>Path/Blocked|Blocked</code> event to the <code>Path</code> object and <span class="text-nowrap">re-compute</span> the path around whatever blocked it.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-7" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-7" data-toggle="tab" href="#nav-code-7" role="tab" aria-controls="nav-code-7" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-7" data-toggle="tab" href="#nav-output-7" role="tab" aria-controls="nav-output-7" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-7" role="tabpanel" aria-labelledby="nav-code-tab-7">
+			
+			<pre class="prettyprint  linenums:15 lang-lua">local reachedConnection
+<span class='highlighted'>local blockedConnection</span>
+
+local function followPath(destination)
+	-- Compute the path
+	local success, errorMessage = pcall(function()
+		path:ComputeAsync(character.PrimaryPart.Position, destination)
+	end)
+
+	if success and path.Status == Enum.PathStatus.Success then
+		-- Get the path waypoints
+		waypoints = path:GetWaypoints()
+
+		-- Detect if path becomes blocked
+<span class='highlighted'>		blockedConnection = path.Blocked:Connect(function(blockedWaypointIndex)</span>
+			-- Check if the obstacle is further down the path
+<span class='highlighted'>			if blockedWaypointIndex >= nextWaypointIndex then</span>
+				-- Stop detecting path blockage until path is re-computed
+<span class='highlighted'>				blockedConnection:Disconnect()</span>
+				-- Call function to re-compute new path
+				<span class='highlighted'>followPath(destination)</span>
+			<span class='highlighted'>end</span>
+		<span class='highlighted'>end)</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-7" role="tabpanel" aria-labelledby="nav-output-tab-7">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-warning mb-4" role="alert">
+Paths may become blocked somewhere <b>behind</b> the agent, but that doesn't mean the agent should stop moving. The conditional statement on line&nbsp;30 confirms that the path is <span class="text-nowrap">re-computed</span> only if the blocked waypoint is <b>ahead</b> of the agent.
+</div>
+<h2>Pathfinding Modifiers</h2>
+<p>By default, <code>Path/ComputeAsync</code> returns the <strong>shortest</strong> path between the starting point and destination (with the exception that it attempts to avoid jumps). This can look unnatural in some situations — for instance, a path can go through water rather than over a nearby bridge, just because the path through water is geometrically shorter.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blte5791b887ee3412c/Pathfinding-Paths-Shortest-Best.jpg" class="img-fluid half-sized">
+<p>To optimize pathfinding even further, you can include <strong>pathfinding modifiers</strong> in the <code>PathfindingService/CreatePath|CreatePath</code> parameters and compute smarter paths across various materials or around defined regions.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-8" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-8" data-toggle="tab" href="#nav-code-8" role="tab" aria-controls="nav-code-8" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-8" data-toggle="tab" href="#nav-output-8" role="tab" aria-controls="nav-output-8" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-8" role="tabpanel" aria-labelledby="nav-code-tab-8">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local PathfindingService = game:GetService("PathfindingService")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local path = PathfindingService:CreatePath({
+<span class='highlighted'>	Costs = {}</span>
+})</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-8" role="tabpanel" aria-labelledby="nav-output-tab-8">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-2">Materials</h3>
+<p>When working with <code>Terrain</code> and <code>BasePart</code> materials, costs can be directly defined by the material name.</p>
+<ol>
+<li>Locate valid <code>enum/Material|Material</code> names such as <strong>Water</strong> or <strong>Neon</strong>.</li>
+<li>Add matching keys to the <code>Costs</code> table along with numeric values. All materials have a default <span class="text-nowrap">cost of <strong>1</strong> and</span> any material can be defined as <span class="text-nowrap">non-traversable</span> by setting its value to <code>math.huge</code>.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-9" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-9" data-toggle="tab" href="#nav-code-9" role="tab" aria-controls="nav-code-9" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-9" data-toggle="tab" href="#nav-output-9" role="tab" aria-controls="nav-output-9" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-9" role="tabpanel" aria-labelledby="nav-code-tab-9">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local PathfindingService = game:GetService("PathfindingService")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local path = PathfindingService:CreatePath({
+	<span class='highlighted'>Costs = {</span>
+		<span class='highlighted'>Water = 20,</span>
+		<span class='highlighted'>Mud = 5,</span>
+		<span class='highlighted'>Neon = math.huge</span>
+	<span class='highlighted'>}</span>
+})</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-9" role="tabpanel" aria-labelledby="nav-output-tab-9">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 438px; width:778px;"
+	
+		class="rich_video list-indent"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt3305eaa7b6e134fd/Pathfinding-Bridge-Path.mp4"
+		width="778px"
+		height="438px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt3305eaa7b6e134fd/Pathfinding-Bridge-Path.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-2">Defined Regions</h3>
+<p>In some cases, material preference is not enough. For example, you might want characters to avoid a <strong>defined region</strong>, regardless of the materials underfoot. This can be achieved by adding a <code>PathfindingModifier</code> to a part.</p>
+<ol>
+<li>Create an anchored part around the dangerous region. Make sure its <code>BasePart/CanCollide|CanCollide</code> property is set to <strong>false</strong>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltb5b05613efde3028/Pathfinding-DangerZone-Block.jpg" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Insert a <code>PathfindingModifier</code> instance onto the part.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltd615f1f3a199dc6f/Pathfinding-Modifier-GeyserBlocker.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>Select the new instance, locate its <code>PathfindingModifier/Label|Label</code> property, and assign a meaningful name like <strong>DangerZone</strong>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blte1106c296c6beb4d/Pathfinding-ModifierId-GeyserBlocker-V2.png" class="img-fluid half-sized list-indent">
+<ol start="4">
+<li>Add a matching key to the <code>Costs</code> table along with a numeric value. A modifier can be defined as <span class="text-nowrap">non-traversable</span> by setting its value to <code>math.huge</code>.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-10" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-10" data-toggle="tab" href="#nav-code-10" role="tab" aria-controls="nav-code-10" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-10" data-toggle="tab" href="#nav-output-10" role="tab" aria-controls="nav-output-10" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-10" role="tabpanel" aria-labelledby="nav-code-tab-10">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local PathfindingService = game:GetService("PathfindingService")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local path = PathfindingService:CreatePath({
+	Costs = {
+<span class='highlighted'>		DangerZone = math.huge</span>
+	}
+})</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-10" role="tabpanel" aria-labelledby="nav-output-tab-10">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 438px; width:778px;"
+	
+		class="rich_video list-indent"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt2fbbea9d550c6cd6/Pathfinding-Danger-Zone-Path.mp4"
+		width="778px"
+		height="438px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt2fbbea9d550c6cd6/Pathfinding-Danger-Zone-Path.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-2">Ignoring Obstacles</h3>
+<p>In some cases, it’s useful to pathfind past/through solid obstacles, as if the obstacles didn’t exist. For example, if a <span class="text-nowrap">zombie NPC “hears”</span> a character and tries to find it, but the character is hiding behind a door, <code>Path/ComputeAsync</code> will fail.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta64f29a683771174/Pathfinding-Zombie-Blocked.jpg" class="img-fluid half-sized">
+<p>To compute a path that ignores the door, you can use a <code>PathfindingModifier</code> with <code>PathfindingModifier/PassThrough|PassThrough</code> enabled.</p>
+<ol>
+<li>Create an anchored part around the door. Make sure its <code>BasePart/CanCollide|CanCollide</code> property is set to <strong>false</strong>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt507d0ccb90bda08d/Pathfinding-DoorPassThrough-Block.jpg" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Insert a <code>PathfindingModifier</code> instance onto the part.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt9b5d7fe1982003c0/Pathfinding-Modifier-DoorPassThrough.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>Select the new instance and enable its <code>PathfindingModifier/PassThrough|PassThrough</code> property.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcd0c59e45ec3c514/Pathfinding-PassThrough-DoorPassThrough-V2.png" class="img-fluid half-sized list-indent">
+<div class="list-indent mb-3">Now, when the same path is computed, it will extend beyond the door and you can move the zombie toward the player.</div>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt70f613c2f51967d3/Pathfinding-Zombie-Full-Path.jpg" class="img-fluid half-sized list-indent">
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Pathfinding Links</h3>
+<p>Sometimes it’s necessary to find a path across a space that cannot be normally traversed, such as up a ladder or across a chasm, and perform a custom action to reach the next waypoint. This can be achieved through the <code>PathfindingLink</code> object.</p>
+<p>Using the island example from above, you can make the agent use a boat instead of walking across all of the bridges.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltd37b83380008a19d/Pathfinding-Boat-Path.jpg" class="img-fluid half-sized">
+<ol>
+<li>Create two <code>Attachment|Attachments</code>, one on the boat’s seat and one near the boat’s landing point.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt1ec5f52a5b4ed2ca/Pathfinding-Boat-PathfindingLink.jpg" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Create a <code>PathfindingLink</code> object in the workspace.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt750328796b7eaa8a/Pathfinding-PathfindingLink-In-Explorer.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>Select the new instance and assign its <strong>Attachment0</strong> and <strong>Attachment1</strong> properties to the starting and ending attachments respectively.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt1240c559c44d9976/Pathfinding-PathfindingLink-Attachments.png" class="img-fluid half-sized list-indent">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt8223f5c94b1301f0/Pathfinding-PathfindingLink-In-World.png" class="img-fluid half-sized list-indent">
+<ol start="4">
+<li>Assign a meaningful name like <strong>UseBoat</strong> to its <strong>Label</strong> property. This name will be used as a flag in the pathfinding script to trigger a custom action when the agent reaches the starting link point.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta6a99fc4cf8cc399/Pathfinding-PathfindingLink-Label.png" class="img-fluid half-sized list-indent">
+<ol start="5">
+<li>Add an entry to the <code>Costs</code> table for the same <code>PathfindingLink/Label</code> property name and assign a lower value than <code>Water</code>.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-11" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-11" data-toggle="tab" href="#nav-code-11" role="tab" aria-controls="nav-code-11" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-11" data-toggle="tab" href="#nav-output-11" role="tab" aria-controls="nav-output-11" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-11" role="tabpanel" aria-labelledby="nav-code-tab-11">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local PathfindingService = game:GetService("PathfindingService")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local path = PathfindingService:CreatePath({
+	AgentCanJump = false,
+	Costs = {
+		Water = 20,
+<span class='highlighted'>		UseBoat = 1</span>
+	}
+})</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-11" role="tabpanel" aria-labelledby="nav-output-tab-11">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <ol start="6">
+<li>In the event which fires when a waypoint is reached, add a custom check for the <strong>UseBoat</strong> modifier and take a different action than <span class="text-nowrap"><code>Humanoid/MoveTo|Humanoid:MoveTo()</code> —</span> in this case, calling a function to seat the agent in the boat, move the boat across the water, and continue the agent’s path upon arrival at the destination island.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-12" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-12" data-toggle="tab" href="#nav-code-12" role="tab" aria-controls="nav-code-12" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-12" data-toggle="tab" href="#nav-output-12" role="tab" aria-controls="nav-output-12" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-12" role="tabpanel" aria-labelledby="nav-code-tab-12">
+			
+			<pre class="prettyprint  linenums:39 lang-lua">--		-- Detect when movement to next waypoint is complete
+		if not reachedConnection then
+			reachedConnection = humanoid.MoveToFinished:Connect(function(reached)
+				if reached and nextWaypointIndex < #waypoints then
+					-- Increase waypoint index and move to next waypoint
+					nextWaypointIndex += 1
+ 
+					-- Use boat if waypoint modifier ID is "UseBoat"
+<span class='highlighted'>					if waypoints[nextWaypointIndex].Label == "UseBoat" then</span>
+<span class='highlighted'>						useBoat()</span>
+					-- Otherwise, move to next waypoint
+					<span class='highlighted'>else</span>
+						<span class='highlighted'>humanoid:MoveTo(waypoints[nextWaypointIndex].Position)</span>
+					<span class='highlighted'>end</span>
+				else
+					reachedConnection:Disconnect()
+					blockedConnection:Disconnect()
+				end
+			end)
+		end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-12" role="tabpanel" aria-labelledby="nav-output-tab-12">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-13" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-13" data-toggle="tab" href="#nav-code-13" role="tab" aria-controls="nav-code-13" aria-selected="true">
+				<span class="txt">LocalScript - Character Pathfinding</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-13" data-toggle="tab" href="#nav-output-13" role="tab" aria-controls="nav-output-13" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-13" role="tabpanel" aria-labelledby="nav-code-tab-13">
+			
+			<pre class="prettyprint  linenums:68 lang-lua">function useBoat()
+	local boat = workspace.BoatModel
+
+	humanoid.Seated:Connect(function()
+		-- Start boat moving if agent is seated
+		if humanoid.Sit == true then
+			task.wait(1)
+			boat.CylindricalConstraint.Velocity = 5
+		end
+		-- Detect constraint position in relation to island
+		local boatPositionConnection
+		boatPositionConnection = RunService.Heartbeat:Connect(function()
+			-- Stop boat when next to island
+			if boat.CylindricalConstraint.CurrentPosition >= 94 then
+				boatPositionConnection:Disconnect()
+				boat.CylindricalConstraint.Velocity = 0
+				task.wait(1)
+				-- Unseat agent and continue to destination
+				humanoid.Sit = false
+				humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
+			end
+		end)
+	end)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-13" role="tabpanel" aria-labelledby="nav-output-tab-13">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 438px; width:778px;"
+	
+		class="rich_video list-indent"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blte59697e4b3c97a21/Pathfinding-Boat-Path.mp4"
+		width="778px"
+		height="438px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blte59697e4b3c97a21/Pathfinding-Boat-Path.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>npc</li>
+		  
+		    <li>path</li>
+		  
+		    <li>pathfinding</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/Pathfinding by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:29:02 GMT -->
+</html>

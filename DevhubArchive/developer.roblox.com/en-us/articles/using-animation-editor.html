@@ -1,0 +1,2136 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/using-animation-editor by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 18:23:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="using-animation-editor.html"/>
+    <link rel="alternate" hreflang="x-default" href="using-animation-editor.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="using-animation-editor.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="using-animation-editor.html"/>
+    
+      
+        
+          <title> Using the Animation Editor</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>Explore the&nbsp;powerful&nbsp;built‑in tool&nbsp;for creating&nbsp;custom animations</p>">
+
+
+
+<meta name="keywords" content="animation, plugin, animate">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Using Animation Editor">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>Explore the&nbsp;powerful&nbsp;built‑in tool&nbsp;for creating&nbsp;custom animations</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Creating">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/creating.html">CREATING</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Using the Animation Editor</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/creating.html">CREATING</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Using the Animation Editor</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">15  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Roblox Studio features a powerful, <span class="text-nowrap">built-in</span> <b class="text-nowrap">Animation Editor</b> which allows you to design and publish custom animations.</p>
+<h2>Model Requirements</h2>
+<p>The animation editor can be used for both stock human characters or <span class="text-nowrap">non-human</span> models, as long as all moving parts are connected with <code>Motor6D</code> objects. Assuming your model is compatible, follow these steps to begin creating an animation:</p>
+<ol>
+<li>Click the <b class="text-nowrap">Animation Editor</b> button in the <strong>Plugins</strong> tab.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta7879a1d74cb8816/Animation-Editor-Button.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Select the rig to define animations for.</li>
+<li>If prompted, type in a new animation name and click <strong>Create</strong> in the dialog.</li>
+<li>The editor window will open, showing a tracklist and the animation <strong>timeline</strong>.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">Using Default Rigs</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>If you’re new to Roblox animation, it’s recommended that you start with one of the default rigs created through the <b class="text-nowrap">Build Rig</b> button in the <strong>Plugins</strong> tab. These rigs already contain the basic parts and mechanisms to build a character animation.</p>
+
+      </div>
+    
+  
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Creating Poses<span id="poses"></span></h2>
+<p>To animate a rig, you’ll need to define <strong>poses</strong> by moving/rotating specific parts like the head, right hand, left foot, etc. When the animation runs, it will smoothly animate the rig from pose to pose.</p>
+<p>Consider a simple animation where a human character turns its head 45° to the left. This animation involves two poses — the initial position of the head (looking forward) and the turned position of the head (looking left).</p>
+<div class="container">
+<div class="row">
+<div class="col-5 mr-3 px-0">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt5b7586975d709996/Pose-Example-1.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">Pose #1</figcaption>
+</figure>
+</div>
+<div class="col-5 mx-4 px-0">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt9de7be1140d6701d/Pose-Example-2.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">Pose #2</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>To create a new pose:</p>
+<ol>
+<li>Move the <strong>scrubber bar</strong> to the time/frame position where you want to set the pose, for example <strong>0:15</strong>. By default, timeline units are expressed as <strong>seconds:frames</strong> and animations run at 30 frames per second, so 0:15 indicates ½ second.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltae05c49bd735e23b/Scrubber-Bar-Half-Second.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Hover your mouse over the rig and click on a part to select it.</li>
+<li>Move and/or rotate the part to the desired orientation. When you do so, a track will be created and a new <strong>keyframe</strong> will be created along the timeline, indicated by the diamond symbol.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt34462701de48f14c/Pose-New-Keyframe.png" class="img-fluid half-sized list-indent">
+<div class="alert alert-primary list-indent mb-4" role="alert">
+While setting poses, you can toggle between <b>Move</b> and <b>Rotate</b> modes by pressing <span class="text-nowrap"><kbd class="keyboard-key">Ctrl</kbd>+<kbd class="keyboard-key">2</kbd></span> or <span class="text-nowrap"><kbd class="keyboard-key">Ctrl</kbd>+<kbd class="keyboard-key">4</kbd></span> respectively <span class="text-nowrap">(<kbd class="keyboard-key">Command ⌘</kbd>+<kbd class="keyboard-key">2</kbd></span> or <span class="text-nowrap"><kbd class="keyboard-key">Command ⌘</kbd>+<kbd class="keyboard-key">4</kbd> on Mac).</span> These modes work exactly like moving/rotating base objects, including the snap settings and incremental values located in the <b class="text-nowrap">Snap to Grid</b> section of the <b>Model</b> tab.
+</div>
+<ol start="4">
+<li>Continue moving or rotating parts until you get the desired pose. Whenever you adjust a specific part, a keyframe is defined for that part at the selected time/frame.</li>
+<li>When you’re ready to preview the animation, press the small <strong>Play</strong> button in the <span class="text-nowrap">upper-left</span> section of the editor window. Animations can also be played/paused with <kbd class="keyboard-key">Spacebar</kbd>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt442036ae912f7307/Animation-Editor-Play-Button.png" class="img-fluid half-sized list-indent mb-4 pb-3">
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">Adjusting the Timeline Duration</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-2">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>By default, the timeline displays a duration of 1 second (30 frames), although the animation’s actual duration will be determined by the final keyframe. To add more time to the timeline view, enter a new value in the <span class="text-nowrap">right-side</span> box of the position indicator:</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6f757df27afe2702/Animation-Editor-Adjust-Time.png" class="img-fluid half-sized mb-0">
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Working With Keyframes</h2>
+<p>Once you define basic poses for a rig, <span class="text-nowrap">fine-tuning</span> individual keyframes can significantly improve the final animation.</p>
+<h3>Adding Keyframes</h3>
+<p>As shown in the <a href="#poses">poses</a> section above, keyframes are automatically added when you change a part’s orientation anywhere along the timeline. In addition, keyframes can be added as follows:</p>
+<ul>
+<li>For a single part of the rig, move the scrubber bar to a new position, click the <img src="../../../dk135eecbplh9.cloudfront.net/assets/blte0d5f0fc3f059570/Animation-Editor-Menu-Dots.png" class="d-inline my-0 align-text-bottom" width=27> button for a track, and select <b class="text-nowrap">Add Keyframe</b>.</li>
+</ul>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf50f270467fc845f/Add-Keyframe-Track.png" class="img-fluid half-sized list-indent">
+<ul>
+<li>For multiple parts of the rig, <span class="text-nowrap">right-click</span> in the region above the tracks and select <b class="text-nowrap">Add Keyframe Here</b>. Note that the keyframes will be inserted at the time/frame closest to where you click, not at the position of the scrubber bar.</li>
+</ul>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt311efa0792135b09/Add-Keyframe-Multiple.png" class="img-fluid half-sized list-indent">
+<h3>Moving Keyframes</h3>
+<p>To increase or decrease the amount of time between a keyframe and a neighboring keyframe:</p>
+<ol>
+<li>Click on any keyframe in the timeline. Alternatively, you can select all keyframes at a specific position by clicking the diamond symbol in the upper bar. Selected keyframes will be surrounded with a blue border.</li>
+</ol>
+<div class="container list-indent">
+<div class="row">
+<div class="col-auto mr-3 px-0">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf59a8981c5b7b562/Amimation-Editor-Select-Keyframe-Single.png" class="img-fluid mt-1 mb-2 half-sized">
+<figcaption class="figure-caption text-center">Select a specific keyframe</figcaption>
+</figure>
+</div>
+<div class="col-auto ml-4 px-0">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt413527b1c330496c/Amimation-Editor-Select-Keyframe-Multi.png" class="img-fluid mt-1 mb-2 half-sized">
+<figcaption class="figure-caption text-center">Select all keyframes at position</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ol start="2">
+<li>Drag the keyframe(s) left or right into a new position.</li>
+</ol>
+<h3>Copying Keyframes<span id="copy-keyframes"></span></h3>
+<p>A specific keyframe (or keyframes for multiple parts) can be copied and pasted to a new position in the timeline.</p>
+<ol>
+<li>Select one or more keyframes as outlined in step #1 of the section above.</li>
+<li>Press <span class="text-nowrap"><kbd class="keyboard-key">Control</kbd>+<kbd class="keyboard-key">C</kbd></span> <span class="text-nowrap">(<kbd class="keyboard-key">Command ⌘</kbd>+<kbd class="keyboard-key">C</kbd> on Mac).</span></li>
+<li>Move the scrubber bar to a new position.</li>
+<li>Press <span class="text-nowrap"><kbd class="keyboard-key">Control</kbd>+<kbd class="keyboard-key">V</kbd></span> <span class="text-nowrap">(<kbd class="keyboard-key">Command ⌘</kbd>+<kbd class="keyboard-key">V</kbd> on Mac).</span> The keyframe(s) will be copied to that position.</li>
+</ol>
+<h3>Deleting Keyframes</h3>
+<p>One or more keyframes can be deleted by simply selecting them and pressing <kbd class="keyboard-key">Delete</kbd> or <kbd class="keyboard-key">Backspace</kbd>.</p>
+<h2>Animation Easing</h2>
+<p><strong>Easing</strong> is an important concept in animation. By default, a part will move/rotate from one keyframe to the next in an even, steady motion known as <strong>linear</strong> easing.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness();
+	}
+</style>
+
+<div style="padding-bottom: 438px; width:700px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/bltffd6da12d143631b/kick1_60quality.mp4"
+		width="700px"
+		height="438px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/bltffd6da12d143631b/kick1_60quality.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>As you can see, linear easing makes the character’s kick animation appear stiff and robotic. While that may look appropriate for some motions, compare the following video where <strong>cubic</strong> easing is applied to make the leg animate more naturally.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness();
+	}
+</style>
+
+<div style="padding-bottom: 438px; width:700px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt644dd187126aae70/kick2_60quality.mp4"
+		width="700px"
+		height="438px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt644dd187126aae70/kick2_60quality.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>To change easing for one or more keyframes:</p>
+<ol>
+<li>Select the keyframe(s).</li>
+<li>Right-click and choose an option from the <b class="text-nowrap">Easing Style</b> and/or <b class="text-nowrap">Easing Direction</b> context menus.</li>
+</ol>
+<div class="list-indent">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="w-25 text-nowrap">Easing Style</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><b>Linear</b></td>
+            <td scope="row">Moves at a constant speed.</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Constant</b></td>
+            <td scope="row">Removes interpolation between the selected keyframe and next keyframe (animation will "snap" from keyframe to keyframe).</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Cubic</b></td>
+            <td scope="row">Eases in or out with cubic interpolation.</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Elastic</b></td>
+            <td scope="row">Moves as if the object is attached to a rubber band.</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Bounce</b></td>
+            <td scope="row">Moves as if the start or end position of the tween is bouncy.</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="list-indent">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="w-25 text-nowrap">Easing Direction</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><b>Out</b></td>
+            <td scope="row">The motion will be faster at the beginning and slower toward the end.</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>InOut</b></td>
+            <td scope="row"><b>In</b> and <b>Out</b> on the same tween, with <b>In</b> at the beginning and <b>Out</b> taking effect halfway through.</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>In</b></td>
+            <td scope="row">The motion will be slower at the beginning and faster toward the end.</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<h2>Inverse Kinematics</h2>
+<p>When animating characters, <b class="text-nowrap">inverse kinematics (IK)</b> can help calculate rotations for neighboring joints in order to get one specific joint to a desired location.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness();
+	}
+</style>
+
+<div style="padding-bottom: 438px; width:700px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt5b9318e4f2ce7f0d/ik_demo_new.mp4"
+		width="700px"
+		height="438px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt5b9318e4f2ce7f0d/ik_demo_new.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>To begin editing an animation in IK mode:</p>
+<ol>
+<li>Click the <strong>IK</strong> button in the animation editor.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt38fabb45f5b1a6aa/Apply-IK-Button.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Near the bottom of the window that opens, click <b class="text-nowrap">Enable IK</b>.</li>
+</ol>
+<h3>IK Modes</h3>
+<p>IK features both <b class="text-nowrap">Body Part</b> mode <span class="text-nowrap">(exclusive to <code>/articles/r6 vs r15 avatars|R15/Rthro</code> rigs)</span> and <b class="text-nowrap">Full Body</b> mode. This can be toggled from the IK window.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt5a3d94049ea7198f/Amimation-Editor-IK-Modes.png" class="img-fluid half-sized">
+<table class="table table-striped table-bordered w-75">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="w-50">Body Part Mode</th>
+            <th scope="col" class="w-50">Full Body Mode</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">Isolates movement to related limbs. For example, moving the <b>RightHand</b> part will only affect parts that compose the right arm.</td>
+            <td scope="row">The IK solver will consider all joints when moving a specific part. However, you may exclude specific parts from this process by <b>pinning</b> them (see&nbsp;below).</td>
+        </tr>
+    </tbody>
+</table>
+<h3>Pinning Parts</h3>
+<p>When editing an animation in <b class="text-nowrap">Full Body</b> mode, you can <strong>pin</strong> a part to make it immovable. In the following video, both feet are pinned and remain stationary while moving other parts, but either foot can still be directly manipulated.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness();
+	}
+</style>
+
+<div style="padding-bottom: 438px; width:700px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/bltc179e1424307eae8/ik_pin_new.mp4"
+		width="700px"
+		height="438px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/bltc179e1424307eae8/ik_pin_new.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>To pin a specific part, click the pin icon next to its name. Remember that <b class="text-nowrap">Full Body</b> mode must be enabled to use this feature.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6ed47b9297e771a6/Amimation-Editor-Pin-Part.png" class="img-fluid half-sized">
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">Exiting IK Mode</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-3">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>To return to “forward kinematics” mode, click on <b class="text-nowrap">Disable IK</b> near the bottom of the IK window. Note that this will not remove any manipulations you made while in IK mode — that data will remain stored in any keyframes which were created while IK was applied.</p>
+
+      </div>
+    
+  
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Animation Settings</h2>
+<h3>Looping</h3>
+<p>When designing an animation in the editor, you can toggle on the <strong>Looping</strong> button to make it automatically loop:</p>
+<div class="container">
+<div class="row">
+<div class="col-auto mr-3 px-0">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta0b0ccbd88d23cb9/Animation-Editor-Looping-On.png" class="img-fluid half-sized mt-0 mb-2">
+<figcaption class="figure-caption text-center">Looping <b>on</b></figcaption>
+</figure>
+</div>
+<div class="col-auto ml-3 px-0">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltbf4c004a3c3428dc/Animation-Editor-Looping-Off.png" class="img-fluid half-sized mt-0 mb-2">
+<figcaption class="figure-caption text-center">Looping <b>off</b></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="alert alert-primary mt-2 mb-4" role="alert">
+Note that a looping animation will not interpolate between the final keyframes and first keyframes. Therefore, it's recommended that you <a href="#copy-keyframes">copy</a> the first keyframes and use them as the final keyframes so that the animation loops smoothly.
+</div>
+<h3>Priority</h3>
+<p>In an actual game, you’ll probably use unique animations for different player actions and states, for instance a jump animation and an “idle” animation. Logically, the jump animation should take priority over the idle animation so that characters don’t perform both at the same time.</p>
+<p>You can set one of four priority levels as follows:</p>
+<ol>
+<li>Click the <img src="../../../dk135eecbplh9.cloudfront.net/assets/blte0d5f0fc3f059570/Animation-Editor-Menu-Dots.png" class="d-inline my-0 align-text-bottom" width=27> button in the <span class="text-nowrap">upper-left</span> section of the editor window.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltbf3562f50f89fc71/Animation-Editor-Control-Bar-Menu.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Choose an option from the <b class="text-nowrap">Set Animation Priority</b> menu. In a game, if you play an animation with a higher priority than one that’s already playing, the new animation will override the old.</li>
+</ol>
+<div class="list-indent">
+<div class="container">
+<div class="row">
+<div class="col-6 mx-0 pl-2 mb-1 text-left text-nowrap" style="font-size: 90%; color: #6c757d;">
+&larr; <b>lowest priority</b>
+</div>
+<div class="col-6 mx-0 pr-2 mb-1 text-right text-nowrap" style="font-size: 90%; color: #6c757d;">
+<b>highest priority</b> &rarr;
+</div>
+</div>
+<div class="row">
+<div class="col-12 mx-0 px-0">
+<table class="table table-bordered mt-1 mb-3">
+    <tbody>
+        <tr>
+            <td scope="row" class="border border-dark w-25 text-center" bgcolor="#bdd5ac"><b>Core</b></td>
+            <td scope="row" class="border border-dark  w-25 text-center" bgcolor="#fbe5a3"><b>Idle</b></td>
+            <td scope="row" class="border border-dark  w-25 text-center" bgcolor="#f2cca2"><b>Movement</b></td>
+            <td scope="row" class="border border-dark  w-25 text-center" bgcolor="#eecdcd"><b>Action</b></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<h2>Animation Events</h2>
+<p>Animation <strong>event markers</strong> can be defined across the timeline span and <code>AnimationTrack/GetMarkerReachedSignal|GetMarkerReachedSignal()</code> can be used to detect those markers as the animation runs.</p>
+<h3>Showing Events</h3>
+<p>By default, the event track isn’t visible. To reveal it:</p>
+<ol>
+<li>Click the gear button to the right of the timeline.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt4b2a02b0c34e4e35/Amimation-Editor-Events-Bar-1.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Select <b class="text-nowrap">Show Animation Events</b>. This will open the events bar directly below the control bar.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt4f14d936efde79b3/Amimation-Editor-Events-Bar-2.png" class="img-fluid half-sized list-indent">
+<h3>Creating Events</h3>
+<p>To create a new event marker:</p>
+<ol>
+<li>Position the scrubber bar at the point along the timeline where the event should occur.</li>
+<li>Click the <b class="text-nowrap">Edit Animation Events</b> button to edit markers at the selected position.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc9f6bd6588667900/Amimation-Editor-Edit-Events-Button.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>In the popup window, click <b class="text-nowrap">Add Event</b> and enter an event name.</li>
+<li>In the <strong>Parameter</strong> field, you can enter a parameter string for the event, outlined in more detail <a href="#event-params">below</a>.</li>
+<li>When ready, click <strong>Save</strong> to register the event. In the events bar of the editor, you’ll see a new marker symbol at the selected position.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt288240603222e3a9/Amimation-Editor-New-Event-Marker.png" class="img-fluid half-sized list-indent">
+<h3>Detecting Events</h3>
+<p>To detect animation events in a <code>LocalScript</code>, connect a function to the <code>AnimationTrack/GetMarkerReachedSignal|GetMarkerReachedSignal()</code> function of <code>AnimationTrack</code>, for instance:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local Players = game:GetService("Players")
+ 
+local player = Players.LocalPlayer
+local character = player.Character
+if not character or not character.Parent then
+	character = player.CharacterAdded:Wait()
+end
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:WaitForChild("Animator")
+
+-- Create new "Animation" instance
+local walkAnim = Instance.new("Animation")
+-- Set its "AnimationId" to the corresponding animation asset ID
+walkAnim.AnimationId = "rbxassetid://5432167890"
+
+-- Load animation onto the animator
+local walkAnimTrack = animator:LoadAnimation(walkAnim)
+
+-- Connect "GetMarkerReachedSignal" event to a specific named keyframe
+<span class='highlighted'>walkAnimTrack:GetMarkerReachedSignal("FootStep"):Connect(function(paramString)</span>
+	<span class='highlighted'>print(paramString)</span>
+<span class='highlighted'>end)</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p><span id="event-params"></span></p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">Event Parameters</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-4">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>As noted earlier, you can specify a <strong>Parameter</strong> value for any event marker within the animation editor. This lets you pass a custom <strong>string</strong> (single value, <span class="text-nowrap">comma-separated</span> string, etc.) to the <code>AnimationTrack/GetMarkerReachedSignal|GetMarkerReachedSignal()</code> function as illustrated by the <code>paramString</code> argument in the code example above. This string can then be parsed or converted, if necessary, and used for whatever action you wish to perform in the event.</p>
+
+      </div>
+    
+  
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Cloning Events</h3>
+<p>As you create events, they become available for usage throughout the animation, not only at the time position where you created them. For instance, you can create a “FootStep” event marker at the point where a character’s <strong>left</strong> foot touches down, then use the same event when the character’s <strong>right</strong> foot touches down.</p>
+<p>To clone an event:</p>
+<ol>
+<li>Click an event marker in the event bar.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt77e50c50b6e0eb6f/Amimation-Editor-Clone-Event-1.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Press <span class="text-nowrap"><kbd class="keyboard-key">Control</kbd>+<kbd class="keyboard-key">C</kbd></span> <span class="text-nowrap">(<kbd class="keyboard-key">Command ⌘</kbd>+<kbd class="keyboard-key">C</kbd> on Mac).</span></li>
+<li>Move the scrubber bar to the point where the event should be cloned and press <span class="text-nowrap"><kbd class="keyboard-key">Control</kbd>+<kbd class="keyboard-key">V</kbd></span> <span class="text-nowrap">(<kbd class="keyboard-key">Command ⌘</kbd>+<kbd class="keyboard-key">V</kbd> on Mac).</span></li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blte3fcc60729e593f6/Amimation-Editor-Clone-Event-2.png" class="img-fluid half-sized list-indent">
+<div class="alert alert-warning" role="alert">
+If the original event uses a <a href="#event-params">parameter</a> but the cloned event should use a modified parameter, <span class="text-nowrap">right-click</span> the cloned marker, select <b class="text-nowrap">Edit Animation Event</b>, type in the desired changes, and click <b>Save</b>.
+</div>
+<div class="alert alert-primary mb-4" role="alert">
+Events can also be cloned by clicking the <b class="text-nowrap">Edit Animation Events</b> button (just&nbsp;as if you were creating a new&nbsp;event), clicking <b class="text-nowrap">Add Event</b> in the popup window, selecting the desired event from the dropdown, and clicking <b>Save</b>.
+</div>
+<h2>Saving and Exporting</h2>
+<p>Once you’re satisfied with an animation, you can either save it as a <code>KeyframeSequence</code> object or export it to Roblox for use in your games.</p>
+<h3>Saving to Project</h3>
+<p>To save an animation as a <code>KeyframeSequence</code>:</p>
+<ol>
+<li>Click the <img src="../../../dk135eecbplh9.cloudfront.net/assets/blte0d5f0fc3f059570/Animation-Editor-Menu-Dots.png" class="d-inline my-0 align-text-bottom" width=27> button in the <span class="text-nowrap">upper-left</span> section of the editor window.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltbf3562f50f89fc71/Animation-Editor-Control-Bar-Menu.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Select <strong>Save</strong> or <strong>Save As</strong> from the context menu to save the animation as a child of the <strong>AnimSaves</strong> object (itself a child of the rig).</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt19472d38f1f604a2/Animation-Editor-Saved-Anim.png" class="img-fluid half-sized list-indent mb-3">
+<div class="alert alert-warning list-indent mb-4" role="alert">
+Note that the saved <code>KeyframeSequence</code> is <b>not</b> used to load the animation in a game. See the next section for details on exporting an animation for <span class="text-nowrap">in-game</span> use.
+</div>
+<h3>Exporting to Roblox</h3>
+<p>To use an animation in an actual game, you must export it to Roblox and note the assigned <b class="text-nowrap">asset ID</b>.</p>
+<ol>
+<li>Click the <img src="../../../dk135eecbplh9.cloudfront.net/assets/blte0d5f0fc3f059570/Animation-Editor-Menu-Dots.png" class="d-inline my-0 align-text-bottom" width=27> button in the <span class="text-nowrap">upper-left</span> section of the editor window.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltbf3562f50f89fc71/Animation-Editor-Control-Bar-Menu.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Select <strong>Export</strong> from the context menu.</li>
+<li>Decide whether to create a new animation or overwrite an existing one.</li>
+<li>Once the upload is complete, you can <strong>copy</strong> the animation’s asset ID by clicking the “copy” button in the export window. This ID is required for scripting animations as outlined in <span class="text-nowrap"><code>/articles/using animations in games|Using Animations in Games</code></span>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt8bc605e3af191385/Copy-Animation-Asset-ID.png" class="img-fluid half-sized list-indent mb-4 pb-3">
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-danger border-danger" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-danger text-white">Important Settings for Default Character Animations</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-5">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>If your animation will be used for a <strong>default</strong> Roblox character animation like jumping or running, as outlined <code>/articles/using animations in games|here</code>, you must rename the final keyframe <strong>End</strong> <span class="text-nowrap">(with a capital <b>E</b>)</span>. This can be done by <span class="text-nowrap">right-clicking</span> the final <span class="text-nowrap">“select all keyframes”</span> symbol in the upper bar and choosing <b class="text-nowrap">Rename Key Keyframe</b>.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltdc8906178c4a6891/Click-Final-Keyframe.png" class="img-fluid half-sized mb-0">
+      </div>
+    
+  
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>animation</li>
+		  
+		    <li>plugin</li>
+		  
+		    <li>animate</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="using-animations-in-games.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/bltce72ab23afc06260/Using-Animations-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="using-animations-in-games.html">Using Animations in Games</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/using-animation-editor by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 18:23:56 GMT -->
+</html>

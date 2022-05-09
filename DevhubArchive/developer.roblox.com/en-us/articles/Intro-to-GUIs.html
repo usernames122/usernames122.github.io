@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/Intro-to-GUIs by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:31:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="Intro-to-GUIs.html"/>
+    <link rel="alternate" hreflang="x-default" href="Intro-to-GUIs.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="Intro-to-GUIs.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="Intro-to-GUIs.html"/>
+    
+      
+        
+          <title> Intro to GUIs</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>An introduction to creating on-screen and in-game graphics</p>">
+
+
+
+<meta name="keywords" content="gui, ui, images">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Intro to GUIs">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>An introduction to creating on-screen and in-game graphics</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="User Interface">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/user-interface.html">USER INTERFACE</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Intro to GUIs</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/user-interface.html">USER INTERFACE</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Intro to GUIs</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">20  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <figure class="figure mb-4">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltbbc45a3d1bd83a89/Intro-GUI-Banner.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center"><a href="https://www.roblox.com/games/913614076/Hexaria-Beta-V0-70" target="_new">Hexaria</a> title screen (used with permission of <a href="https://www.roblox.com/users/15683535/profile" target="_new">Biostream</a>)</figcaption>
+</figure>
+<p>A <strong>GUI</strong>, which stands for <strong>G</strong>raphical <strong>U</strong>ser <strong>I</strong>nterface, is used to display information about the game to the player. GUIs can be used to show the player what their character’s level, health, and gold are, and also to create in-game buttons for menus and inventory systems. In the image below, the game developers of <a href="https://www.roblox.com/games/913614076/Hexaria-Beta-V0-70" target="_new">Hexaria</a> use GUIs to both show information about the player and to create an <span class="text-nowrap">in-game</span> menu.</p>
+<h2>How GUIs Get Into a Game</h2>
+<p>The most common type of GUI is a <strong>screen GUI</strong> which behaves like a 2D place to put stickers on the player’s screen. When the player moves the camera or explores the game world, a screen GUI stays in the same place (on the screen).</p>
+<p>When you make a new Roblox game, this screen GUI space doesn’t exist — it’s your job to add it. The easiest way is to add it to the <strong>StarterGui</strong> service so that it gets copied to a player’s local game session when they join the game.</p>
+<ol>
+<li>In the <strong>Explorer</strong> window, find the <strong>StarterGui</strong> object.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltec4b9d5dab192eae/Select-StarterGui-1.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Hover over it and click on the circle ⊕ button.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt25db36987baaf715/Select-StarterGui-2.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>Locate <strong>ScreenGui</strong> in the popup menu and select it. This will create a new 2D screen space in front of your 3D game world.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt097a958fc708fa79/Select-ScreenGui.png" class="img-fluid half-sized list-indent">
+<h2>Adding Items to a Screen GUI</h2>
+<p>Currently the new screen GUI is empty — it’s just a blank canvas that spans the entire width and height of the player’s screen.</p>
+<h3>Add a Text Label</h3>
+<p>All sorts of things can be added to the screen GUI. Let’s start with a basic text label.</p>
+<ol>
+<li>In the Explorer window, hover over the new <strong>ScreenGui</strong> object, a child of <strong>StarterGui</strong>, and click on its circle ⊕ button.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf0201a77763d92e6/Add-TextLabel-1.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Find <strong>TextLabel</strong> in the popup menu and select it. Note that an object can be found more easily by typing the first few letters of its name into the “Search object” input field.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt7bbac02d7dbebeeb/Add-TextLabel-2.png" class="img-fluid half-sized list-indent">
+<p>This will add a very basic text label to the top-left corner of the game view.<p></p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt333958352b9224ba/Add-TextLabel-3.png" class="img-fluid half-sized">
+<div class="alert alert-primary" role="alert">
+These steps created the new text label as a child of <b>ScreenGui</b> which is a child of <b>StarterGui</b>. None of these objects exist in the 3D workspace, so you can't select them using the <b>Select</b> tool like you can with normal parts. To select any of these <span class="text-nowrap">GUI-related</span> objects, you must select them from the Explorer window tree where you created them.
+</div>
+<h3>Customize the Label</h3>
+<p>We have a text label on the screen, but a white box with the word <strong>Label</strong> isn’t very useful. Let’s customize it to look like a “version number” GUI, a display element usually found on the menu/intro screen which shows the current version of the game.</p>
+<ol>
+<li>In the Explorer window, select the new <strong>TextLabel</strong> object.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta40a63b51f80c3d9/Select-TextLabel.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Open the <strong>Properties</strong> window by selecting the <strong>View</strong> tab and clicking the <strong>Properties</strong> button.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc8a7d157bd64a3f3/Toggle-Properties.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>For the <strong>Font</strong> property (within the <strong>Text</strong> section), click to the right of the font name and select <strong>Highway</strong> from the drop-down menu.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blte49f6473348dca94/Intro-GUI-Font-Changed.png" class="img-fluid half-sized list-indent">
+<ol start="4">
+<li>In the <strong>Text</strong> property field, type in a new name like <strong>Version 1.0</strong>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltb8fef8a1ac67cb69/Intro-GUI-Text-Changed.png" class="img-fluid half-sized list-indent">
+<ol start="5">
+<li>In the <strong>TextSize</strong> property field, type <strong>35</strong>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt7475d7316092b82e/Intro-GUI-TextSize-Changed.png" class="img-fluid half-sized list-indent">
+<ol start="6">
+<li>Now expand the <strong>Data</strong> section (if it’s not already expanded).</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt1ab5ba1391304a69/Data-Section-Expand.png" class="img-fluid half-sized list-indent">
+<ol start="7">
+<li>For the <strong>BorderSizePixel</strong> value, enter a new value like <strong>8</strong>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt41709aa769b867be/Intro-GUI-BorderSizePixel-Changed.png" class="img-fluid half-sized list-indent">
+<p>Great! The GUI object looks much better now! If you want to get even more creative, try changing properties like <strong>TextColor3</strong>, <strong>BackgroundColor3</strong>, <strong>BackgroundTransparency</strong>, and others.</p>
+<h2>Positioning Items in a Screen GUI</h2>
+<p>Now that we have a basic text object on the screen, let’s move it to a new position. Every 2D object in Roblox has a <strong>Position</strong> property which determines where it will be drawn in relation to its parent object. This position is set by <strong>X</strong> and <strong>Y</strong> coordinates where <strong>X</strong> is the horizontal position and <strong>Y</strong> is the vertical position.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt37b4ff76a6df2492/XY-Axes.png" class="img-fluid half-sized">
+<p>When first created, all 2D objects start with an <strong>X</strong> and <strong>Y</strong> position of <strong>0</strong> which is the top-left corner of the screen, but what if you want to move it? Let’s look at the <strong>Position</strong> property of the text label and learn how!</p>
+<ol>
+<li>If the <strong>TextLabel</strong> object isn’t selected, click on it within the Explorer window.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta40a63b51f80c3d9/Select-TextLabel.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Find the <strong>Position</strong> property and click on the small arrow to expand it.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltede64106156ac48c/Expand-Position.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>Now expand the <strong>X</strong> and <strong>Y</strong> branches directly under it. Notice that each has unique <strong>Scale</strong> and <strong>Offset</strong> properties — these are the values you can use to position the text label within the screen GUI.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf438813ac9679d6a/Expand-XY-Position.png" class="img-fluid half-sized list-indent">
+<h3>Scale Property</h3>
+<p>The <strong>Scale</strong> property represents a <strong>percentage</strong> of the parent object’s width or height. Remember that the screen GUI “canvas” spans the full width and height of the 3D game view — that means the <strong>Scale</strong> property can be used to position an object directly at the center of the view, against the left or right edge, or anywhere between based on a percentage of the screen’s full width or height.</p>
+<p>Although <strong>Scale</strong> indicates a percentage, the range of values that you enter should usually be between <strong>0</strong> and <strong>1</strong>, where 0 equals 0% and 1 equals 100%. For example:</p>
+<div class="container">
+<div class="row">
+<div class="col-4">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt0f9c1447a2a5a11a/Scale-10.png" class="img-fluid half-sized">
+<figcaption class="figure-caption text-center"><b>Scale</b> = <b>0.1</b><br>10% of full width or height</figcaption>
+</figure>
+</div>
+<div class="col-4">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltb754008fd7c8994c/Scale-50.png" class="img-fluid half-sized">
+<figcaption class="figure-caption text-center"><b>Scale</b> = <b>0.5</b><br>50% of full width or height</figcaption>
+</figure>
+</div>
+<div class="col-4">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcd65d1c9a68b5b20/Scale-95.png" class="img-fluid half-sized">
+<figcaption class="figure-caption text-center"><b>Scale</b> = <b>0.95</b><br>95% of full width or height</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Now let’s move the text label to the horizontal center of the screen. Simply enter <strong>0.5</strong> for the <strong>Scale</strong> value of <strong>X</strong> and press the Enter/Return key to confirm.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt4673d0bcb8aac69a/Change-X-Scale-Position.png" class="img-fluid half-sized">
+<p>The text label should now be positioned more toward the center of the game view.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltef4c7697cd252ce1/TextLabel-X-Scale-Position.jpg" class="img-fluid half-sized">
+<div class="alert alert-primary" role="alert">
+Remember that your game will be played on screens which vary in width versus height. For example, a phone screen may be slightly wider (and&nbsp;less&nbsp;tall) than a PC or console screen. <b>Scale</b> is the best choice for positioning an object in the center of the view because it will remain in the center on many different screens.
+</div>
+<h3>Offset Property</h3>
+<p>The second property in each set is called <strong>Offset</strong>. Instead of moving the element by a percentage of the parent’s size, it moves it by a specific number of <strong>pixels</strong>. This can be useful if you want to place a GUI element slightly inside any edge of the game view.</p>
+<p>Let’s move the text label just slightly inside the top edge of the screen. Enter <strong>50</strong> for the <strong>Offset</strong> value of <strong>Y</strong> and press the Enter/Return key to confirm.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltbee4d513dbe033ac/Change-Y-Offset-Position.png" class="img-fluid half-sized">
+<p>Now the text label should be inset just slightly from the top edge of the screen.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf68fee05960513b0/TextLabel-Y-Offset-Position.jpg" class="img-fluid half-sized">
+<div class="alert alert-primary" role="alert">
+<b>Offset</b> is the best choice for positioning an object near any <b>edge</b> of the view. Using this option will make sure it remains in the same basic screen position on PC, console, tablet, and phone.
+</div>
+<h3>Anchor Point</h3>
+<p>If you look carefully at the current position of the GUI object, you’ll notice that it’s not perfectly centered <span class="text-nowrap">left-to-right</span>, even though we set <span class="text-nowrap"><strong>Position</strong> → <strong>X</strong> → <strong>Scale</strong></span> to 0.5 (50%).</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc7407dcf58619379/Anchor-Intro.jpg" class="img-fluid half-sized">
+<p>This is because of the object’s default <strong>anchor point</strong>. An anchor point is a specific point <strong>on the object</strong> to align with the screen position you set. Imagine the anchor point like a pin stuck through a piece of paper — the pin can be put through any place on the paper, and Roblox will align that pin point with the <strong>Position</strong> value(s) you set for the object.</p>
+<p>In the game editor window, the anchor point is shown by the <strong>small square outline</strong> on the object (when it’s selected). When you create a new GUI object, the anchor point is set to the <span class="text-nowrap">top-left</span> corner — this is why that exact point on the object is aligned to the <strong>X</strong> and <strong>Y</strong> position values set earlier.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blte4d6af9a014b49ef/Anchor-Point-Comparison.png" class="img-fluid half-sized">
+<p>The anchor point is based on an <strong>X</strong> and <strong>Y</strong> value which is a percentage of the object’s size: <strong>0</strong> equals 0% and <strong>1</strong> equals 100%.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt89bbeb2323d5ff16/Anchor-Diagram.png" class="img-fluid half-sized">
+<p>You can use this concept to center the GUI object in the exact middle of the screen.</p>
+<ol>
+<li>If the <strong>TextLabel</strong> object isn’t selected, click on it within the Explorer window.</li>
+<li>Find the <strong>AnchorPoint</strong> property and click on the small arrow to expand it.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6983e77005485224/Expand-AnchorPoint.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>Set the <strong>X</strong> value to <strong>0.5</strong> and press the Enter/Return key to confirm.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta266e5ec84b755b8/Anchor-X-Changed.png" class="img-fluid half-sized list-indent">
+<p>The text label should now be positioned exactly in the center of the game view.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt9b8066a6815f8c12/Anchor-Centered.jpg" class="img-fluid half-sized">
+<div class="alert alert-primary" role="alert">
+Anchor point values are not restricted to <b>0</b>, <b>0.5</b>, or <b>1</b> &mdash; you can enter any value between like <b>0.25</b> or <b>0.8</b>, but you cannot set an anchor point less than <b>0</b> or greater than <b>1</b>.
+</div>
+<h2>Resizing Items in a Screen GUI</h2>
+<p>As you can see, the <strong>Position</strong> and <strong>AnchorPoint</strong> properties let us put elements anywhere we need to within a screen GUI. We can also change the size of any element using its <strong>Size</strong> properties.</p>
+<ol>
+<li>If the <strong>TextLabel</strong> object isn’t selected, click on it within the Explorer window.</li>
+<li>Find the <strong>Size</strong> property and click on the small arrow to expand it.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt37f8a3b492a513e3/Expand-Size.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>Now expand the <strong>X</strong> and <strong>Y</strong> branches directly under it. Similar to <strong>Position</strong>, each has unique <strong>Scale</strong> and <strong>Offset</strong> properties.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt46435a2a520926d3/Expand-XY-Size.png" class="img-fluid half-sized list-indent">
+<h3>Scale Property</h3>
+<p>For setting the size of a GUI object, the <strong>Scale</strong> property works the same as it does for  positioning, representing a <strong>percentage</strong> of the parent object’s width or height. If you set <span class="text-nowrap"><strong>Size</strong> → <strong>X</strong> → <strong>Scale</strong></span> to <strong>0.5</strong> (50%), the object will be exactly half of the screen width.</p>
+<p>Let’s experiment and see what happens!</p>
+<ol>
+<li>Enter <strong>0.75</strong> for the <strong>Scale</strong> value of <strong>X</strong> and press the Enter/Return key to confirm.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcf36ffcb589f6543/Change-X-Scale-Size.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Enter <strong>0</strong> for the <strong>Offset</strong> value of <strong>X</strong> and press the Enter/Return key.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt8e5bd54715a9e2d7/Change-X-Offset-Size.png" class="img-fluid half-sized list-indent">
+<p>The text label should now take up exactly 75% of the screen width.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt83371ee45d40f3c6/TextLabel-X-Scale-Size.jpg" class="img-fluid half-sized">
+<h3>Offset Property</h3>
+<p>As you noticed above, <strong>Size</strong> also has a property called <strong>Offset</strong>. For sizing, <strong>Offset</strong> is useful if you want to create buttons, labels, or other objects which stay the same number of <strong>pixels</strong> (width or height) no matter what screen they’re being viewed on.</p>
+<p>To increase the height of the text label, simply enter <strong>150</strong> for the <strong>Offset</strong> value of <strong>Y</strong> and press the Enter/Return key to confirm.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt227a606f25663b41/Change-Y-Offset-Size.png" class="img-fluid half-sized">
+<p>Now the text label should be quite a bit taller than before!</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf4b864a55db49b04/TextLabel-Y-Offset-Size.jpg" class="img-fluid half-sized">
+<h2>Using Negative Offsets</h2>
+<p>Some GUI layouts are only possible with creative combinations of <strong>Scale</strong> and <strong>Offset</strong> values. You can explore this by making the <strong>TextLabel</strong> object fill the entire screen with a small margin of 20 pixels around all four edges.</p>
+<ol>
+<li>Set <span class="text-nowrap"><strong>Position</strong> → <strong>Y</strong> → <strong>Offset</strong> to <strong>20</strong></span>. This should bump the object upward just slightly.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt733ae73915ef92b0/Position-Size-Combo-1.jpg" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Set <span class="text-nowrap"><strong>Size</strong> → <strong>X</strong> → <strong>Scale</strong></span> to <strong>1</strong> (100% of the screen width).</li>
+<li>Set <span class="text-nowrap"><strong>Size</strong> → <strong>X</strong> → <strong>Offset</strong> to <strong>-40</strong></span> — this makes the object 40 pixels <i>less</i> than the entire screen width, resulting in the desired 20 pixel margin on both sides.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt888ff380f80f3261/Position-Size-Combo-2.jpg" class="img-fluid half-sized list-indent">
+<ol start="4">
+<li>Set <span class="text-nowrap"><strong>Size</strong> → <strong>Y</strong> → <strong>Scale</strong> to <strong>1</strong></span> (100% of the screen height).</li>
+<li>Set <span class="text-nowrap"><strong>Size</strong> → <strong>Y</strong> → <strong>Offset</strong> to <strong>-40</strong></span>. Just like above, this makes the object 40 pixels less than the full screen height and creates a 20 pixel margin on both the top and bottom.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt3e0c50f4c4b6ea5c/Position-Size-Combo-3.png" class="img-fluid half-sized list-indent">
+<div class="alert alert-success" role="alert">
+<h4>Challenge</h4>
+There's at least one other combination of settings which will create the same GUI object above. Can you think of it? Here's a hint: set the <b>anchor&nbsp;point</b> to the <i>center</i> of the <b>TextLabel</b> object and then adjust the <b>Scale</b> and <b>Offset</b> values as needed.
+<p></p><a class="btn btn-dark btn-lg btn-block" style="color:rgb(0,162,255);background-color:#FFF;" href="#collapse-excercise" title="Click to show/hide content" data-toggle="collapse" aria-expanded="false">Show/hide</a>
+<div class="collapse" id="collapse-excercise"><p></p>
+<table class="table table-bordered bg-white">
+<tbody>
+<tr>
+<th class="bg-dark text-white w-50" scope="col">AnchorPoint</th>
+<th class="bg-secondary text-white w-50" scope="col">Value</th>
+</tr>
+<tr>
+<th scope="row">X</th>
+<th>0.5</th>
+</tr>
+<tr>
+<th scope="row">Y</th>
+<th>0.5</th>
+</tr>
+</tbody>
+</table>
+<table class="table table-bordered bg-white">
+<tbody>
+<tr>
+<th class="bg-dark text-white" scope="col" colspan=2>Position</th>
+<th class="bg-secondary text-white w-50" scope="col">Value</th>
+</tr>
+<tr>
+<th scope="row" rowspan=2 class="w-25">X</th>
+<th class="w-25">Scale</th>
+<th>0.5</th>
+</tr>
+<tr>
+<th>Offset</th>
+<th>0</th>
+</tr>
+<tr>
+<th scope="row" rowspan=2>Y</th>
+<th>Scale</th>
+<th>0.5</th>
+</tr>
+<tr>
+<th>Offset</th>
+<th>0</th>
+</tr>
+</tbody>
+</table>
+<table class="table table-bordered bg-white">
+<tbody>
+<tr>
+<th class="bg-dark text-white" scope="col" colspan=2>Size</th>
+<th class="bg-secondary text-white w-50" scope="col">Value</th>
+</tr>
+<tr>
+<th scope="row" rowspan=2 class="w-25">X</th>
+<th class="w-25">Scale</th>
+<th>1</th>
+</tr>
+<tr>
+<th>Offset</th>
+<th>-40</th>
+</tr>
+<tr>
+<th scope="row" rowspan=2>Y</th>
+<th>Scale</th>
+<th>1</th>
+</tr>
+<tr>
+<th>Offset</th>
+<th>-40</th>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<hr>
+<p>Great! That covers the basics of GUIs, how to create a screen GUI canvas for all players that enter your game, and how to position and resize GUI objects on the screen.</p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>gui</li>
+		  
+		    <li>ui</li>
+		  
+		    <li>images</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="Using-Images-in-GUIs.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt2e2fb40dce5cdfeb/Images-GUI-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="Using-Images-in-GUIs.html">Using Images in GUIs</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="GUI-Animations.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt09adc9a5d9250070/GUI-Animation-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="GUI-Animations.html">GUI Animations</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="Creating-GUI-Buttons.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt54b3b696a3dd7089/GUI-Button-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="Creating-GUI-Buttons.html">Creating GUI Buttons</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/Intro-to-GUIs by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:31:39 GMT -->
+</html>

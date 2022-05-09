@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/sounds-and-music by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 16:08:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="sounds-and-music.html"/>
+    <link rel="alternate" hreflang="x-default" href="sounds-and-music.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="sounds-and-music.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="sounds-and-music.html"/>
+    
+      
+        
+          <title> Sounds and Music</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>Learn how to add sound and music to your games</p>">
+
+
+
+<meta name="keywords" content="sound, music, audio, effects">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Sounds and Music">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>Learn how to add sound and music to your games</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Sound, Lighting & FX">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/sound-lighting-fx.html">SOUND, LIGHTING & FX</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Sounds and Music</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/sound-lighting-fx.html">SOUND, LIGHTING & FX</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Sounds and Music</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>While building a game, it’s easy to overlook the importance of sounds and music. Combined creatively, these can set an atmospheric or exciting tone, build suspense, and bring life to your game’s characters.</p>
+<h2>Audio Marketplace<span id="audio-marketplace"></span></h2>
+<p>A wide array of <span class="text-nowrap">free-to-use</span> audio can be searched for in the <a href="../resources/studio/Toolbox.html">Toolbox</a>.</p>
+<ol>
+<li>Click the <strong>Marketplace</strong> tab and select <strong>Audio</strong> from the menu.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc40a4f446019c115/Toolbox-Marketplace-Audio.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Click the <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt9d572a0193f40209/Toolbox-Sort-Icon.png" class="d-inline my-0 align-text-bottom" width=24> button and then, <span class="text-nowrap">in the <strong>Creator</strong> field,</span> type <strong>ROBLOX</strong>. Select the first option to sort results by legal, <span class="text-nowrap">free-to-use</span> audio published by Roblox</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltaa8dd0b41e77068b/Toolbox-Audio-Sort-Roblox.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>Optionally, adjust the <strong>Sound Length</strong> range to more easily distinguish between short sound clips and longer background music tracks.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6d119cca8c2611bf/Toolbox-Audio-Sort-Sound-Length.png" class="img-fluid half-sized list-indent">
+<ol start="4">
+<li>Click the <strong>Apply</strong> button to save the sorting options.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt78aa95d7890a75e5/Toolbox-Audio-Sort-Apply.png" class="img-fluid half-sized list-indent">
+<ol start="5">
+<li>Back in the main panel, search for music by typing keywords into the search field.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blte581ebc872cf42d4/Toolbox-Audio-Search.png" class="img-fluid half-sized list-indent">
+<ol start="6">
+<li>You can preview audio directly within Studio by clicking the <strong>play</strong> button in the corner of each listing. Once you locate an audio file to use, <span class="text-nowrap">right-click</span> the item and select <span class="text-nowrap"><strong>Copy Asset ID</strong></span> (this ID will be required for playback testing below).</li>
+</ol>
+<div class="container p-0 list-indent">
+<div class="row">
+<div class="col-auto mr-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta9affb74e78ec98f/Audio-Item-Play-Button.png" class="img-fluid mt-2 mb-2 half-sized">
+<figcaption class="figure-caption text-nowrap ml-1">1. Preview</figcaption>
+</figure>
+</div>
+<div class="col-auto">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blte2d2f653ecf00317/Audio-Item-Copy-ID.png" class="img-fluid mt-2 mb-2 half-sized">
+<figcaption class="figure-caption text-nowrap ml-1">2. Right-click and copy ID</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<h2 class="mt-2">Uploading Custom Audio<span id="uploading-audio"></span></h2>
+You can upload custom audio for that you are certain you have permission to use, such as audio you make yourself or license from original creators. <a href='https://blog.roblox.com/2021/09/introducing-age-verification/'>ID-verified creators</a> can upload 100 free audio assets per 30 days, and unverified creators can upload 10 free audio assets per 30 days.
+<br>
+<br>
+To upload one or more audio files in <b>.mp3</b> or <b>.ogg</b> format:
+<ol>
+<li>Open the <a href="../resources/studio/Asset-Manager.html">Asset&nbsp;Manager</a>.</li>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt920c84884e646d5b/Toggle-Game-Explorer.png" class="img-fluid half-sized list-indent">
+<li>Click the <b>Import</b> button.</li>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6d000574d5048053/Asset-Manager-Import-Button.png" class="img-fluid half-sized list-indent">
+<li>Select the audio file(s) you want to import from your local machine and confirm.</li>
+<li>After the import process is complete, the audio item(s) will appear in the <b>Audio</b> folder.</li>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt013ec2bc38a400e5/Asset-Manager-Audio-Folder.png" class="img-fluid half-sized list-indent">
+<li>Right-click the item and select <span class="text-nowrap"><b>Copy ID to Clipboard</b></span> (this&nbsp;ID will be required for playback testing&nbsp;below).</li>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt2161c20932b4a712/Asset-Manager-Audio-ID.png" class="img-fluid half-sized list-indent">
+<h2>Playing Music<span id="playing-music"></span></h2>
+<p>Playing background music can be achieved through scripting under two useful patterns as follows:</p>
+<h3>Audio Module</h3>
+<p>To set up multiple songs and play any of them on command, you can implement a basic audio module.</p>
+<ol>
+<li>In the Explorer window, add a new <code>ModuleScript</code> to <strong>ReplicatedStorage</strong> named <strong>AudioPlayer</strong>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt9cc3935af7f9fa0a/Rename-Script-AudioPlayer.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>In the script, delete all existing lines and paste in the following code:</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-1" data-toggle="tab" href="#nav-code-1" role="tab" aria-controls="nav-code-1" aria-selected="true">
+				<span class="txt">ModuleScript - AudioPlayer</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local SoundService = game:GetService("SoundService")
+
+local AudioPlayer = {}
+
+-- Function to set up audio assets
+AudioPlayer.setupAudio = function(assetArray)
+	for name, audioID in pairs(assetArray) do
+		local audioInstance = Instance.new("Sound")
+		audioInstance.SoundId = "rbxassetid://" .. audioID
+		audioInstance.Name = name
+		audioInstance.Parent = SoundService
+	end
+end
+
+-- Function to play an audio asset
+AudioPlayer.playAudio = function(assetName)
+	local audio = SoundService:FindFirstChild(assetName)
+	if audio then
+		if not audio.IsLoaded then
+			audio.Loaded:Wait()
+		end
+		audio:Play()
+	else
+		warn("Could not find audio asset: " .. assetName)
+	end
+end
+
+return AudioPlayer</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <ol start="3">
+<li>Create a new <code>LocalScript</code> inside <span class="text-nowrap"><strong>StarterPlayer</strong> → <strong>StarterPlayerScripts</strong>.</span></li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc1618e724ad60ee8/StarterPlayerScripts-LocalScript.png" class="img-fluid half-sized list-indent">
+<ol start="4">
+<li>In the script, delete all existing lines and paste in the following code. If desired, input different track names and audio IDs starting on line 8 <span class="text-nowrap">(see <a href="#audio-marketplace">Audio Marketplace</a></span> or <a href="#uploading-audio">Uploading Custom Audio</a>).</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-2" data-toggle="tab" href="#nav-code-2" role="tab" aria-controls="nav-code-2" aria-selected="true">
+				<span class="txt">LocalScript</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- Require audio player module
+local AudioPlayer = require(ReplicatedStorage:WaitForChild("AudioPlayer"))
+
+-- Set up audio tracks
+AudioPlayer.setupAudio({
+	<span class='highlighted'>["LucidDream"] = 1837103530,</span>
+	<span class='highlighted'>["DesertSands"] = 1848350335,</span>
+	<span class='highlighted'>["HeroHymn"] = 1837140190</span>
+})
+
+-- Play a track by name
+AudioPlayer.playAudio("LucidDream")</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <ol start="5">
+<li>Playtest the game and the track name specified on line 14 should play in the background.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-3" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-3" data-toggle="tab" href="#nav-code-3" role="tab" aria-controls="nav-code-3" aria-selected="true">
+				<span class="txt">LocalScript</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-3" data-toggle="tab" href="#nav-output-3" role="tab" aria-controls="nav-output-3" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-3" role="tabpanel" aria-labelledby="nav-code-tab-3">
+			
+			<pre class="prettyprint  linenums:13 lang-lua">-- Play a track by name
+<span class='highlighted'>AudioPlayer.playAudio("LucidDream")</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-3" role="tabpanel" aria-labelledby="nav-output-tab-3">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Music Randomizer</h3>
+<p>To randomly shuffle background music, you can implement the following script which shuffles songs and avoids <span class="text-nowrap">back-to-back</span> repeats.</p>
+<ol>
+<li>In the Explorer window, create a new <code>LocalScript</code> inside <span class="text-nowrap"><strong>StarterPlayer</strong> → <strong>StarterPlayerScripts</strong></span>.</li>
+<li>Delete all existing lines and paste in the following code. If desired, specify different audio IDs starting on line 12 <span class="text-nowrap">(see <a href="#audio-marketplace">Audio Marketplace</a></span> or <a href="#uploading-audio">Uploading Custom Audio</a>).</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-4" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-4" data-toggle="tab" href="#nav-code-4" role="tab" aria-controls="nav-code-4" aria-selected="true">
+				<span class="txt">LocalScript - MusicRandomizer</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-4" data-toggle="tab" href="#nav-output-4" role="tab" aria-controls="nav-output-4" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-4" role="tabpanel" aria-labelledby="nav-code-tab-4">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local SoundService = game:GetService("SoundService")
+
+-- Number of other songs required to play before the same song can play again
+local MININUM_SONGS_REQUIRED_BETWEEN_REPEATS = 3
+local DEFAULT_VOLUME = 0.5
+
+local random = Random.new()
+local recentlyPlayedSoundObjects = {}
+
+-- Array of song asset IDs to play randomly
+local songs = {
+	<span class='highlighted'>"rbxassetid://1837467590",</span>
+	<span class='highlighted'>"rbxassetid://1845348751",</span>
+	<span class='highlighted'>"rbxassetid://1839923818",</span>
+}
+
+-- Create and store sound objects to use in-game
+local soundObjects = {}
+for _, songID in ipairs(songs) do
+	local soundObject = Instance.new("Sound")
+	soundObject.SoundId = songID
+	soundObject.Volume = DEFAULT_VOLUME
+	soundObject.Parent = SoundService
+	table.insert(soundObjects, soundObject)
+end
+
+-- Check and warn for any predictable randomization issues given the minimum songs between repeat
+if MININUM_SONGS_REQUIRED_BETWEEN_REPEATS >= #soundObjects then
+	warn("MININUM_SONGS_REQUIRED_BETWEEN_REPEATS is too high and cannot be respected")
+elseif MININUM_SONGS_REQUIRED_BETWEEN_REPEATS == #soundObjects - 1 then
+	warn("MININUM_SONGS_REQUIRED_BETWEEN_REPEATS is high enough that only one music sequence is possible (no randomization will occur)")
+end
+
+local function shuffleInPlace(array)
+	for index1 = #array, 2, -1 do
+		local index2 = random:NextInteger(1, index1)
+		array[index1], array[index2] = array[index2], array[index1]
+	end
+end
+
+while true do
+	-- Randomly shuffle the given array in place (modifies the original array)
+	shuffleInPlace(soundObjects)
+
+	-- Enforce minimum song count required between repeated songs
+	for recentlyPlayedIndex = 1, #recentlyPlayedSoundObjects do
+		local recentlyPlayedSound = recentlyPlayedSoundObjects[recentlyPlayedIndex]
+
+		for futureSongIndex = 1, #recentlyPlayedSoundObjects do
+			local futureSoundObject = soundObjects[futureSongIndex]
+
+			if recentlyPlayedSound == futureSoundObject then
+				local numIndexesToMoveForward = math.max(MININUM_SONGS_REQUIRED_BETWEEN_REPEATS - futureSongIndex - recentlyPlayedIndex + 2, 0)
+
+				if numIndexesToMoveForward > 0 then
+					table.remove(soundObjects, futureSongIndex)
+					table.insert(soundObjects, math.min(#soundObjects + 1, futureSongIndex + numIndexesToMoveForward), futureSoundObject)
+				end
+			end
+		end
+	end
+
+	-- Play all songs in the newly shuffled and constrained song array
+	for currentSongIndex = 1, #soundObjects do
+		local currentSongObject = soundObjects[currentSongIndex]
+
+		-- Play song
+		currentSongObject:Play()
+
+		currentSongObject.Ended:Wait()
+	end
+
+	-- Update the recently played sound objects array with the most recently played songs
+	recentlyPlayedSoundObjects = {}
+	for i = #soundObjects, #soundObjects - MININUM_SONGS_REQUIRED_BETWEEN_REPEATS + 1, -1 do
+		table.insert(recentlyPlayedSoundObjects, soundObjects[i])
+	end
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-4" role="tabpanel" aria-labelledby="nav-output-tab-4">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Playing Sounds</h2>
+<p>Unlike background music, sounds will often originate from a specific place or object inside the game — the engine of a vehicle, the battle cry of an enemy, etc. However, they may also be played as an “ambient” sound like wind blowing or rain falling.</p>
+<h3>Positional Sounds</h3>
+<p>A sound placed in a <code>BasePart</code> or an <code>Attachment</code> will emit its sound from the part’s <code>BasePart/Position|Position</code> or the attachment’s <code>Attachment/WorldPosition|WorldPosition</code>. These are considered <strong>positional sounds</strong> and they share the following traits:</p>
+<ul>
+<li><strong>Volume</strong> — A positional sound will play louder as a player gets closer to its source.</li>
+<li><strong>Stereo</strong> — If one side of a player is closer to the sound’s source, the player’s corresponding speaker will be louder.</li>
+</ul>
+<p>If the source part/attachment already exists in a place, you can add a positional sound directly within Studio:</p>
+<ol>
+<li>In the Explorer window, insert a new <code>Sound</code> object as a child of the source object.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6409bd6e49534acf/Insert-3D-Sound.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Select the new sound object and, in the Properties window, locate its <strong>SoundId</strong> property. Enter <samp>rbxassetid://</samp> followed by a valid audio ID, for instance <samp>rbxassetid://1847352423</samp>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt4f90c628f603e1b2/Specify-Sound-ID.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>Toggle its <strong>Playing</strong> property on (sounds do not play automatically, so you must explicitly tell them to start playing).</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6c0e7520534801dd/Toggle-Sound-Playing.png" class="img-fluid half-sized list-indent">
+<ol start="4">
+<li>Playtest the game and observe the sound’s qualities based on your character’s proximity to the source.</li>
+</ol>
+<h3>Ambient Sounds</h3>
+<p>Ambient environmental sounds like wind and thunder don’t need to be attached to a part because they come from all around the player. As such, these type of sounds can be played just like background music using the <a href="#audio-module">audio module</a> above.</p>
+<h3>GUI Sounds</h3>
+<p>Sound effects for interactive GUI objects can be played using the <a href="#audio-module">audio module</a> above. Instead of playing a sound immediately, however, you can hook it up to the <code>GuiButton/Activated|Activated</code> event listener for the button.</p>
+<ol>
+<li>In <strong>StarterGui</strong>, add a new <strong>ScreenGui</strong>, then create a new <strong>TextButton</strong> within it. If you’re unfamiliar with buttons and their basic options, see <span class="text-nowrap"><code>articles/Creating GUI Buttons|Creating GUI Buttons</code></span>.</li>
+<li>Select the new button and insert a <code>LocalScript</code>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta51533314e36660b/TextButton-LocalScript.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>In the script, delete all existing lines and paste in the following code. If desired, input a different sound name and audio ID on line 8.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-5" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-5" data-toggle="tab" href="#nav-code-5" role="tab" aria-controls="nav-code-5" aria-selected="true">
+				<span class="txt">LocalScript - Button Click Sound</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-5" data-toggle="tab" href="#nav-output-5" role="tab" aria-controls="nav-output-5" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-5" role="tabpanel" aria-labelledby="nav-code-tab-5">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- Require audio player module
+local AudioPlayer = require(ReplicatedStorage:WaitForChild("AudioPlayer"))
+
+-- Set up sounds
+AudioPlayer.setupAudio({
+<span class='highlighted'>	["SimpleClick"] = 3061551819</span>
+})
+
+-- Reference the button
+local textButton = script.Parent
+
+-- Function activated when button is pressed
+local function onButtonActivated()
+	AudioPlayer.playAudio("SimpleClick")
+end
+textButton.Activated:Connect(onButtonActivated)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-5" role="tabpanel" aria-labelledby="nav-output-tab-5">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <ol start="4">
+<li>Playtest the game and you should hear the sound name specified on line 16 play when the button is activated.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-6" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-6" data-toggle="tab" href="#nav-code-6" role="tab" aria-controls="nav-code-6" aria-selected="true">
+				<span class="txt">LocalScript - Button Click Sound</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-6" data-toggle="tab" href="#nav-output-6" role="tab" aria-controls="nav-output-6" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-6" role="tabpanel" aria-labelledby="nav-code-tab-6">
+			
+			<pre class="prettyprint  linenums:14 lang-lua">-- Function activated when button is pressed
+local function onButtonActivated()
+<span class='highlighted'>	AudioPlayer.playAudio("SimpleClick")</span>
+end
+textButton.Activated:Connect(onButtonActivated)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-6" role="tabpanel" aria-labelledby="nav-output-tab-6">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>sound</li>
+		  
+		    <li>music</li>
+		  
+		    <li>audio</li>
+		  
+		    <li>effects</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/sounds-and-music by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 16:09:02 GMT -->
+</html>

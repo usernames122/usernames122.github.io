@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/character-name-health-display by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:31:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="character-name-health-display.html"/>
+    <link rel="alternate" hreflang="x-default" href="character-name-health-display.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="character-name-health-display.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="character-name-health-display.html"/>
+    
+      
+        
+          <title> Character Name/Health Display</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>How to configure name and health bar displays&nbsp;above characters</p>">
+
+
+
+<meta name="keywords" content="humanoid, display, name, health">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Character Name/Health Display">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>How to configure name and health bar displays&nbsp;above characters</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="User Interface">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/user-interface.html">USER INTERFACE</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Character Name/Health Display</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/user-interface.html">USER INTERFACE</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Character Name/Health Display</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.custom-button {
+  opacity: 0.7;
+}
+.custom-button.active {
+  opacity: 1;
+}
+.custom-button.tab-right-margin {
+  margin-right: 1px;
+}
+</style>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>The <code>Humanoid</code> instance is used to create character models, both for players and NPCs. When inserted into a <code>Model</code> that has a <strong>Head</strong> part, Roblox will display its name and/or health bar.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt0c8cfba94501ce2b/Name-Health-Display-Hero.jpg" class="img-fluid my-4">
+<h2>Display Distance Type</h2>
+<p>The character’s name and health can be configured through the <code>Humanoid/DisplayDistanceType</code> property.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#DisplayDistanceTypeViewer" role="tab">Viewer</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#DisplayDistanceTypeSubject" role="tab">Subject</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#DisplayDistanceTypeNone" role="tab">None</a>
+  </div>
+</nav>
+<div class="tab-content">
+<!-- Viewer -->
+<div class="tab-pane active show" id="DisplayDistanceTypeViewer" role="tabpanel">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt85a14dde8f8d4526/DisplayDistanceType-Viewer.jpg" class="img-fluid mb-3">
+<div class="figure-caption d-table">When a player character's <code>Humanoid/DisplayDistanceType</code> is set to <b>Viewer</b>, the player will see the name/health of other characters within their own character's <code>Humanoid/NameDisplayDistance</code> and <code>Humanoid/HealthDisplayDistance</code>, regardless of those value settings for the other characters.</div>
+<div class="figure-caption d-table mt-3 mb-4">In the image above, the player sees names within 15&nbsp;studs of their character, which includes both <b>Watchman</b> and <b>Octavia</b>. However, the player only sees health bars within 10&nbsp;studs, which excludes <b>Octavia</b>.</div>
+</div>
+<!-- Subject -->
+<div class="tab-pane" id="DisplayDistanceTypeSubject" role="tabpanel">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt5e3134c2a633fac2/DisplayDistanceType-Subject.jpg" class="img-fluid mb-3">
+<div class="figure-caption d-table">When a character's <code>Humanoid/DisplayDistanceType</code> is set to <b>Subject</b>, it takes <b class="text-nowrap">full control</b> over its own name/health display through its <code>Humanoid/NameDisplayDistance</code> and <code>Humanoid/HealthDisplayDistance</code> values. Thus, player characters will only see character information within those distances set on the <b>subject</b>.</div>
+<div class="figure-caption d-table mt-3 mb-4">In the image above, both <b>Watchman</b> (blue&nbsp;character) and <b>Octavia</b> are set to <b>Subject</b> and their <code>Humanoid/NameDisplayDistance</code> ranges are indicated by the circles. Only the name <b>Octavia</b> is seen by the player whose character is standing inside her range but outside the <b>Watchman</b> range.</div>
+</div>
+<!-- None -->
+<div class="tab-pane" id="DisplayDistanceTypeNone" role="tabpanel">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltd49c210b10be670c/DisplayDistanceType-None.jpg" class="img-fluid mb-4">
+<div class="figure-caption d-table mb-3">When a character's <code>Humanoid/DisplayDistanceType</code> is set to <b>None</b>, its name and health bar will not be displayed under any circumstances.</div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Name Occlusion</h2>
+<p>Occlusion (hiding) of humanoid names behind walls or other objects is controlled by the <strong>player</strong> character’s <code>Humanoid/NameOcclusion</code> property.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#NameOcclusionNoOcclusion" role="tab">NoOcclusion</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#NameOcclusionOccludeAll" role="tab">OccludeAll</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#NameOcclusionEnemyOcclusion" role="tab">EnemyOcclusion</a>
+  </div>
+</nav>
+<div class="tab-content">
+<!-- NoOcclusion -->
+<div class="tab-pane active show" id="NameOcclusionNoOcclusion" role="tabpanel">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta4fa4afe383f15e3/NameOcclusion-NoOcclusion.jpg" class="img-fluid mb-3">
+<div class="figure-caption d-table mb-4">When a player character's <code>Humanoid/NameOcclusion</code> is set to <b>NoOcclusion</b>, names and health bars will never be occluded for humanoids hidden behind <span class="text-nowrap">non-transparent</span> objects.</div>
+</div>
+<!-- OccludeAll -->
+<div class="tab-pane" id="NameOcclusionOccludeAll" role="tabpanel">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltbebfa31c79e079ef/NameOcclusion-OccludeAll.jpg" class="img-fluid mb-3">
+<div class="figure-caption d-table mb-4">When a player character's <code>Humanoid/NameOcclusion</code> is set to <b>OccludeAll</b>, names and health bars will always be occluded for humanoids hidden behind <span class="text-nowrap">non-transparent</span> objects.</div>
+</div>
+<!-- EnemyOcclusion -->
+<div class="tab-pane" id="NameOcclusionEnemyOcclusion" role="tabpanel">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt771af08430ef7b06/NameOcclusion-EnemyOcclusion.jpg" class="img-fluid mb-3">
+<div class="figure-caption d-table">When a player character's <code>Humanoid/NameOcclusion</code> is set to <b>EnemyOcclusion</b>, names and health bars will be occluded for <b>enemies</b> (players&nbsp;on a <span class="text-nowrap">different <code>Player/Team|Team</code>)</span> hidden behind <span class="text-nowrap">non-transparent</span> objects, but names/health of <b>teammates</b> will not be occluded.</div>
+<div class="alert alert-primary mt-3 mb-4" role="alert">
+Note that when a player is assigned to a <span class="text-nowrap"><code>Player/Team|Team</code>,</span> their character's name appears in the same color as the team's <span class="text-nowrap"><code>Team/TeamColor|TeamColor</code>.</span> This helps identify teammates and opposing players in <span class="text-nowrap">team-based</span> experiences.
+</div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Health Display Type</h2>
+<p>A character’s health bar visibility can be further controlled through its <code>Humanoid/HealthDisplayType</code> property.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#HealthDisplayTypeAlwaysOn" role="tab">AlwaysOn</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#HealthDisplayTypeDisplayWhenDamaged" role="tab">DisplayWhenDamaged</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#HealthDisplayTypeAlwaysOff" role="tab">AlwaysOff</a>
+  </div>
+</nav>
+<div class="tab-content">
+<!-- AlwaysOn -->
+<div class="tab-pane active show" id="HealthDisplayTypeAlwaysOn" role="tabpanel">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf616f51a16a3c22c/HealthDisplayType-AlwaysOn.jpg" class="img-fluid mb-3">
+<div class="figure-caption d-table mb-4">If a character's <code>Humanoid/HealthDisplayType</code> is set to <b>AlwaysOn</b>, its health bar will always appear.</div>
+</div>
+<!-- DisplayWhenDamaged -->
+<div class="tab-pane" id="HealthDisplayTypeDisplayWhenDamaged" role="tabpanel">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt712c87e249754ad6/HealthDisplayType-DisplayWhenDamaged.jpg" class="img-fluid mb-3">
+<div class="figure-caption d-table mb-4">If a character's <code>Humanoid/HealthDisplayType</code> is set to <b>DisplayWhenDamaged</b>, its health bar will only appear when its current <code>Humanoid/Health|Health</code> is less than its <span class="text-nowrap"><code>Humanoid/MaxHealth|MaxHealth</code>.</span></div>
+</div>
+<!-- AlwaysOff -->
+<div class="tab-pane" id="HealthDisplayTypeAlwaysOff" role="tabpanel">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf36cc85724811214/HealthDisplayType-AlwaysOff.jpg" class="img-fluid mb-3">
+<div class="figure-caption d-table mb-4">If a character's <code>Humanoid/HealthDisplayType</code> is set to <b>AlwaysOff</b>, its health bar will never appear under any circumstances.</div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Display Name</h2>
+<p>By default, a character’s display name will match the name of its character <span class="text-nowrap"><code>Model</code>,</span> but it can be overridden through the <code>Humanoid/DisplayName</code> property. The value can be set directly on an NPC humanoid in Studio, but player characters should be handled as follows:</p>
+<ol>
+<li>From a <code>LocalScript</code>, fire a <span class="text-nowrap"><code>articles/Remote Functions and Events|remote event</code></span> to request changing that player’s display name on the server. This functionality can be connected to a <code>TextBox</code> name entry or whatever suits the experience’s interface.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-1" data-toggle="tab" href="#nav-code-1" role="tab" aria-controls="nav-code-1" aria-selected="true">
+				<span class="txt">LocalScript - Fire Remote Event</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local changeNameEvent = ReplicatedStorage:WaitForChild("ChangeNameEvent")
+
+local function requestNameChange(newName)
+<span class='highlighted'>	changeNameEvent:FireServer(newName)</span>
+end
+
+<span class='highlighted'>requestNameChange("Amory")</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <ol start="2">
+<li>In a server-side <code>Script</code>, listen for the remote event and use <span class="text-nowrap"><code>articles/Text and Chat Filtering|text filtering</code></span> to assign the requested name to the player character’s humanoid.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-2" data-toggle="tab" href="#nav-code-2" role="tab" aria-controls="nav-code-2" aria-selected="true">
+				<span class="txt">Script - Assign Filtered Name</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TextService = game:GetService("TextService")
+
+-- Create remote event to receive text from client for filtering
+local changeNameEvent = Instance.new("RemoteEvent")
+changeNameEvent.Name = "ChangeNameEvent"
+changeNameEvent.Parent = ReplicatedStorage
+
+local function onRequestNameChange(player, newName)
+	local character = player.Character
+	local humanoid = character:FindFirstChild("Humanoid")
+
+	local filterResult
+	local success, errorMessage = pcall(function()
+<span class='highlighted'>		filterResult = TextService:FilterStringAsync(newName, player.UserId)</span>
+	end)
+	if success then
+		local filteredName
+		local success, errorMessage = pcall(function()
+<span class='highlighted'>			filteredName = filterResult:GetNonChatStringForBroadcastAsync()</span>
+		end)
+		if success and humanoid then
+<span class='highlighted'>			humanoid.DisplayName = filteredName</span>
+		end
+	end
+end
+
+<span class='highlighted'>changeNameEvent.OnServerEvent:Connect(onRequestNameChange)</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>humanoid</li>
+		  
+		    <li>display</li>
+		  
+		    <li>name</li>
+		  
+		    <li>health</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="humanoiddescription-system.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt915191b6e2adceef/HumanoidDescription-Thumbnail.jpg);"> </span></a>
+          <h3 data-toc-skip><a href="humanoiddescription-system.html">HumanoidDescription System</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/character-name-health-display by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:31:59 GMT -->
+</html>

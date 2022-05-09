@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/bubble-chat by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:31:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="bubble-chat.html"/>
+    <link rel="alternate" hreflang="x-default" href="bubble-chat.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="bubble-chat.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="bubble-chat.html"/>
+    
+      
+        
+          <title> Bubble Chat</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>How to use and customize the bubble chat system</p>">
+
+
+
+<meta name="keywords" content="chat, bubble, dialog, npc">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Bubble Chat">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>How to use and customize the bubble chat system</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="User Interface">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/user-interface.html">USER INTERFACE</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Bubble Chat</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/user-interface.html">USER INTERFACE</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Bubble Chat</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.custom-button {
+  opacity: 0.7;
+}
+.custom-button.active {
+  opacity: 1;
+}
+.custom-button.tab-right-margin {
+  margin-right: 1px;
+}
+</style>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>The built-in <strong>bubble chat</strong> system enables display of customizable chat bubbles above avatars and NPCs.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt57d2ed3d121beb05/Player-Conversation.mp4"
+		width="864px"
+		height="486px"
+		style="margin-top: 5px; margin-bottom: 15px;"
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt57d2ed3d121beb05/Player-Conversation.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Key features include:</p>
+<ul>
+<li>Animated transitions for improved engagement.</li>
+<li>Numerous customization options including bubble duration, text/background color, distance at which bubbles are minimized or hidden, and much more.</li>
+<li>Ability to define unique bubble styles <span class="text-nowrap">per-user</span> or NPC.</li>
+</ul>
+<h2>Enabling Bubble Chat</h2>
+<p>To enable bubble chat, toggle on <strong>BubbleChatEnabled</strong> in the <strong>Chat</strong> service, either directly or from a <code>LocalScript</code> within <code>StarterPlayerScripts</code>.</p>
+<div class="mt-4 d-flex flex-xl-nowrap flex-lg-wrap flex-md-wrap flex-sm-wrap">
+<div>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt585c8cc00f03d360/Explorer-Chat-Service.png" class="half-sized mr-4 mb-2">
+</div>
+<div>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc64b43b162de5b0f/Properties-BubbleChatEnabled.png" class="img-fluid half-sized mb-2">
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-1" data-toggle="tab" href="#nav-code-1" role="tab" aria-controls="nav-code-1" aria-selected="true">
+				<span class="txt">LocalScript - Enable Bubble Chat</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local ChatService = game:GetService("Chat")
+<span class='highlighted'>ChatService.BubbleChatEnabled = true</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2 class="mt-2">Customization Options</h2>
+<p>The appearance and behavior of bubbles can be customized by calling <code>Chat/SetBubbleChatSettings</code> and passing in a table of <span class="text-nowrap">key-value</span> pairs, for example:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-2" data-toggle="tab" href="#nav-code-2" role="tab" aria-controls="nav-code-2" aria-selected="true">
+				<span class="txt">LocalScript - Customize Bubble Appearance/Behavior</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local ChatService = game:GetService("Chat")
+ChatService.BubbleChatEnabled = true
+
+<span class='highlighted'>local bubbleChatSettings = {</span>
+	<span class='highlighted'>BackgroundColor3 = Color3.fromRGB(180, 210, 220),</span>
+	<span class='highlighted'>TextSize = 20,</span>
+	<span class='highlighted'>Font = Enum.Font.FredokaOne,</span>
+	<span class='highlighted'>BubbleDuration = 10</span>
+<span class='highlighted'>}</span>
+-- Apply the settings
+<span class='highlighted'>ChatService:SetBubbleChatSettings(bubbleChatSettings)</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-2">Appearance</h3>
+<p>Basic bubble appearance and style can be controlled through the following:</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Description</th>
+            <th scope="col">Type</th>
+            <th scope="col">Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><b>BackgroundColor3</b></td>
+            <td scope="row">Bubble background color</td>
+            <td scope="row" class="text-nowrap"><code>Datatype/Color3</code></td>
+            <td scope="row" class="text-nowrap">[250, 250, 250]</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>TextColor3</b></td>
+            <td scope="row">Bubble text color</td>
+            <td scope="row" class="text-nowrap"><code>Datatype/Color3</code></td>
+            <td scope="row" class="text-nowrap">[57, 59, 61]</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>TextSize</b></td>
+            <td scope="row">Bubble text size</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">16</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Font</b></td>
+            <td scope="row">Bubble text font</td>
+            <td scope="row" class="text-nowrap"><code>Enum/Font|Enum.Font</code></td>
+            <td scope="row">GothamSemibold</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Transparency</b></td>
+            <td scope="row">Bubble transparency (0&ndash;1)</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">0.1</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>CornerEnabled</b></td>
+            <td scope="row">Whether bubbles have rounded corners</td>
+            <td scope="row" class="text-nowrap">boolean</td>
+            <td scope="row">true</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>CornerRadius</b></td>
+            <td scope="row">Radius of bubble corners</td>
+            <td scope="row" class="text-nowrap"><code>Datatype/UDim</code></td>
+            <td scope="row">0,&nbsp;12</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>TailVisible</b></td>
+            <td scope="row">Whether the pointed "tail" of the most recent bubble is visible</td>
+            <td scope="row" class="text-nowrap">boolean</td>
+            <td scope="row">true</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Padding</b></td>
+            <td scope="row">Space between the text and the edges of a bubble, in&nbsp;pixels</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">8</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>MaxWidth</b></td>
+            <td scope="row">Maximum width of a bubble, in&nbsp;pixels</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">300</td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Behavior</h3>
+<p>Bubble behavior on screen, such as duration and maximum visible distance from the camera, can be configured with the following:</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Description</th>
+            <th scope="col">Type</th>
+            <th scope="col">Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><b>AdorneeName</b></td>
+            <td scope="row">Name of the body part or <code>Attachment</code> that bubbles will attach to; if multiple instances of the same name exist, only the first instance found will be used</td>
+            <td scope="row" class="text-nowrap">string</td>
+            <td scope="row">HumanoidRootPart</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>BubbleDuration</b></td>
+            <td scope="row">Time before a bubble fades out, in seconds</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">15</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>BubblesSpacing</b></td>
+            <td scope="row">Vertical space between stacked bubbles, in&nbsp;pixels</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">6</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>MaxBubbles</b></td>
+            <td scope="row">Maximum number of bubbles displayed before older bubbles immediately disappear</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">3</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>VerticalStudsOffset</b></td>
+            <td scope="row">Extra space between bubbles and their adornee, in&nbsp;studs</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">0</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>LocalPlayerStudsOffset</b></td>
+            <td scope="row">If adorned to the local player, the offset of bubbles in studs from their adornee, relative to the camera orientation</td>
+            <td scope="row" class="text-nowrap"><code>Datatype/Vector3</code></td>
+            <td scope="row" class="text-nowrap">0, 0, 2</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>MinimizeDistance</b></td>
+            <td scope="row">Distance from the camera when bubbles turn into a single bubble with an ellipsis <span class="text-nowrap">(...)</span> to indicate chatter</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">40</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>MaxDistance</b></td>
+            <td scope="row">Maximum distance from the camera that bubbles are shown</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">100</td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Background Image</h3>
+<p>The background image of bubbles can be customized by including a <code>BackgroundImage</code> <span class="text-nowrap">sub-table</span> within the main settings table:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-3" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-3" data-toggle="tab" href="#nav-code-3" role="tab" aria-controls="nav-code-3" aria-selected="true">
+				<span class="txt">LocalScript - Bubble Background Image</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-3" data-toggle="tab" href="#nav-output-3" role="tab" aria-controls="nav-output-3" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-3" role="tabpanel" aria-labelledby="nav-code-tab-3">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local ChatService = game:GetService("Chat")
+ChatService.BubbleChatEnabled = true
+
+local bubbleChatSettings = {
+	CornerEnabled = false,
+	TailVisible = false,
+	TextSize = 24,
+	TextColor3 = Color3.fromRGB(220, 50, 50),
+	Font = Enum.Font.LuckiestGuy,
+	Padding = 30,
+	<span class='highlighted'>BackgroundImage = {</span>
+		<span class='highlighted'>Image = "rbxassetid://6733332557",</span>
+		<span class='highlighted'>ScaleType = Enum.ScaleType.Slice,</span>
+		<span class='highlighted'>SliceCenter = Rect.new(40, 40, 360, 160),</span>
+		<span class='highlighted'>SliceScale = 0.5</span>
+	<span class='highlighted'>}</span>
+}
+-- Apply the settings
+ChatService:SetBubbleChatSettings(bubbleChatSettings)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-3" role="tabpanel" aria-labelledby="nav-output-tab-3">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="d-flex flex-wrap mt-3">
+<div class="col-auto pl-0 pr-5">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt734340fc665d0774/BubbleChat-Background-Image-Diagram.png" class="mb-2 half-sized">
+<figcaption class="figure-caption text-center">Source Image</figcaption>
+</figure>
+</div>
+<div class="col-auto pl-0 pr-5">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt132196481ce81597/BubbleChat-Background-Image-Example.png" class="mb-2 half-sized">
+<figcaption class="figure-caption text-center">Example Bubbles</figcaption>
+</figure>
+</div>
+</div>
+<table class="table table-striped table-bordered mt-2">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Description</th>
+            <th scope="col">Type</th>
+            <th scope="col">Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><b>Image</b></td>
+            <td scope="row">Asset ID of the background image</td>
+            <td scope="row" class="text-nowrap">string</td>
+            <td scope="row"></td>
+        </tr>
+        <tr>
+            <td scope="row"><b>ImageColor3</b></td>
+            <td scope="row"><code>ImageLabel/ImageColor3|ImageColor3</code> property for the image</td>
+            <td scope="row" class="text-nowrap"><code>Datatype/Color3</code></td>
+            <td scope="row" class="text-nowrap">[255, 255, 255]</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>ImageRectOffset</b></td>
+            <td scope="row"><code>ImageLabel/ImageRectOffset|ImageRectOffset</code> property for the image</td>
+            <td scope="row" class="text-nowrap"><code>Datatype/Vector2</code></td>
+            <td scope="row">0,&nbsp;0</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>ImageRectSize</b></td>
+            <td scope="row"><code>ImageLabel/ImageRectSize|ImageRectSize</code> property for the image</td>
+            <td scope="row" class="text-nowrap"><code>Datatype/Vector2</code></td>
+            <td scope="row">0,&nbsp;0</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>ScaleType</b></td>
+            <td scope="row"><code>ImageLabel/ScaleType|ScaleType</code> property for the image</td>
+            <td scope="row" class="text-nowrap"><code>Enum/ScaleType|Enum.ScaleType</code></td>
+            <td scope="row">Stretch</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>SliceCenter</b></td>
+            <td scope="row"><code>ImageLabel/SliceCenter|SliceCenter</code> property for the image; only applies if <b>ScaleType</b> is set to <code>Enum/ScaleType|Enum.ScaleType.Slice</code></td>
+            <td scope="row" class="text-nowrap"><code>Datatype/Rect</code></td>
+            <td scope="row" class="text-nowrap">0, 0, 0, 0</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>SliceScale</b></td>
+            <td scope="row"><code>ImageLabel/SliceScale|SliceScale</code> property for the image; only applies if <b>ScaleType</b> is set to <code>Enum/ScaleType|Enum.ScaleType.Slice</code></td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">1</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>TileSize</b></td>
+            <td scope="row"><code>ImageLabel/TileSize|TileSize</code> property for the image; only applies if <b>ScaleType</b> is set to <code>Enum/ScaleType|Enum.ScaleType.Tile</code></td>
+            <td scope="row" class="text-nowrap"><code>Datatype/UDim2</code></td>
+            <td scope="row" class="text-nowrap">1, 0, 1, 0</td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Background Gradient</h3>
+<p>A gradient background can be applied to bubbles by including a <code>BackgroundGradient</code> <span class="text-nowrap">sub-table</span> within the main settings table:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-4" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-4" data-toggle="tab" href="#nav-code-4" role="tab" aria-controls="nav-code-4" aria-selected="true">
+				<span class="txt">LocalScript - Bubble Background Gradient</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-4" data-toggle="tab" href="#nav-output-4" role="tab" aria-controls="nav-output-4" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-4" role="tabpanel" aria-labelledby="nav-code-tab-4">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local ChatService = game:GetService("Chat")
+ChatService.BubbleChatEnabled = true
+
+local bubbleChatSettings = {
+	CornerRadius = UDim.new(1, 0),
+	TailVisible = false,
+	TextSize = 28,
+	TextColor3 = Color3.fromRGB(0, 0, 0),
+	Font = Enum.Font.DenkOne,
+	Padding = 12,
+	<span class='highlighted'>BackgroundGradient = {</span>
+		<span class='highlighted'>Enabled = true,</span>
+		<span class='highlighted'>Rotation = 90,</span>
+		<span class='highlighted'>Color = ColorSequence.new(Color3.fromRGB(150, 225, 255), Color3.fromRGB(50, 115, 255)),</span>
+		<span class='highlighted'>Transparency = NumberSequence.new({</span>
+			<span class='highlighted'>NumberSequenceKeypoint.new(0, 0.2),</span>
+			<span class='highlighted'>NumberSequenceKeypoint.new(1, 0.5)</span>
+		<span class='highlighted'>})</span>
+	<span class='highlighted'>}</span>
+}
+-- Apply the settings
+ChatService:SetBubbleChatSettings(bubbleChatSettings)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-4" role="tabpanel" aria-labelledby="nav-output-tab-4">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="d-flex flex-wrap mt-3">
+<div class="col-auto pl-0 pr-5">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt5740b644c3c0d60f/BubbleChat-Background-Gradient-Base.png" class="mb-2 half-sized">
+<figcaption class="figure-caption text-center">Base Appearance</figcaption>
+</figure>
+</div>
+<div class="col-auto pl-0 pr-5">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltfe988972aaa91661/BubbleChat-Background-Gradient-Enabled.png" class="mb-2 half-sized">
+<figcaption class="figure-caption text-center">Gradient Enabled</figcaption>
+</figure>
+</div>
+</div>
+<table class="table table-striped table-bordered mt-2">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Description</th>
+            <th scope="col">Type</th>
+            <th scope="col">Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><b>Enabled</b></td>
+            <td scope="row">Whether the defined gradient is enabled</td>
+            <td scope="row" class="text-nowrap">boolean</td>
+            <td scope="row">false</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Color</b></td>
+            <td scope="row">The <code>UIGradient/Color|Color</code> property of the background gradient</td>
+            <td scope="row" class="text-nowrap"><code>Datatype/ColorSequence</code></td>
+            <td scope="row"><span class="text-nowrap">[150, 150, 150] &rarr;</span> <span class="text-nowrap">[250, 250, 250]</span></td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Offset</b></td>
+            <td scope="row">The <code>UIGradient/Offset|Offset</code> property of the background gradient</td>
+            <td scope="row" class="text-nowrap"><code>Datatype/Vector2</code></td>
+            <td scope="row">0,&nbsp;0</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Rotation</b></td>
+            <td scope="row">The <code>UIGradient/Rotation|Rotation</code> property of the background gradient</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">0</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>Transparency</b></td>
+            <td scope="row">The <code>UIGradient/Transparency|Transparency</code> property of the background gradient</td>
+            <td scope="row" class="text-nowrap"><code>Datatype/NumberSequence</code></td>
+            <td scope="row" class="text-nowrap">0 &rarr; 0</td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Animation</h3>
+<p>Bubble animation can be customized by including a <code>SizeAnimation</code> and/or <code>TransparencyAnimation</code> <span class="text-nowrap">sub-table</span> within the main settings table:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-5" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-5" data-toggle="tab" href="#nav-code-5" role="tab" aria-controls="nav-code-5" aria-selected="true">
+				<span class="txt">LocalScript - Bubble Animation</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-5" data-toggle="tab" href="#nav-output-5" role="tab" aria-controls="nav-output-5" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-5" role="tabpanel" aria-labelledby="nav-code-tab-5">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local ChatService = game:GetService("Chat")
+ChatService.BubbleChatEnabled = true
+
+local bubbleChatSettings = {
+	BackgroundColor3 = Color3.fromRGB(210, 210, 255),
+	TextSize = 22,
+	Padding = 10,
+	Font = Enum.Font.Cartoon,
+	CornerRadius = UDim.new(1, 0),
+	<span class='highlighted'>SizeAnimation = {</span>
+		<span class='highlighted'>SpringDampingRatio = 0.25</span>
+	<span class='highlighted'>},</span>
+	<span class='highlighted'>TransparencyAnimation = {</span>
+		<span class='highlighted'>SpringFrequency = 3</span>
+	<span class='highlighted'>}</span>
+}
+-- Apply the settings
+ChatService:SetBubbleChatSettings(bubbleChatSettings)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-5" role="tabpanel" aria-labelledby="nav-output-tab-5">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#SizeAnimation" role="tab">SizeAnimation</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#TransparencyAnimation" role="tab">TransparencyAnimation</a>
+  </div>
+</nav>
+<div class="tab-content">
+<!-- SizeAnimation -->
+<div class="tab-pane active show" id="SizeAnimation" role="tabpanel">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="21%">Key</th>
+            <th scope="col">Description</th>
+            <th scope="col" width="11%">Type</th>
+            <th scope="col" width="11%">Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><b>Enabled</b></td>
+            <td scope="row">Whether the defined size animation is enabled</td>
+            <td scope="row" class="text-nowrap">boolean</td>
+            <td scope="row">true</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>SpringDampingRatio</b></td>
+            <td scope="row">Damping ratio of the size animation; a value above&nbsp;1 will result in a slower, more rigid animation while a value between 0&nbsp;and&nbsp;1 will result in a bouncing effect</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">1</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>SpringFrequency</b></td>
+            <td scope="row">Frequency of the size animation; higher values will make the animation play faster</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">2</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<!-- TransparencyAnimation -->
+<div class="tab-pane" id="TransparencyAnimation" role="tabpanel">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="21%">Key</th>
+            <th scope="col">Description</th>
+            <th scope="col" width="11%">Type</th>
+            <th scope="col" width="11%">Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><b>Enabled</b></td>
+            <td scope="row">Whether the defined transparency animation is enabled</td>
+            <td scope="row" class="text-nowrap">boolean</td>
+            <td scope="row">true</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>SpringDampingRatio</b></td>
+            <td scope="row">Damping ratio of the transparency animation; a value above&nbsp;1 will result in a slower, more rigid animation while a value between 0&nbsp;and&nbsp;1 will result in a bouncing effect</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">1</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>SpringFrequency</b></td>
+            <td scope="row">Frequency of the transparency animation; higher values will make the animation play faster</td>
+            <td scope="row" class="text-nowrap">number</td>
+            <td scope="row">2</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Per-User Customization<span id="per-user-customization"></span></h2>
+<p>Bubbles can be customized <span class="text-nowrap">per-user</span> by including a <code>UserSpecificSettings</code> <span class="text-nowrap">sub-table</span> within the main settings table. Each key within the table should be a user’s <code>Player/UserId|UserId</code> and its value should be a table containing override settings for that user.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-6" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-6" data-toggle="tab" href="#nav-code-6" role="tab" aria-controls="nav-code-6" aria-selected="true">
+				<span class="txt">LocalScript - Larger Bubbles for Local User</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-6" data-toggle="tab" href="#nav-output-6" role="tab" aria-controls="nav-output-6" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-6" role="tabpanel" aria-labelledby="nav-code-tab-6">
+			
+			<pre class="prettyprint  linenums:01 lang-lua"><span class='highlighted'>local Players = game:GetService("Players")</span>
+local ChatService = game:GetService("Chat")
+ChatService.BubbleChatEnabled = true
+
+local bubbleChatSettings = {
+	<span class='highlighted'>UserSpecificSettings = {</span>
+		<span class='highlighted'>[Players.LocalPlayer.UserId] = {</span>
+			<span class='highlighted'>TextSize = 24,</span>
+			<span class='highlighted'>Padding = 12,</span>
+			<span class='highlighted'>BubblesSpacing = 8</span>
+		<span class='highlighted'>}</span>
+	<span class='highlighted'>}</span>
+}
+-- Apply the settings
+ChatService:SetBubbleChatSettings(bubbleChatSettings)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-6" role="tabpanel" aria-labelledby="nav-output-tab-6">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2 class="mt-2">NPC Bubbles</h2>
+<p>Chat bubbles can be shown above NPCs by calling the <code>Chat/Chat</code> method. You can also customize such bubbles by including a <code>UserSpecificSettings</code> table as outlined in <a href="#per-user-customization"><span class="text-nowrap">per-user customization</span></a>, but instead of a <code>Player/UserId|UserId</code>, use the <strong>full name</strong> of the part/attachment <span class="text-nowrap">(<code>Instance/GetFullName</code>).</span></p>
+<div class="alert alert-warning" role="alert">
+Typically, <code>Chat/Chat</code> should be called from a <span class="text-nowrap">server-side</span> <code>Script</code> so that messages propagate correctly to other users. However, in the case of NPC conversations which only need to appear to the specific user interacting with the NPC, it should be called from a <span class="text-nowrap">client-side</span> <code>LocalScript</code>.
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-7" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-7" data-toggle="tab" href="#nav-code-7" role="tab" aria-controls="nav-code-7" aria-selected="true">
+				<span class="txt">LocalScript - NPC Bubbles</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-7" data-toggle="tab" href="#nav-output-7" role="tab" aria-controls="nav-output-7" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-7" role="tabpanel" aria-labelledby="nav-code-tab-7">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local ChatService = game:GetService("Chat")
+ChatService.BubbleChatEnabled = true
+
+<span class='highlighted'>local npc = workspace:FindFirstChild("SpiderGirl")</span>
+<span class='highlighted'>local adornee = npc:FindFirstChild("HumanoidRootPart")</span>
+
+local bubbleChatSettings = {
+	<span class='highlighted'>UserSpecificSettings = {</span>
+		<span class='highlighted'>[adornee:GetFullName()] = {</span>
+			CornerRadius = UDim.new(0, 6),
+			TailVisible = false,
+			TextSize = 25,
+			TextColor3 = Color3.new(1, 1, 1),
+			Font = Enum.Font.SpecialElite,
+			Padding = 12,
+			BubbleDuration = 8,
+			BubblesSpacing = 4,
+			BackgroundGradient = {
+				Enabled = true,
+				Rotation = 90,
+				Color = ColorSequence.new(Color3.fromRGB(175, 0, 0), Color3.fromRGB(175, 0, 0)),
+				Transparency = NumberSequence.new({
+					NumberSequenceKeypoint.new(0, 0),
+					NumberSequenceKeypoint.new(1, 0.25)
+				})
+			}
+		}
+	}
+}
+-- Apply the settings
+ChatService:SetBubbleChatSettings(bubbleChatSettings)
+
+-- Display chat bubbles above the NPC adornee
+<span class='highlighted'>ChatService:Chat(adornee, "Welcome to our island, traveler!")</span>
+wait(3.5)
+<span class='highlighted'>ChatService:Chat(adornee, "I have potions and other magical items for sale")</span>
+wait(4.75)
+<span class='highlighted'>ChatService:Chat(adornee, "I also have some fresh gibblyboks in the chest...")</span>
+wait(5.25)
+<span class='highlighted'>ChatService:Chat(adornee, "Would you like to buy some?")</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-7" role="tabpanel" aria-labelledby="nav-output-tab-7">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt9e1cad173aaacc8d/NPC-Conversation.mp4"
+		width="864px"
+		height="486px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt9e1cad173aaacc8d/NPC-Conversation.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>chat</li>
+		  
+		    <li>bubble</li>
+		  
+		    <li>dialog</li>
+		  
+		    <li>npc</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="Text-and-Chat-Filtering.html"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="Text-and-Chat-Filtering.html">Text and Chat Filtering</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="Lua-Chat-System.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt812a36abb28581a8/Lua-Chat-System-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="Lua-Chat-System.html">Lua Chat System</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/bubble-chat by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:31:52 GMT -->
+</html>

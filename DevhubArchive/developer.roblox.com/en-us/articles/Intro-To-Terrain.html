@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/Intro-To-Terrain by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 18:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="Intro-To-Terrain.html"/>
+    <link rel="alternate" hreflang="x-default" href="Intro-To-Terrain.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="Intro-To-Terrain.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="Intro-To-Terrain.html"/>
+    
+      
+        
+          <title> Environments and Terrain Tools</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>Build custom landscapes&nbsp;and biomes using terrain tools</p>">
+
+
+
+<meta name="keywords" content="building, terrain, land, water">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Environments and Terrain Tools">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>Build custom landscapes&nbsp;and biomes using terrain tools</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Creating">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/creating.html">CREATING</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Environments and Terrain Tools</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/creating.html">CREATING</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Environments and Terrain Tools</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p><strong>Terrain tools</strong> allow you to create realistic landscapes like mountains, rivers, and canyons. This article explains the tools used for creating terrain.</p>
+<h2>Opening the Terrain Tools</h2>
+<p>The terrain tools can be opened from the <strong>Home</strong> tab or <strong>View</strong> tab.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt614b8c09002f5ad2/Toggle-Terrain-Editor.png" class="img-fluid half-sized mb-3">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6845290f9ed9f59f/Toggle-Terrain-Editor-View-Tab.png" class="img-fluid half-sized">
+<p>The editor window is divided into <strong>Create</strong>, <strong>Region</strong>, and <strong>Edit</strong> sections, each outlined in detail below.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt3f2b7ea9b76106e5/Terrain-Editor-Tabs.png" class="img-fluid half-sized mb-4">
+<hr class="mt-4 mb-4">
+<h2>Create Tab</h2>
+<h3>Generate</h3>
+<p>The <strong>Generate</strong> tool is used to create random landscapes. You can use this to quickly start a new landscape and then modify it based on your individual vision.</p>
+<table class="table table-striped table-bordered">
+<thead class="thead-dark">
+<tr>
+<th scope="col">Attribute</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>Position / Size</b></td>
+<td>Determines the world position and overall size of terrain map to generate.</td>
+</tr>
+<tr>
+<td scope="row"><b>Biomes</b></td>
+<td>Determines which types of biomes will be generated, for example water, hills, and mountains.</td>
+</tr>
+<tr>
+<td scope="row"><b>Biome Size</b></td>
+<td>Sets the size of biomes within the overall terrain map size.</td>
+</tr>
+<tr>
+<td scope="row"><b>Caves</b></td>
+<td>Sets whether caves will be generated in the terrain map.</td>
+</tr>
+<tr>
+<td scope="row"><b>Seed</b></td>
+<td>The random number &ldquo;seed&rdquo; associated with the terrain map. Modifying the seed lets you make varied terrain with the same biome parameters.</td>
+</tr>
+</tbody>
+</table>
+<h3>Import</h3>
+<p>The <strong>Import</strong> tool lets you import heightmaps and colormaps. This feature is outlined further in the <span class="text-nowrap"><code>/articles/importing terrain data|Importing Terrain Data</code></span> article.</p>
+<!--### Convert
+The **Convert** tool lets you create large or complex regions of terrain by converting `Part|Parts` to terrain. Generating terrain in this way requires that you select one or more parts, or a `Model` containing parts (only&nbsp;the parts will be converted).
+<table class="table table-striped table-bordered mb-3">
+<thead class="thead-dark">
+<tr>
+<th scope="col">Attribute</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row"><b>Material</b></td>
+<td>The appearance of converted terrain, for example ice, sand, water, or grass. Note that you can <span class="text-nowrap"><a href="#terrain-colors">customize the color</a></span> of these terrain materials.</td>
+</tr>
+</tbody>
+</table>
+<div class="alert alert-primary mb-4" role="alert">
+In all cases, the part(s) or model being converted will remain intact&nbsp;&mdash; conversion simply builds terrain around the associated geometry.
+</div>-->
+<h3>Clear</h3>
+<p>The <strong>Clear</strong> tool completely clears all terrain from the place.</p>
+<hr class="mt-4 mb-4">
+<h2>Region Tab</h2>
+<p>Tools in the <strong>Region</strong> tab speed up terrain creation by letting you work with large areas.</p>
+<h3>Manipulating Regions</h3>
+<p>To select and manipulate a region:</p>
+<ol class="mb-4">
+<li>Click the <b>Select</b> tool.</li>
+<li>Click and drag to create a region bounding box <span class="text-nowrap">(maximum of 512 studs along any axis).</span></li>
+<li>Manipulate the region with the <b>Move</b>, <b>Resize</b>, and <b>Rotate</b> tools. These tools are very similar to how they're used with parts, except that movement can only be done in increments of 4&nbsp;studs and rotation in 90&deg; increments.</li>
+</ol>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 420px; width:672px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt6b8a0bb565c156f5/Terrain-Regions.mp4"
+		width="672px"
+		height="420px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt6b8a0bb565c156f5/Terrain-Regions.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-2">Duplicating Regions</h3>
+<p>You can also copy and paste full selected regions — just click <strong>Copy</strong> and then <strong>Paste</strong> to create a new region.</p>
+<h3>Filling and Deleting</h3>
+<p>You can even fill or delete entire regions with a material:</p>
+<div class="d-flex flex-wrap mb-3">
+<div class="col-6 pl-0 pr-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blte340b555f2330df8/Terrain-Region-Filled.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">Filled region</figcaption>
+</figure>
+</div>
+<div class="col-6 pr-0 pl-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt65d50034ed5405ce/Terrain-Region-Deleted.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">Deleted region</figcaption>
+</figure>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">Merging Empty Regions</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>When you select a region, you also select all the “air” inside that region. When editing regions — moving, resizing, etc. — the <strong>Merge Empty</strong> option affects the outcome.</p>
+<div class="d-flex flex-wrap">
+<div class="w-50 pl-0 pr-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltb3881233692bf52e/Terrain-Merge-On.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption">If <strong>Merge Empty</strong> is <strong>on</strong>, Studio will combine the selected region with its surroundings. This is useful if you want to make sure a region naturally merges with what's around it, as shown here between the ice and stone.</figcaption>
+</figure>
+</div>
+<div class="w-50 pr-0 pl-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt9422bb69063ac79b/Terrain-Merge-Off.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption">If <strong>Merge Empty</strong> is <strong>off</strong>, Studio doesn't merge the region with what's currently there. This is useful if you want to keep a region exactly like it was built, as seen here by the &ldquo;air&rdquo; region remaining when the ice block is moved.</figcaption>
+</figure>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <hr class="mt-2 mb-4">
+<h2>Edit Tab</h2>
+<h3>Add / Subtract</h3>
+<p>The <strong>Add</strong> and <strong>Subtract</strong> tools are useful for building the majority of your environment, before you start <span class="text-nowrap">fine-tuning</span> details. These tools contain various attributes:</p>
+<table class="table table-striped table-bordered">
+<thead class="thead-dark">
+<tr>
+<th scope="col">Attribute</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row"><b>Brush Shape</b></td>
+<td>The shape of the brush; either a <b>sphere</b>, <b>cube</b>, or <b>cylinder</b>.</td>
+</tr>
+<tr>
+<td scope="row" class="text-nowrap"><b>Base Size / Height</b></td>
+<td>The size of the brush, ranging from 1 to 64. To set a <b>Height</b> that's different from the base size, click the small "lock" icon and select/enter a new value.
+<div class="d-flex flex-wrap">
+<div class="w-50 pl-0 pr-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf2b420a8bad0515d/IntroToTerrain_sphereLarge.jpg" class="img-fluid mt-3 mb-2">
+<figcaption class="figure-caption text-center">Brush at largest size</figcaption>
+</figure>
+</div>
+<div class="w-50 pr-0 pl-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt4721c46b0329f2c4/IntroToTerrain_smallSphere.jpg" class="img-fluid mt-3 mb-2">
+<figcaption class="figure-caption text-center">Brush at smallest size</figcaption>
+</figure>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Pivot Position</b></td>
+<td>The vertical anchor point of the brush in relation to existing terrain (bottom, center, or&nbsp;top).</td>
+</tr>
+<tr>
+<td scope="row"><b>Snap to Grid</b></td>
+<td>Whether or not the brush stays aligned to the <a href="#terrain-grid">terrain&nbsp;grid</a>.</td>
+</tr>
+<tr>
+<td scope="row"><b>Ignore Water</b></td>
+<td>Whether or not to ignore water when adding or subtracting <span class="text-nowrap">non-water</span> terrain. For example, you can toggle this on to avoid removal of water when using the <b>Subtract</b> tool.</td>
+</tr>
+<tr>
+<td scope="row" class="text-nowrap"><b>Auto Material</b></td>
+<td>When using the <b>Add</b> tool, blends new terrain with surrounding terrain.</td>
+</tr>
+<tr>
+<td scope="row"><b>Material</b></td>
+<td>The appearance of new terrain when using the <b>Add</b> tool, for example ice, sand, water, or grass. Note that you can <span class="text-nowrap"><a href="#terrain-colors">customize the color</a></span> of these terrain materials.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 420px; width:672px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt6e5b89b471e4b724/Terrain-Add-Subtract.mp4"
+		width="672px"
+		height="420px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt6e5b89b471e4b724/Terrain-Add-Subtract.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p><span id="terrain-grid"></span></p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">Using the Terrain Grid</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-2">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>When using the <strong>Add</strong> or <strong>Subtract</strong> tool, you’ll see a grid appear at your mouse. All terrain is created on this grid. As you click and drag your mouse to edit terrain, notice that the terrain is affected by the angle of the grid. Tilting and rotating the camera will change the grid angle.</p>
+<div class="d-flex flex-wrap">
+<div class="w-50 pl-0 pr-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt273370232d609c77/Terrain-Grid-Flat.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">Grid aligned flat along the ground</figcaption>
+</figure>
+</div>
+<div class="w-50 pr-0 pl-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltd3acb4fd5c24df71/Terrain-Grid-Angle.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">Grid aligned at 45&deg; angle to ground</figcaption>
+</figure>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Grow</h3>
+<p>The <strong>Grow</strong> tool slowly fills in areas with terrain which is useful for adding hills or smoothing out gaps.</p>
+<h3>Erode</h3>
+<p>The <strong>Erode</strong> tool slowly removes terrain. This is useful for creating caves, canyons, rivers, and lakes.</p>
+<h3>Smooth</h3>
+<p>The <strong>Smooth</strong> tool smoothes out terrain in the selected area. This is useful for making jagged terrain more natural and getting rid of sharp corners.</p>
+<h3>Flatten</h3>
+<p>The <strong>Flatten</strong> tool lets you create completely flat terrain, ideal for areas where you may want to place buildings or roads. In addition to various attributes outlined above, this tool includes two important options:</p>
+<table class="table table-striped table-bordered">
+<thead class="thead-dark">
+<tr>
+<th scope="col">Attribute</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>Flatten Mode</b></td>
+<td>
+<div class="container mt-1">
+<div class="row">
+<div class="col-auto mr-2 px-0">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt5fedb5a532eed649/Terrain-Erode-to-Flat.png" class="img-fluid half-sized mt-0 mb-2">
+</div>
+<div class="col ml-1 mr-0 px-0">
+<b>Erode to Flat</b>&nbsp;&mdash; Given a plane to flatten on, only terrain <b>above</b> the plane is removed.
+</div>
+</div>
+<div class="row">
+<div class="col-auto mr-2 px-0">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf4fbc685baa6964b/Terrain-Grow-to-Flat.png" class="img-fluid half-sized mt-0 mb-2">
+</div>
+<div class="col ml-1 mr-0 px-0">
+<b>Grow to Flat</b>&nbsp;&mdash; Given a plane to flatten on, only terrain <b>below</b> the plane is filled in.
+</div>
+</div>
+<div class="row">
+<div class="col-auto mr-2 px-0">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blte34ef4c41ecdccfc/Terrain-Flatten-All.png" class="img-fluid half-sized mt-0 mb-2">
+</div>
+<div class="col ml-1 mr-0 px-0">
+<b>Flatten All</b>&nbsp;&mdash; Given a desired plane to flatten on, a perfectly flat surface is generated (terrain above the plane is removed and terrain below the plane is filled&nbsp;in).
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td scope="row"><b>Fixed Plane</b></td>
+<td>When toggled on, locks the flatten plane to a specific <b>Y</b> position as defined by <b class="text-nowrap">Plane Position</b>. The plane's position can either be manually entered or selected with the "eyedropper" tool next to the value input field.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 420px; width:672px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blteb0bbcf9e21a86e4/Terrain-Grow-Erode-Smooth-Flatten.mp4"
+		width="672px"
+		height="420px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blteb0bbcf9e21a86e4/Terrain-Grow-Erode-Smooth-Flatten.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-2">Paint</h3>
+<p>The <strong>Paint</strong> tool changes the terrain’s current material, for example grass, rock, or water. This is useful for adding variations like dirt and rock patches in a grass field.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 420px; width:672px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/bltb0a16e71200e3c13/Terrain-Paint.mp4"
+		width="672px"
+		height="420px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/bltb0a16e71200e3c13/Terrain-Paint.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-2">Sea Level</h3>
+<p>The <strong>Sea Level</strong> tool lets you create a consistent water level across any region. To use it, enter a <span class="text-nowrap"><b>X</b>/<b>Y</b>/<b>Z</b></span> position and size, then click <strong>Create</strong> to flood the region with water or <strong>Evaporate</strong> to remove water.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 420px; width:672px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt90b32e9ab2ed5210/Terrain-Sea-Level.mp4"
+		width="672px"
+		height="420px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt90b32e9ab2ed5210/Terrain-Sea-Level.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+Alternatively to setting a strict <span class="text-nowrap"><b>X</b>/<b>Y</b>/<b>Z</b></span> size for the sea level region, you can drag the handle "globes" around the region box to resize it.
+</div>
+<h3>Replace</h3>
+<p>The <strong>Replace</strong> tool lets you replace one terrain material with another, either within a large box region or by using the terrain brush.</p>
+<table class="table table-striped table-bordered">
+<thead class="thead-dark">
+<tr>
+<th scope="col">Attribute</th>
+<th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row"><b>Method</b></td>
+<td>Select <b>Box</b> to replace all terrain within a defined region (position&nbsp;and&nbsp;size) or select <b>Brush</b> to replace terrain at the brush level.</td>
+</tr>
+<tr>
+<td scope="row" class="text-nowrap"><b>Source Material</b></td>
+<td>The existing terrain material you want to replace.</td>
+</tr>
+<tr>
+<td scope="row"><b>Target Material</b></td>
+<td>Which material to replace the source material with.</td>
+</tr>
+</tbody>
+</table>
+<hr class="mt-3 mb-4">
+<h2>Customizing Terrain</h2>
+<p>Terrain can be further customized by adjusting material colors or enabling decorations. These options are controlled through the <strong>Terrain</strong> object within <strong>Workspace</strong>.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcf20b6ab12c88079/Explorer-Terrain-Object.png" class="img-fluid half-sized">
+<h3>Material Colors<span id="terrain-colors"></span></h3>
+<p>Each terrain <strong>material</strong> like rock, ice, or grass has a default color, but you can customize these if desired. For example, if you’re building an arctic world or a volcanic wasteland, terrain colors may be adjusted to fit the theme.</p>
+<ol>
+<li>In the <strong>Properties</strong> window, expand the <span class="text-nowrap"><strong>Appearance</strong> → <strong>MaterialColors</strong></span> branch.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltce3d58ef8a0234b4/Properties-Terrain-Materials.png" class="img-fluid half-sized list-indent mb-3">
+<ol start="2">
+<li>Enter or select a new RGB value for any material and the terrain will update dynamically.</li>
+</ol>
+<div class="list-indent">
+<div class="d-flex flex-wrap">
+<div class="w-50 pl-0 pr-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta70cc35bed06c256/Terrain-Colors-Default.jpg" class="img-fluid mb-2">
+<figcaption class="figure-caption text-center">Default colors</figcaption>
+</figure>
+</div>
+<div class="w-50 pl-3 pr-0">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt75f2ba8d7a86af71/Terrain-Colors-Custom.jpg" class="img-fluid mb-2">
+<figcaption class="figure-caption text-center">Customized colors</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<h3>Water Properties</h3>
+<p>Water color and other water effects are controlled through separate properties in the <strong>Appearance</strong> section:</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Property</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><b>WaterColor</b></td>
+            <td scope="row">Changes water color from the default "aqua&nbsp;blue" to any other color. This is useful for creating water that looks like lava, slime, oil, etc.</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>WaterReflectance</b></td>
+            <td scope="row">Adjusts how much water surfaces reflect the sky and surrounding objects, from a value of <span class="text-nowrap">1 (high reflection)</span> to <span class="text-nowrap">0 (no reflection).</span></td>
+        </tr>
+        <tr>
+            <td scope="row"><b>WaterTransparency</b></td>
+            <td scope="row">Changes water clarity/transparency, from a value of <span class="text-nowrap">1 (fully clear)</span> to <span class="text-nowrap">0 (totally opaque,</span> like&nbsp;paint).</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>WaterWaveSize</b></td>
+            <td scope="row">Controls the size of waves on water, from a value of <span class="text-nowrap">1 (larger waves)</span> to <span class="text-nowrap">0 (no waves).</span></td>
+        </tr>
+        <tr>
+            <td scope="row"><b>WaterWaveSpeed</b></td>
+            <td scope="row">Controls the speed of the moving/flowing effect on water surfaces, from a value of <span class="text-nowrap">100 (very fast)</span> to <span class="text-nowrap">0 (non-moving water).</span></td>
+        </tr>
+    </tbody>
+</table>
+<div class="alert alert-primary mb-4" role="alert">
+Note that some water properties may only be apparent while playing. To preview all properties while editing, set <span class="text-nowrap"><b>Rendering</b> &rarr; <b>Edit Quality Level</b></span> to the highest level in Studio's settings.
+</div>
+<h3>Decoration</h3>
+<p>All terrain of the <strong>Grass</strong> material can be decorated with animated blades of grass by toggling on <strong>Decoration</strong>.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt9202fadfe4311a4e/Properties-Terrain-Decoration.png" class="img-fluid half-sized mb-3">
+<div class="d-flex flex-wrap">
+<div class="w-50 pl-0 pr-3">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltd6fcbe95fe6a18b1/Terrain-Decoration-Off.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">Decoration <b>off</b></figcaption>
+</figure>
+</div>
+<div class="w-50 pl-3 pr-0">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt081b605fbf60a743/Terrain-Decoration-On.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">Decoration <b>on</b></figcaption>
+</figure>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>building</li>
+		  
+		    <li>terrain</li>
+		  
+		    <li>land</li>
+		  
+		    <li>water</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="atmosphere.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt24b8281d27a898f5/Atmosphere-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="atmosphere.html">Atmosphere Controls</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="importing-terrain-data.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt28e17b5431ae0232/Heightmap-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="importing-terrain-data.html">Generating Terrain with Heightmaps</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="Scripting-With-Terrain.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt50c202c9bb7b1996/FillBlock.png);"> </span></a>
+          <h3 data-toc-skip><a href="Scripting-With-Terrain.html">Scripting Terrain</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/Intro-To-Terrain by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 18:57:27 GMT -->
+</html>

@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/using-avatar-importer by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:27:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="using-avatar-importer.html"/>
+    <link rel="alternate" hreflang="x-default" href="using-avatar-importer.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="using-avatar-importer.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="using-avatar-importer.html"/>
+    
+      
+        
+          <title> Importing Custom Characters</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>How to import custom characters from Blender or Maya</p>">
+
+
+
+<meta name="keywords" content="avatar, rig, model, import">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Importing Custom Characters">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>How to import custom characters from Blender or Maya</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Creating">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/creating.html">CREATING</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Importing Custom Characters</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/creating.html">CREATING</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Importing Custom Characters</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">15  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.custom-button {
+  opacity: 0.7;
+}
+.custom-button.active {
+  opacity: 1;
+}
+.custom-button.tab-right-margin {
+  margin-right: 1px;
+}
+</style>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Roblox offers two options for importing custom characters, each with distinct benefits and requirements.</p>
+<ul>
+<li><strong>R15</strong> — Best for humanoid characters with the traditional look and functionality of Roblox.</li>
+<li><strong>Custom</strong> — Great for <span class="text-nowrap">non-humanoid</span> characters such as animals, or for creating <span class="text-nowrap">ultra-realistic</span> animations. These characters are not compatible with <code>articles/roblox avatars|R15</code> animations.</li>
+</ul>
+<h2>General Conventions</h2>
+<p>Each rig type has its own distinct naming convention, hierarchy, and required pattern for joint placement as outlined under <a href="#r15-setup">R15 Rig Setup</a> and <a href="#custom-setup">Custom Rig Setup</a>. However, there are some commonalities about how all rigs should be prepped in Blender or Maya.</p>
+<ul>
+    <li>Units should be set to <strong>Centimeters</strong>.
+    <li>Mesh translate values should be <span class="nowrap">(<b>0</b>, <b>0</b>, <b>0</b>)</span> before being parented to the joints. 
+    <li>Joint rotation values should all be <span class="nowrap">(<b>0</b>, <b>0</b>, <b>0</b>)</span>.
+    <li>Joint scale values should remain at the default <span class="nowrap">(<b>1</b>, <b>1</b>, <b>1</b>)</span>.
+    <li>Extra or hidden joints and meshes should be deleted before exporting the file. 
+    <li>A maximum of one animation should be included (Studio will only recognize the first track if there are&nbsp;more).
+</ul>
+<h2>R15 Rig Setup</h2>
+<p>For <strong>R15</strong> models, each limb must be modeled as a <strong>separate</strong> piece. The image below shows the individual meshes slightly moved apart so you can see how each limb is sealed off as to be airtight.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt0fd511ce6e856065/ExplodedR15Lola3_sized.png" class="img-fluid half-sized">
+<p>Furthermore, each limb must be parented to the joint. Note that the model is not in a <span class="text-nowrap">T-pose,</span> but instead the arms are down.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt61f65d9a20d699b3/TheBirdcaller_sized.png" class="img-fluid half-sized">
+<h3>Heads / Faces</h3>
+<p><strong>R15</strong> avatars may be built with different head “types” and this determines if/when to apply a head or face texture.</p>
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="text-center w-50">Standard Head + 2D&nbsp;Face</th>
+            <th scope="col" class="text-center w-50">Full 3D Head</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="col"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt321362e1227b09ca/Face-Type-Standard-2D.jpg" class="img-fluid my-2 mx-auto"></td>
+            <td scope="col"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltd49ec9a910759a26/Face-Type-Full-3D.jpg" class="img-fluid my-2 mx-auto"></td>
+        </tr>
+        <tr>
+            <td scope="row">This option uses a standard head type and a face texture can be applied once <a href="#importing-to-studio">imported&nbsp;to&nbsp;Studio</a>. For models like this, you should <b>not</b> assign a texture to the head geo when exporting from Blender/Maya. Also, the face "plane" should be relatively flat and devoid of geometric shapes like a sharp nose, eye sockets, etc.</td>
+            <td scope="row">A full 3D head typically won't have a facial texture added in Studio. For example, the <a href="https://www.roblox.com/bundles/604/Bull-Demon-King" target="_new">Bull&nbsp;Demon&nbsp;King</a> head/face will always look like a bull. For models like this, you should assign a texture to the head geo <b>before</b> exporting from Blender/Maya.</td>
+        </tr>
+    </tbody>
+</table>
+<h3>Attachments</h3>
+<p><strong>Attachments</strong> are meshes which are positioned around the model, allowing Roblox character accessories to attach to it. When creating meshes for attachment placement, ensure that they’re properly embedded into the model’s mesh, and follow the naming convention in the <a href="#r15-overview">overview</a> below.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="margin-top: 10px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg-primary text-white collapsed" data-toggle="collapse" href="#ref_card-1" role="button" aria-expanded="false" aria-controls="card-1">Attachment Points »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse " id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Naming the attachment meshes ensures that the correct <a href="../api-reference/class/Attachment.html">Attachment</a> instances are created in Studio. The list of attachments are as follows:</p>
+<ul>
+<li>FaceCenter_Att</li>
+<li>FaceFront_Att</li>
+<li>Hat_Att</li>
+<li>Hair_Att</li>
+<li>LeftGrip_Att</li>
+<li>LeftShoulder_Att</li>
+<li>LeftCollar_Att</li>
+<li>RightGrip_Att</li>
+<li>RightShoulder_Att</li>
+<li>RightCollar_Att</li>
+<li>Neck_Att</li>
+<li>BodyBack_Att</li>
+<li>BodyFront_Att</li>
+<li>WaistFront_Att</li>
+<li>WaistCenter_Att</li>
+<li>WaistBack_Att</li>
+<li>LeftFoot_Att</li>
+<li>RightFoot_Att</li>
+</ul>
+<p>The attachments generated in Studio follow a similar naming schema where “_Att” is replaced with “Attachment”. For example, a 3D file with a <strong>BodyFront_Att</strong> mesh will import into Studio with a Attachment instance named <strong>BodyFrontAttachment</strong> automatically generated.</p>
+
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="d-flex flex-wrap">
+<div class="col-4 pl-0 pr-4 mt-2 mb-2">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltced8056c05680936/Attachment-Placement-Correct.png" class="img-fluid mb-0">
+<div style="background-color: #cfe9de;">
+<figure class="figure mx-auto text-center w-100">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt2de4b75f8a635fad/Circle-Y.png" class="img-fluid half-sized mx-auto mt-3 mb-2">
+<figcaption class="figure-caption text-center mb-3 px-2 text-dark">Attachment mesh halfway embedded into model's head</figcaption>
+</figure>
+</div>
+</div>
+<div class="col-4 pl-0 pr-4 mt-2 mb-2">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltd3d95bf767dbe086/Attachment-Placement-Incorrect.png" class="img-fluid mb-0">
+<div style="background-color: #f5dadb;">
+<figure class="figure mx-auto text-center w-100">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt31c7fd261f84f0cc/Circle-N.png" class="img-fluid half-sized mx-auto mt-3 mb-2">
+<figcaption class="figure-caption text-center mb-3 px-2 text-dark">Attachment mesh floating above the model's head</figcaption>
+</figure>
+</div>
+</div>
+</div><span id="rig-requirements"></span>
+<p>In overview, ensure that:<span id="r15-overview"></span></p>
+<ul>
+<li>All attachment meshes <span class="text-nowrap">(those ending in <b>_Att</b>)</span> should have the correct <b class="text-nowrap">case-sensitive</b> names according to the <a href="#R15-hierarchy">full model hierarchy</a> below. This will ensure that Roblox character accessories attach properly to your model.</li>
+<li>The <b>LeftGrip_Att</b> and <b>RightGrip_Att</b> attachments have a 90° rotation on the <strong>X</strong> axis, meaning their rotation should be <span class="text-nowrap">(<strong>90</strong>, <strong>0</strong>, <strong>0</strong>).</span></li>
+<li>The <b>Root_Att</b> attachment remains at the same position (unmoved) as <b>Root</b>, meaning its translations are <span class="text-nowrap">(<b>0</b>, <b>0</b>, <b>0</b>)</span>.<br>
+<span id="R15-hierarchy"></span></li>
+<li>For compatibility with <code>articles/roblox avatars|R15</code> animations, arms should be <b>straight down</b> rather than in a <span class="text-nowrap">T-pose</span> or <span class="text-nowrap">A-pose</span>.</li>
+</ul>
+<!-- FULL HIERARCHY -->
+<p><a class="btn btn-primary w-75 mt-2 mb-1" data-toggle="collapse" href="#collapseR15" role="button" aria-expanded="false" aria-controls="collapseR15">Full Model Hierarchy</a></p>
+<div class="collapse" id="collapseR15">
+<div class="container-fluid mx-0 my-0">
+<div class="row">
+<div class="col px-0 mx-0">
+<!-- SELECTOR START -->
+<nav class="mt-0">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#R15Blender" role="tab">Blender</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#R15Maya" role="tab">Maya</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="R15Blender" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltd90bac2dfc2b52da/Rig-Hierarchy-Birdcaller-Blender.png" class="img-fluid mb-0"></div>
+  <div class="tab-pane" id="R15Maya" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt4506122a55ee090c/Rig-Hierarchy-Birdcaller-Maya.png" class="img-fluid mb-0"></div>
+</div>
+<!-- SELECTOR END -->
+</div>
+</div>
+</div>
+</div>
+<h2>Custom Rig Setup</h2>
+<p>Custom rigs which don’t need to be starter characters nor compatible with <span class="text-nowrap"><code>articles/roblox avatars|R15</code> animations</span> can have any amount of meshes/joints and no naming or hierarchy convention needs to be followed.</p>
+<p>The puffer fish below happens to have one mesh and six bones.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#CustomBlender" role="tab">Blender</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#CustomMaya" role="tab">Maya</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="CustomBlender" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt4bb04a25e0f78eae/Rig-Hierarchy-Custom-Blender.png" class="img-fluid mb-0"></div>
+  <div class="tab-pane" id="CustomMaya" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcdb7fde58e39a44b/Rig-Hierarchy-Custom-Maya.png" class="img-fluid mb-0"></div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2 class="mt-4">Exporting Models</h2>
+<p>Please review the following guidelines depending on whether you’re exporting from Blender or Maya. Keep in mind that Studio will only be able to import one animation at a time. This will typically be the first track, so it’s recommended that you create separate exports for each animation.</p>
+<nav class="mt-1">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#ExportBlender" role="tab">Blender</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#ExportMaya" role="tab">Maya</a>
+  </div>
+</nav>
+<div class="tab-content">
+<div class="tab-pane active show" id="ExportBlender" role="tabpanel">
+<div class="card border-secondary mb-3" style="border-radius: 0px 0.25rem 0.25rem 0.25rem;">
+<div class="card-body">
+<p>Before exporting a character from Blender, make sure to set the units to <b>Centimeters</b>. Then, set the following in the <span class="text-nowrap"><b>Export</b> &rarr; <b>FBX</b></span> window:</p>
+<table class="table table-bordered mt-2 mb-0">
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">Path Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan=2>If you are exporting textures as embedded media, set <b class="text-nowrap">Path Mode</b> to <b>Copy</b> and click the box to its right so it looks like a paper is popping out (note that this only works for binary <b>.fbx</b> exports, not ASCII)</td>
+</tr>
+</tbody>
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">Include</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap" style="width: 30%;"><b>Camera</b> button</td>
+<td>Off</td>
+</tr>
+<tr>
+<td scope="row" class="text-nowrap"><b>Lamp</b> button</td>
+<td>Off</td>
+</tr>
+</tbody>
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">Bake Animation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan=2>Disabled unless you intend to <a href="#importing-animations">import&nbsp;animations</a> to Studio</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="ExportMaya" role="tabpanel">
+<div class="card border-secondary mb-3" style="border-radius: 0px 0.25rem 0.25rem 0.25rem;">
+<div class="card-body">
+<p>Before exporting a character from Maya, make sure to set the units to <b>Centimeters</b>. Models can be exported using the <b class="text-nowrap">Game Exporter</b> or <span class="text-nowrap"><b>File</b> &rarr; <b>Export All</b></span> with the following settings:</p>
+<table class="table table-bordered mt-2 mb-0">
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">Geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap" style="width: 30%;"><b>Smooth Mesh</b></td>
+<td>Enabled</td>
+</tr>
+<tr>
+<td scope="row" class="text-nowrap"><b>Referenced Assets Content</b></td>
+<td>Enabled</td>
+</tr>
+</tbody>
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>Automatic</b></td>
+<td>Enabled</td>
+</tr>
+</tbody>
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">Axis Conversion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>Up Axis</b></td>
+<td>Y</td>
+</tr>
+</tbody>
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">FBX File Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>Type</b></td>
+<td>Binary</td>
+</tr>
+<tr>
+<td scope="row" class="text-nowrap"><b>Version</b></td>
+<td>Any &nbsp;FBX</td>
+</tr>
+</tbody>
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">Embed Media</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>Embed Media</b></td>
+<td>Enabled if exporting textures; when referencing files as part of the texture, they should be <b>.png</b> format</td>
+</tr>
+</tbody>
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">Animation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>Animation</b></td>
+<td>Disabled unless you intend to <a href="#importing-animations">import&nbsp;animations</a> to Studio</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div><span id="importing"></span>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2 class="mt-2">Importing to Studio</h2>
+<p>Once the rig is exported, it can be imported into Roblox via the <b class="text-nowrap">Avatar Importer</b>.</p>
+<h3>R15</h3>
+<p>To practice importing an <code>articles/roblox avatars|R15</code> rig, download <a href="https://dk135eecbplh9.cloudfront.net/assets/blt7873f200111ac711/TheBirdcaller_Rigged.fbx">The Birdcaller</a> example file and proceed as follows:</p>
+<p><a href="https://dk135eecbplh9.cloudfront.net/assets/blt7873f200111ac711/TheBirdcaller_Rigged.fbx" target="_new" role="button" class="btn btn-lg bg-success mt-0 mb-2 w-75"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i>  R15 Example File – The Birdcaller</a></p>
+<ol>
+<li>From the <b>Plugins</b> tab, click the <b>Avatar Importer</b> button.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltebffd23d44be8b31/Avatar-Importer-Button.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Click <b>R15</b> from the four options.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6f83dd2335bd55e9/Avatar-Importer-Choices-R15.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>Browse to the downloaded file (<samp>TheBirdcaller_Rigged.fbx</samp>). In Studio, it should import as <b>ImportedR15Rig</b> within the workspace.</li>
+</ol>
+<div class="d-flex flex-xl-nowrap flex-lg-wrap-reverse flex-md-wrap-reverse flex-sm-wrap-reverse list-indent">
+<div>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta273531e9a27f605/Birdcaller-Imported.jpg" class="half-sized mr-3 mb-4">
+</div>
+<div>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltba58b0900d5a5a12/Explorer-ImportedR15Rig.png" class="img-fluid half-sized mb-2">
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="margin-top: 10px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg-primary text-white collapsed" data-toggle="collapse" href="#ref_card-2" role="button" aria-expanded="false" aria-controls="card-2">Applying a Face Texture »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse " id="ref_card-2">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>For rigs with a <span class="text-nowrap">user-driven</span> (customizable) 2D face, the texture must be applied to its <strong>face</strong> object within Studio.</p>
+<ol>
+<li>Expand the <strong>Head</strong> branch of the imported character and select the <span class="text-nowrap"><strong>face</strong> decal.</span></li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt49cd0138cd736406/Imported-Rig-Face-Decal.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Locate its <strong>Texture</strong> property and paste in a valid asset ID. This can be an image that you’ve uploaded or a facial image from the <a href="https://www.roblox.com/catalog?Category=4&amp;Subcategory=10" target="_new">Avatar Shop</a>. Once applied, it should appear as a face texture.</li>
+</ol>
+<div class="d-flex flex-xl-nowrap flex-lg-wrap-reverse flex-md-wrap-reverse flex-sm-wrap-reverse list-indent">
+<div>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt94c00c4f7a9753c2/Birdcaller-Face-Applied.jpg" class="half-sized mr-3 mb-1">
+</div>
+<div>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta7b32de559a2b3f8/Imported-Rig-Face-Texture.png" class="img-fluid half-sized mb-2">
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="margin-top: -10px; margin-bottom: -10px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg-primary text-white collapsed" data-toggle="collapse" href="#ref_card-3" role="button" aria-expanded="false" aria-controls="card-3">Testing in Studio »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse " id="ref_card-3">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Rigs that will be used as a player’s <span class="text-nowrap">in-game</span> character can be tested as follows:</p>
+<ol>
+<li>Move the <strong>ImportedR15Rig</strong> into the <strong>StarterPlayer</strong> folder.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt7ed1c45931da92ee/Avatar-Importer-Testing-1.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Rename it to <strong>StarterCharacter</strong> and then playtest the game. If you get errors, make sure the model’s <code>Model/PrimaryPart|PrimaryPart</code> is set to the <strong>HumanoidRootPart</strong> within the rig.</li>
+</ol>
+<div class="d-flex flex-xl-nowrap flex-lg-wrap flex-md-wrap flex-sm-wrap list-indent">
+<div>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt32939b8f9c4cb921/Avatar-Importer-Testing-2.png" class="img-fluid half-sized mr-3 mb-1">
+</div>
+<div>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc9528d3a9d619e3f/PrimaryPart-HumanoidRootPart.png" class="img-fluid half-sized mb-1">
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Custom</h3>
+<p>If <code>articles/roblox avatars|R15</code> compatibility is not necessary, follow the same process above but select <strong>Custom</strong> from the four options.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2 class="mt-2">Importing Animations</h2>
+<p>Animations can be imported using the <code>articles/using animation editor|Animation Editor</code> and played back through a <code>Humanoid</code> or <code>Animator</code> as per regular part animations <span class="text-nowrap">(see <code>articles/using animations in games|Using Animations in Games</code>).</span></p>
+<p>When exporting an animation from a .fbx, it’s important to consider:</p>
+<ul>
+<li>Studio will only import the <strong>first track</strong> of any given <b>.fbx</b>.</li>
+<li>Export time is proportional to FBX size (joints and frames)</li>
+<li>Exporting under your name will mean only you have access and can view the animations in Studio.</li>
+<li>You will still need to clean up your character after you’ve finished the export by removing the vestigial “AnimSaves” folder if you also intend on using the same character model for your place file.</li>
+</ul>
+<p>To import animations from a <b>.fbx</b>, follow these steps:</p>
+<ol>
+<li>From the <strong>Plugins</strong> tab, click <b>Animation Editor</b>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta7879a1d74cb8816/Animation-Editor-Button.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Select the <a href="#importing">imported rig</a> in Studio.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltba58b0900d5a5a12/Explorer-ImportedR15Rig.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>If prompted, type in a new animation name and click <strong>Create</strong> in the dialog.</li>
+<li>Click the <img src="../../../dk135eecbplh9.cloudfront.net/assets/blte0d5f0fc3f059570/Animation-Editor-Menu-Dots.png" class="d-inline my-0 align-text-bottom half-sized"> button in the <span class="text-nowrap">upper-left</span> section of the editor window, then select <span class="text-nowrap"><strong>Import</strong> → <strong>From FBX Animation</strong></span>.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltbf3562f50f89fc71/Animation-Editor-Control-Bar-Menu.png" class="img-fluid half-sized list-indent">
+<ol start="5">
+<li>Browse to and select the desired <strong>.fbx</strong> file.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>avatar</li>
+		  
+		    <li>rig</li>
+		  
+		    <li>model</li>
+		  
+		    <li>import</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="How-to-Make-Shirts-and-Pants-for-Roblox-Characters.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt4ed70dfceae0c4f6/Making-Avatar-Clothing-Thumbnail.jpg);"> </span></a>
+          <h3 data-toc-skip><a href="How-to-Make-Shirts-and-Pants-for-Roblox-Characters.html">Making Avatar Clothing</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="roblox-avatars.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blte5114f63119c5551/Roblox-Avatars-Thumbnail.jpg);"> </span></a>
+          <h3 data-toc-skip><a href="roblox-avatars.html">Roblox Avatars</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/using-avatar-importer by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:27:44 GMT -->
+</html>

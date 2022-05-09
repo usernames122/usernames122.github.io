@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/resources/studio/Asset-Manager by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:32:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="Asset-Manager.html"/>
+    <link rel="alternate" hreflang="x-default" href="Asset-Manager.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="Asset-Manager.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="Asset-Manager.html"/>
+    
+      
+        
+          <title> Asset Manager</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container generic-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                      
+
+      
+      
+        <!-- has an index -->
+        <div class="bd-sidebar">
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              
+              
+
+              <h5 class="bd-toc-heading">Tutorials</h5>
+
+              
+              
+                
+                  
+                  <div class="bd-toc-item resources">
+                    <a class="bd-toc-link" href="javascript:void(0)">
+                      <i class="fa fa-angle-down rotate-icon"></i>
+                      <span>Studio Guide</span>
+                    </a>
+                    <ul class="sub-nav display-none">
+
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Landing-Page.html">
+                              Studio Quick Reference
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="File-Menu.html">
+                              File Menu
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Home-Tab.html">
+                              Home Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Model-Tab.html">
+                              Model Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Test-Tab.html">
+                              Test Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="View-Tab.html">
+                              View Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Plugins-Tab.html">
+                              Plugins Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Script-Menu-Tab.html">
+                              Script Menu Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Explorer.html">
+                              Explorer Window
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Asset-Manager.html">
+                              Asset Manager
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Toolbox.html">
+                              Toolbox
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Studio-Shortcuts.html">
+                              Roblox Studio Shortcuts
+                            </a>
+                          </li>
+                        
+                      
+
+                    </ul>
+                  </div>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+
+            </div>
+          </nav>
+        </div>
+
+      
+      
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+
+        
+        
+          
+
+  
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+        <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+        </span>
+      
+      
+        <div class="bd-sidebar">
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              
+              
+
+              <h5 class="bd-toc-heading">Tutorials</h5>
+
+              
+              
+                
+                  
+                  <div class="bd-toc-item resources">
+                    <a class="bd-toc-link" href="javascript:void(0)">
+                      <i class="fa fa-angle-down rotate-icon"></i>
+                      <span>Studio Guide</span>
+                    </a>
+                    <ul class="sub-nav display-none">
+
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Landing-Page.html">
+                              Studio Quick Reference
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="File-Menu.html">
+                              File Menu
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Home-Tab.html">
+                              Home Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Model-Tab.html">
+                              Model Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Test-Tab.html">
+                              Test Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="View-Tab.html">
+                              View Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Plugins-Tab.html">
+                              Plugins Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Script-Menu-Tab.html">
+                              Script Menu Tab
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Explorer.html">
+                              Explorer Window
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Asset-Manager.html">
+                              Asset Manager
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Toolbox.html">
+                              Toolbox
+                            </a>
+                          </li>
+                        
+                      
+                        
+                          
+                          <li data-sub-category="Studio Guide" class="display-none">
+                            <a href="Studio-Shortcuts.html">
+                              Roblox Studio Shortcuts
+                            </a>
+                          </li>
+                        
+                      
+
+                    </ul>
+                  </div>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+
+            </div>
+          </nav>
+        </div>
+
+      
+      
+      </div>
+    </div>
+  </div>
+
+
+        
+
+        
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+
+            
+              <h1 data-toc-skip>Asset Manager</h1>
+            
+          </div>
+        </div>
+
+        
+        
+          
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        
+
+        
+        
+          <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+        
+          <div class="l-content toc-scope">
+            
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+            </p>
+
+            
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+
+              
+                <h1 data-toc-skip>Asset Manager</h1>
+              
+            </div>
+
+            
+            
+
+            
+            
+              
+            
+
+            
+            <div class="page-elements">
+              
+              
+                
+                  
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>The <strong>Asset Manager</strong> window lets you manage images, <code>articles/Mesh Parts|meshes</code>, <code>articles/roblox packages|packages</code>, <code>articles/sounds and music|audio</code>, and <code>articles/games and places|places</code> in your game. It also provides a mechanism to bulk import multiple game assets.</p>
+<h2>Place Name/ID</h2>
+<p>The top bar shows information about the currently open place, including its name and ID.</p>
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/bltfe61f2b24c71caff/Asset-Manager-Place-ID.png" class="img-fluid half-sized">
+<h2>Asset Folders</h2>
+<p>Assets are organized within folders based on their type. You can switch between <b class="text-nowrap">grid view</b> and <b class="text-nowrap">list view</b> by clicking the view toggle button:</p>
+<div class="d-inline-flex flex-nowrap">
+<div class="col-auto pl-0 pr-3">
+<figure class="figure">
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/blt4220feee612e5b3b/Asset-Manager-Grid-View.png" class="img-fluid mb-2 half-sized">
+<figcaption class="figure-caption text-center">Grid View</figcaption>
+</figure>
+</div>
+<div class="col-auto pl-3 pr-0">
+<figure class="figure">
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/bltc4e9105f3ef8990e/Asset-Manager-List-View.png" class="img-fluid mb-2 half-sized">
+<figcaption class="figure-caption text-center">List View</figcaption>
+</figure>
+</div>
+</div>
+<h3>Places</h3>
+<p>This folder contains all of the game’s <code>articles/games and places|places</code>. While a game can be made up of many places, each will have just one <strong>starting place</strong> marked with the <img src="../../../../dk135eecbplh9.cloudfront.net/assets/bltaa05466e4937afd2/Start-Place-Icon.png" class="d-inline align-text-bottom my-0" width=20> icon. To add a new place into the game, <span class="text-nowrap">right-click</span> in any empty region of the window <span class="text-nowrap">(not over a place tile/name)</span> and select <b class="text-nowrap">Add New Place</b>.</p>
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/bltd7bfb8f47b8b4408/Asset-Manager-Places-Folder.png" class="img-fluid half-sized">
+<h3>Images</h3>
+<p>This folder contains both images and decals. Once an item has been added, it can be used as a <span class="text-nowrap"><code>articles/textures and decals|part texture</code>,</span> <span class="text-nowrap"><code>articles/Mesh Parts#applying-textures|mesh texture</code>,</span> image for a <span class="text-nowrap"><code>articles/Particle Emitters|particle emitter</code>,</span> etc.</p>
+<h3>Meshes</h3>
+<p>This folder contains <code>articles/Mesh Parts|meshes</code> used in the game. Meshes can be imported like other assets or you can search for meshes in the <a href="Toolbox.html">Toolbox</a>.</p>
+<h3>Packages</h3>
+<p>Converting assets to <code>articles/roblox packages|packages</code> lets you <span class="text-nowrap">re-use</span> them in as many games as you’d like. Packages used within any place in the game appear in this folder.</p>
+<h3>Audio</h3>
+<p>This folder contains <code>articles/sounds and music|audio</code> (music and sound effects) that you’ve uploaded to use in the game.</p>
+<h2>Bulk Importing</h2>
+<p>The Asset Manager window is ideal for importing an entire batch of images, meshes, or audio files.</p>
+<ol>
+<li>Click the <strong>Import</strong> button.</li>
+</ol>
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/blt6d000574d5048053/Asset-Manager-Import-Button.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>Select all of the files you want to import from your local machine. It may be helpful to put them into a dedicated folder before importing.</li>
+<li>Confirm the selections and Studio will proceed with the upload process. As it does, you can monitor the status in the <b class="text-nowrap">Bulk Importer</b> widget that will automatically open.</li>
+</ol>
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/blt327a1281a4500407/Asset-Manager-Items-Imported-1.png" class="img-fluid half-sized list-indent">
+<ol start="4">
+<li>After the import process is complete, the items will appear in their proper folders.</li>
+</ol>
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/blt49337d03090df1ab/Asset-Manager-Items-Imported-2.png" class="img-fluid half-sized list-indent">
+      </div>
+    
+  
+
+
+
+                
+                  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="margin-top: 15px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">Import Guidelines</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <ul class="mb-0 pl-4">
+<li>You can import a maximum of 50 files in one batch.</li>
+<li>Acceptable image file formats include <b>.png</b>, <b>.jpg</b>, <b>.tga</b>, or <b>.bmp</b>.</li>
+<li>Acceptable mesh file formats include <b>.fbx</b> or <b>.obj</b>.</li>
+<li>Acceptable audio file formats include <b>.mp3</b> or <b>.ogg</b>.</li>
+</ul>
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+                
+                  
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <h2>Quick Actions</h2>
+<p>Quick actions are accessible by <span class="text-nowrap">right-clicking</span> an asset thumbnail and selecting a context option.</p>
+<!-- Pill Buttons -->
+<div class="mx-0 mt-3 mb-3">
+<nav class="nav nav-pills">
+<a class="nav-item nav-link mr-2 mb-0 px-5 border border-primary active" role="button" data-toggle="pill" href="#managing-assets-places">Places</a>
+<a class="nav-item nav-link mr-2 mb-0 px-5 border border-primary" role="button" data-toggle="pill" href="#managing-assets-images">Images</a>
+<a class="nav-item nav-link mr-2 mb-0 px-5 border border-primary" role="button" data-toggle="pill" href="#managing-assets-meshes">Meshes</a>
+<a class="nav-item nav-link mr-2 mb-0 px-5 border border-primary" role="button" data-toggle="pill" href="#managing-assets-packages">Packages</a>
+<a class="nav-item nav-link mr-0 mb-0 px-5 border border-primary" role="button" data-toggle="pill" href="#managing-assets-audio">Audio</a>
+</nav>
+</div>
+<div class="tab-content">
+<!---------------------- Places ---------------------->
+<div id="managing-assets-places" class="tab-pane active">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Quick&nbsp;Action</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Rename</b></td>
+            <td scope="row">Lets you enter a new name for the place.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Copy ID to Clipboard</b></td>
+            <td scope="row">Copies the place ID to the clipboard.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>View History</b></td>
+            <td scope="row">Opens the place version history, letting you view previous commits (publish&nbsp;actions) and their date/time. If&nbsp;desired, you can roll back to a previous version by selecting it and clicking the <b>Open</b> button.</td>
+        </tr>
+	<tr>
+            <td scope="row" class="text-nowrap"><b>Remove From Game</b></td>
+            <td scope="row">Completely removes the place from the game. Does not apply to the <b>starting&nbsp;place</b>.</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<!---------------------- Images ---------------------->
+<div id="managing-assets-images" class="tab-pane">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Quick&nbsp;Action</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Edit Asset</b></td>
+            <td scope="row">Lets you edit general details such as the image title and description.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Rename Alias</b></td>
+            <td scope="row">Renames the image alias in the Asset&nbsp;Manager.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Insert</b></td>
+            <td scope="row">Inserts the image into the selected instance (or&nbsp;the workspace).</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Copy ID to Clipboard</b></td>
+            <td scope="row">Copies the image ID to the clipboard.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Remove From Game</b></td>
+            <td scope="row">Removes the image from the Asset&nbsp;Manager but does not currently remove its instances from the game.</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<!---------------------- Meshes ---------------------->
+<div id="managing-assets-meshes" class="tab-pane">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Quick&nbsp;Action</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Edit Asset</b></td>
+            <td scope="row">Lets you edit general details such as the mesh title and description.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Rename Alias</b></td>
+            <td scope="row">Renames the mesh alias in the Asset&nbsp;Manager.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Insert</b></td>
+            <td scope="row">Inserts the mesh into the workspace.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Insert With Location</b></td>
+            <td scope="row">Inserts the mesh into the workspace, retaining location data stored during the mesh import process.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Copy ID to Clipboard</b></td>
+            <td scope="row">Copies the mesh ID to the clipboard.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Copy Texture ID to Clipboard</b></td>
+            <td scope="row">Copies the mesh <code>MeshPart/TextureID|TextureID</code> to the clipboard.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Remove From Game</b></td>
+            <td scope="row">Removes the mesh from the Asset&nbsp;Manager but does not currently remove its instances from the game.</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<!---------------------- Packages ---------------------->
+<div id="managing-assets-packages" class="tab-pane">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Quick&nbsp;Action</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Insert</b></td>
+            <td scope="row">Inserts a copy of the package into the workspace.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Update All</b></td>
+            <td scope="row">Updates the package on a <span class="text-nowrap">game-wide</span> scale. See <code>articles/roblox packages#mass-updating-packages|here</code> for details.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>View On Website</b></td>
+            <td scope="row">Opens up your browser to the package asset page.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Copy ID to Clipboard</b></td>
+            <td scope="row">Copies the package ID to the clipboard.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Package Details</b></td>
+            <td scope="row">Lets you manage basic package details, access permissions, and package versions.</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<!---------------------- Audio ---------------------->
+<div id="managing-assets-audio" class="tab-pane">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Quick&nbsp;Action</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Edit Asset</b></td>
+            <td scope="row">Lets you edit general details such as the audio item title and description.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Rename Alias</b></td>
+            <td scope="row">Renames the item alias in the Asset&nbsp;Manager.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Insert</b></td>
+            <td scope="row">Inserts the audio as a <code>Sound</code> object into the selected instance (or&nbsp;the workspace).</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Copy ID to Clipboard</b></td>
+            <td scope="row">Copies the audio file ID to the clipboard.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Remove From Game</b></td>
+            <td scope="row">Removes the item from the Asset&nbsp;Manager but does not currently remove its instances from the game.</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+<h2>Filtering Assets</h2>
+<p>The top bar contains a filter tool that lets you filter assets in the current folder — just type in a filter query and the view will update to show matching assets.</p>
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/blt8cfaaccf6cef2621/Asset-Manager-Filtered.png" class="img-fluid half-sized">
+<h2>Asset Inspection</h2>
+<p>An image, mesh, audio file, or package can be closely inspected by hovering over its thumbnail and clicking the “magnify” icon.</p>
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/blt4c20d24b485eb1af/Asset-Manager-Inspect-Button.png" class="img-fluid half-sized">
+<h3>Preview</h3>
+<p>The <strong>preview</strong> frame lets you see the item up close and, for 3D items like meshes, move the virtual camera around.</p>
+<div class="row">
+<div class="col-auto">
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/blte21e9bab371610b6/Asset-Manager-Inspect-Preview.png" class="img-fluid half-sized">
+</div>
+<div class="col">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Context Action</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Left Mouse Button</b></td>
+            <td scope="row">Rotate around the item.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Right Mouse Button</b></td>
+            <td scope="row">Pan (slide) left, right, up, or down.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Mouse Scroll Wheel</b></td>
+            <td scope="row">Zoom in or out.</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+<h3>Composition</h3>
+<p>For <code>articles/roblox packages|packages</code>, the composition button in the <span class="text-nowrap">lower-right</span> corner of the preview frame reveals the full package hierarchy.</p>
+<img src="../../../../dk135eecbplh9.cloudfront.net/assets/bltf696bd38752b1fc5/Toolbox-Item-Hierarchy.png" class="img-fluid half-sized">
+<h3>Info and Actions</h3>
+<p>Below the preview frame is additional info and context actions for the asset:</p>
+<ul>
+<li>View the asset’s creator, type, creation date/time, and when it was last updated.</li>
+<li>Use the <img src="../../../../dk135eecbplh9.cloudfront.net/assets/blt5153ab1802282c46/Toolbox-File-Button.png" class="d-inline my-0 align-text-bottom" width=23> button to edit the asset, rename its alias, insert it into the place, copy its ID, or remove it from the game.</li>
+<li>Click the <strong>Insert</strong> button to insert the asset into the current place.</li>
+</ul>
+
+      </div>
+    
+  
+
+
+
+                
+              
+	          </div>
+
+            
+            
+
+
+
+            
+            
+            
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/resources/studio/Asset-Manager by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:32:51 GMT -->
+</html>

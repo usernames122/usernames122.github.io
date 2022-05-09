@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/utilizing-localization-apis by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:29:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="utilizing-localization-apis.html"/>
+    <link rel="alternate" hreflang="x-default" href="utilizing-localization-apis.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="utilizing-localization-apis.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="utilizing-localization-apis.html"/>
+    
+      
+        
+          <title> Utilizing Localization APIs</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>How to  use scripts to fetch/format translations from&nbsp;the localization portal</p>">
+
+
+
+<meta name="keywords" content="localization, language, translation, international, format">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Utilizing Localization APIs">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>How to  use scripts to fetch/format translations from&nbsp;the localization portal</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="International">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/international.html">INTERNATIONAL</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Utilizing Localization APIs</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/international.html">INTERNATIONAL</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Utilizing Localization APIs</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">5  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>When necessary, you can use scripts to fetch and format translations that were added to the <span class="text-nowrap"><code>articles/Introduction to Localization on Roblox|localization portal</code></span>.</p>
+<h2>Loading a Translator</h2>
+<p>When you’re ready to translate using APIs, you should first fetch a <code>Translator</code> instance.</p>
+<h3>Player Locale</h3>
+<p>The <code>LocalizationService/GetTranslatorForPlayerAsync|GetTranslatorForPlayerAsync()</code> API, when called on the <code>Players/LocalPlayer|LocalPlayer</code> property, will fetch a <code>Translator</code> for whichever language the player’s Roblox account is set to.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			
+			<pre class="prettyprint  linenums:1 lang-lua">local LocalizationService = game:GetService("LocalizationService")
+
+<span class='highlighted'>local success, translator = pcall(function()</span>
+	<span class='highlighted'>return LocalizationService:GetTranslatorForPlayerAsync(game.Players.LocalPlayer)</span>
+<span class='highlighted'>end)</span>
+
+if success then
+
+else
+	warn("Cannot load translator for player!")
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Specific Locale</h3>
+<p>If you’ve implemented a custom game option which lets players choose their preferred language, you may fetch a <code>Translator</code> for a <span class="text-nowrap">Roblox-supported</span> language code via <code>LocalizationService/GetTranslatorForLocaleAsync|GetTranslatorForLocaleAsync()</code>.<span id="language-code-table"></span></p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg-primary text-white collapsed" data-toggle="collapse" href="#ref_card-1" role="button" aria-expanded="false" aria-controls="card-1">Language Code Reference »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse " id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>The following table outlines the languages currently supported in the localization portal. Those highlighted in yellow are fully supported by the Roblox platform/applications.</p>
+<table class="table table-striped table-sm table-bordered mb-2 mt-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Language&nbsp;Code</th>
+            <th scope="col" colspan=2>Language</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-warning">
+            <td scope="row" style="width: 30%;"><b>de</b></td>
+            <td scope="row" style="width: 35%;">German</td>
+            <td scope="row" style="width: 35%;">Deutsch</td>
+        </tr>
+        <tr class="table-warning">
+            <td scope="row"><b>en</b></td>
+            <td scope="row">English</td>
+            <td scope="row">English</td>
+        </tr>
+        <tr class="table-warning">
+            <td scope="row"><b>es</b></td>
+            <td scope="row">Spanish</td>
+            <td scope="row">Español</td>
+        </tr>
+        <tr class="table-warning">
+            <td scope="row"><b>fr</b></td>
+            <td scope="row">French</td>
+            <td scope="row">Français</td>
+        </tr>
+        <tr class="table-warning">
+            <td scope="row"><b>jp</b></td>
+            <td scope="row">Japanese</td>
+            <td scope="row">日本語</td>
+        </tr>
+        <tr class="table-warning">
+            <td scope="row"><b>ko</b></td>
+            <td scope="row">Korean</td>
+            <td scope="row">한국어</td>
+        </tr>
+        <tr class="table-warning">
+            <td scope="row"><b>pt</b></td>
+            <td scope="row">Portuguese</td>
+            <td scope="row">Português</td>
+        </tr>
+        <tr class="table-warning">
+            <td scope="row" class="text-nowrap"><b>zh-hans</b></td>
+            <td scope="row">Chinese (Simplified)</td>
+            <td scope="row">中文(简体)</td>
+        </tr>
+        <tr class="table-warning">
+            <td scope="row" class="text-nowrap"><b>zh-hant</b></td>
+            <td scope="row">Chinese (Traditional)</td>
+            <td scope="row">中文(繁體)</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-striped table-sm table-bordered mb-0">
+    <tbody>
+        <tr>
+            <td scope="row" style="width: 30%;"><b>bg</b></td>
+            <td scope="row" style="width: 35%;">Bulgarian</td>
+            <td scope="row" style="width: 35%;">български</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>bn</b></td>
+            <td scope="row">Bengali</td>
+            <td scope="row">বাংলা</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>bs</b></td>
+            <td scope="row">Bosnian</td>
+            <td scope="row">босански</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>cs</b></td>
+            <td scope="row">Czech</td>
+            <td scope="row">Čeština</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>da</b></td>
+            <td scope="row">Danish</td>
+            <td scope="row">Dansk</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>el</b></td>
+            <td scope="row">Greek</td>
+            <td scope="row">ελληνικά</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>et</b></td>
+            <td scope="row">Estonian</td>
+            <td scope="row">Eesti</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>fi</b></td>
+            <td scope="row">Finnish</td>
+            <td scope="row">Suomi</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>hi</b></td>
+            <td scope="row">Hindi</td>
+            <td scope="row">हिन्दी</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>hr</b></td>
+            <td scope="row">Croatian</td>
+            <td scope="row">Hrvatski</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>hu</b></td>
+            <td scope="row">Hungarian</td>
+            <td scope="row">Magyar</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>id</b></td>
+            <td scope="row">Indonesian</td>
+            <td scope="row">Bahasa Indonesia</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>it</b></td>
+            <td scope="row">Italian</td>
+            <td scope="row">Italiano</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>ka</b></td>
+            <td scope="row">Georgian</td>
+            <td scope="row">ქართული</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>kk</b></td>
+            <td scope="row">Kazakh</td>
+            <td scope="row">қазақ тілі</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>km</b></td>
+            <td scope="row">Khmer</td>
+            <td scope="row">ភាសាខ្មែរ</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>lt</b></td>
+            <td scope="row">Lithuanian</td>
+            <td scope="row">Lietuvių</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>lv</b></td>
+            <td scope="row">Latvian</td>
+            <td scope="row">Latviešu</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>ms</b></td>
+            <td scope="row">Malay</td>
+            <td scope="row">Bahasa Melayu</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>my</b></td>
+            <td scope="row">Burmese</td>
+            <td scope="row">ဗမာစာ</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>nb</b></td>
+            <td scope="row">Bokmal</td>
+            <td scope="row">Bokmål</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>nl</b></td>
+            <td scope="row">Dutch</td>
+            <td scope="row">Nederlands</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>fil</b></td>
+            <td scope="row">Filipino</td>
+            <td scope="row">Filipino</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>pl</b></td>
+            <td scope="row">Polish</td>
+            <td scope="row">Polski</td>
+        </tr>
+<!--        <tr>
+            <td scope="row"><b>pt_pt</b></td>
+            <td scope="row">Portuguese (Portugal)</td>
+            <td scope="row">Português (Portugal)</td>
+        </tr>-->
+        <tr>
+            <td scope="row"><b>ro</b></td>
+            <td scope="row">Romanian</td>
+            <td scope="row">Română</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>ru</b></td>
+            <td scope="row">Russian</td>
+            <td scope="row">русский</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>si</b></td>
+            <td scope="row">Sinhala</td>
+            <td scope="row">සිංහල</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>sk</b></td>
+            <td scope="row">Slovak</td>
+            <td scope="row">Slovenčina</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>sl</b></td>
+            <td scope="row">Slovenian</td>
+            <td scope="row">Slovenski</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>sq</b></td>
+            <td scope="row">Albanian</td>
+            <td scope="row">Shqipe</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>sr</b></td>
+            <td scope="row">Serbian</td>
+            <td scope="row">српски</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>sv</b></td>
+            <td scope="row">Swedish</td>
+            <td scope="row">Svenska</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>th</b></td>
+            <td scope="row">Thai</td>
+            <td scope="row">ภาษาไทย</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>tr</b></td>
+            <td scope="row">Turkish</td>
+            <td scope="row">Türkçe</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>uk</b></td>
+            <td scope="row">Ukrainian</td>
+            <td scope="row">україньска</td>
+        </tr>
+        <tr>
+            <td scope="row"><b>vi</b></td>
+            <td scope="row">Vietnamese</td>
+            <td scope="row">Tiểng Việt</td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			
+			<pre class="prettyprint  linenums:1 lang-lua">local LocalizationService = game:GetService("LocalizationService")
+
+<span class='highlighted'>local success, translator = pcall(function()</span>
+	<span class='highlighted'>return LocalizationService:GetTranslatorForLocaleAsync("es")</span>
+<span class='highlighted'>end)</span>
+
+if success then
+
+else
+	warn("Cannot load translator for player!")
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-danger" role="alert">
+Note that both <code>LocalizationService/GetTranslatorForPlayerAsync|GetTranslatorForPlayerAsync()</code> and <code>LocalizationService/GetTranslatorForLocaleAsync|GetTranslatorForLocaleAsync()</code> are asynchronous and may occasionally fail due to poor connectivity or other issues, so it's important to wrap them with <code>pcall</code> and implement <span class="text-nowrap"><a href="#error-handling">error handling</a></span> as outlined below.
+</div>
+<h2>Translate()</h2>
+<p>Once a valid <code>Translator</code> is loaded, the <code>Translator/Translate|Translate()</code> function can fetch a translation from the localization portal based on its <strong>Source</strong> string and an <span class="text-nowrap">in-game</span> <code>Instance</code>. Note that the <code>Instance</code> argument can be arbitrary unless you require <a href="../api-reference/function/Translator/Translate.html#translate-context-overrides">context overrides</a>.</p>
+<table class="table table-bordered table-sm">
+<tbody>
+    <tr class="table-active">
+      <td scope="col" class="text-center border-secondary" width="18%">A</td>
+      <td scope="col" class="text-center border-secondary" width="18%">B</td>
+      <td scope="col" class="text-center border-secondary" width="18%">C</td>
+      <td scope="col" class="text-center border-secondary" width="18%">D</td>
+      <td scope="col" class="text-center border-secondary" width="28%">E</td>
+    </tr>
+    <tr>
+      <td class="border-secondary">Key</td>
+      <td class="border-secondary">Context</td>
+      <td class="border-secondary"><b>Source</b></td>
+      <td class="border-secondary">Example</td>
+      <td class="border-secondary"><b>es</b></td>
+    </tr>
+    <tr>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">Screen</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">Pantalla</td>
+    </tr>
+    <tr>
+      <td class="border-secondary">&nbsp;</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-3" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show " id="nav-code-tab-3" data-toggle="tab" href="#nav-code-3" role="tab" aria-controls="nav-code-3" aria-selected="true">
+				<span class="txt">Code Sample</span>
+			</a>
+			
+			<a class="nav-item nav-link " id="nav-output-tab-3" data-toggle="tab" href="#nav-output-3" role="tab" aria-controls="nav-output-3" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-3" role="tabpanel" aria-labelledby="nav-code-tab-3">
+			
+			<pre class="prettyprint  linenums:7 lang-lua">if success then
+<span class='highlighted'>	local translation = translator:Translate(game, "Screen")</span>
+	print(translation)
+else
+	warn("Cannot load translator for player!")
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-3" role="tabpanel" aria-labelledby="nav-output-tab-3">
+			<pre class="prettyprint  nocode">Pantalla</pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-warning" role="alert">
+If you call <code>Translator/Translate|Translate()</code> with a source text string that does <b>not</b> exist in the localization portal, that string will be automatically added to the portal (and the downloadable <samp>.csv</samp> spreadsheet) so that human translators can locate it and provide translations.
+</div>
+<h2>FormatByKey()<span id="localization-entering-keys"></span></h2>
+<p>When called on a valid <code>Translator</code>, <code>Translator/FormatByKey|FormatByKey()</code> fetches a translation from the localization portal based on an identifier <strong>key</strong> for the source item. Identifier keys can only be entered in the <b>Key</b> column of the downloaded spreadsheet or through direct entry in the portal — they cannot be detected and added through automatic text capture in the Roblox application.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg-primary text-white collapsed" data-toggle="collapse" href="#ref_card-2" role="button" aria-expanded="false" aria-controls="card-2">Entering Keys »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse " id="ref_card-2">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>If you prefer to manage translations with a <samp>.csv</samp> <code>articles/localization portal additional features#localizing-with-csv-files|spreadsheet</code>, identifier keys can be entered in the <strong>Key</strong> column:</p>
+<table class="table table-bordered table-sm">
+<tbody>
+    <tr class="table-active">
+      <td scope="col" class="text-center border-secondary" width="28%">A</td>
+      <td scope="col" class="text-center border-secondary" width="17%">B</td>
+      <td scope="col" class="text-center border-secondary" width="19%">C</td>
+      <td scope="col" class="text-center border-secondary" width="17%">D</td>
+      <td scope="col" class="text-center border-secondary" width="19%">E</td>
+    </tr>
+    <tr>
+      <td class="border-secondary"><b>Key</b></td>
+      <td class="border-secondary">Context</td>
+      <td class="border-secondary">Source</td>
+      <td class="border-secondary">Example</td>
+      <td class="border-secondary">es</td>
+    </tr>
+    <tr>
+      <td class="border-secondary table-primary">Key_StartButton</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary">Start</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary">Iniciar</td>
+    </tr>
+    <tr>
+      <td class="border-secondary table-primary">Key_OptionsButton</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary">Options</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary">Opciones</td>
+    </tr>
+    <tr>
+      <td class="border-secondary">&nbsp;</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+    </tr>
+  </tbody>
+</table>
+<p>Alternatively, you can input <span class="text-nowrap">key-based</span> entries directly in the localization portal as follows:</p>
+<ol>
+<li>From the <b class="text-nowrap">Manage Translations</b> page in the portal, click the <b class="text-nowrap">Add New Entry</b> button.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltb96d211b1f744953/LP-Add-New-Entry.png" class="img-fluid half-sized list-indent">
+<ol start="2" class="mb-0">
+<li>Specify <b class="text-nowrap">Text to Translate</b> (this will become <b>Source</b> in the spreadsheet) along with a <b>Key</b> value.</li>
+<li>Click the <b>Save</b> button to add the entry to the portal.</li>
+</ol>
+      </div>
+    
+  
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>To use <code>Translator/FormatByKey|FormatByKey()</code> in a script, call the API with a valid key name from the localization portal. For instance, the <code>print()</code> statement on line 9 of the following code sample will output the Spanish translation “joyas” for the “Key_Prize” key when you <code>articles/game testing#player-emulator|playtest</code> in Spanish.</p>
+<table class="table table-bordered table-sm">
+<tbody>
+    <tr class="table-active">
+      <td scope="col" class="text-center border-secondary" width="16%">A</td>
+      <td scope="col" class="text-center border-secondary" width="15%">B</td>
+      <td scope="col" class="text-center border-secondary" width="27%">C</td>
+      <td scope="col" class="text-center border-secondary" width="15%">D</td>
+      <td scope="col" class="text-center border-secondary" width="27%">E</td>
+    </tr>
+    <tr>
+      <td class="border-secondary"><b>Key</b></td>
+      <td class="border-secondary">Context</td>
+      <td class="border-secondary">Source</td>
+      <td class="border-secondary">Example</td>
+      <td class="border-secondary"><b>es</b></td>
+    </tr>
+    <tr>
+      <td class="border-secondary table-primary">Key_Prize</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary">jewels</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">joyas</td>
+    </tr>
+    <tr>
+      <td class="border-secondary">&nbsp;</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-4" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show " id="nav-code-tab-4" data-toggle="tab" href="#nav-code-4" role="tab" aria-controls="nav-code-4" aria-selected="true">
+				<span class="txt">Code Sample</span>
+			</a>
+			
+			<a class="nav-item nav-link " id="nav-output-tab-4" data-toggle="tab" href="#nav-output-4" role="tab" aria-controls="nav-output-4" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-4" role="tabpanel" aria-labelledby="nav-code-tab-4">
+			
+			<pre class="prettyprint  linenums:7 lang-lua">if success then
+<span class='highlighted'>	local keyTranslation = translator:FormatByKey("Key_Prize")</span>
+	print(keyTranslation)
+else
+	warn("Cannot load translator for player!")
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-4" role="tabpanel" aria-labelledby="nav-output-tab-4">
+			<pre class="prettyprint  nocode">joyas</pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Using Format Strings</h2>
+<p>Localization APIs can also be used with <span class="text-nowrap"><code>/articles/localization format strings|format strings</code></span> to return translations with variable data. The approach simply depends on whether the format strings are <strong>numbered</strong> or <strong>named</strong>.</p>
+<h3>Numbered Format Strings</h3>
+<p>Consider the following translation data which contains <strong>numbered</strong> format strings like <strong>{1:int}</strong>:</p>
+<table class="table table-bordered table-sm">
+<tbody>
+    <tr class="table-active">
+      <td scope="col" class="text-center border-secondary" width="18%">A</td>
+      <td scope="col" class="text-center border-secondary" width="14%">B</td>
+      <td scope="col" class="text-center border-secondary" width="27%">C</td>
+      <td scope="col" class="text-center border-secondary" width="14%">D</td>
+      <td scope="col" class="text-center border-secondary" width="27%">E</td>
+    </tr>
+    <tr>
+      <td class="border-secondary"><b>Key</b></td>
+      <td class="border-secondary">Context</td>
+      <td class="border-secondary"><b>Source</b></td>
+      <td class="border-secondary">Example</td>
+      <td class="border-secondary"><b>es</b></td>
+    </tr>
+    <tr>
+      <td class="border-secondary table-primary">Key_Prize_1</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">{1:int} jewels</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">{1:int} joyas</td>
+    </tr>
+    <tr>
+      <td class="border-secondary table-primary">Key_Prize_2</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">${1:fixed} cash and {2:int} jewels</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">${1:fixed} dinero y {2:int} joyas</td>
+    </tr>
+    <tr>
+      <td class="border-secondary">&nbsp;</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+    </tr>
+  </tbody>
+</table>
+<p>To format these for a variable amount of cash and/or jewels, pass the amount(s) in a <span class="text-nowrap">comma-delimited</span> Lua array as the second argument to <code>Translator/FormatByKey|FormatByKey()</code>. With these additions, the <code>print()</code> statements will output correct translations when you <code>articles/game testing#player-emulator|playtest</code> in Spanish.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-5" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show " id="nav-code-tab-5" data-toggle="tab" href="#nav-code-5" role="tab" aria-controls="nav-code-5" aria-selected="true">
+				<span class="txt">Code Sample</span>
+			</a>
+			
+			<a class="nav-item nav-link " id="nav-output-tab-5" data-toggle="tab" href="#nav-output-5" role="tab" aria-controls="nav-output-5" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-5" role="tabpanel" aria-labelledby="nav-code-tab-5">
+			
+			<pre class="prettyprint  linenums:7 lang-lua">if success then
+<span class='highlighted'>	local keyTranslation1 = translator:FormatByKey("Key_Prize_1", {100})</span>
+	print(keyTranslation1)
+<span class='highlighted'>	local keyTranslation2 = translator:FormatByKey("Key_Prize_2", {500, 100})</span>
+	print(keyTranslation2)
+else</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-5" role="tabpanel" aria-labelledby="nav-output-tab-5">
+			<pre class="prettyprint  nocode">100 joyas
+$500.00 dinero y 100 joyas</pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Named Format Strings</h3>
+<p>When handling <strong>named</strong> format strings like <strong>{NumJewels:int}</strong>, pass a table of <span class="text-nowrap">key-value pairs</span> as the second argument to <code>Translator/FormatByKey|FormatByKey()</code>, where each pair consists of a format string’s name and the value to substitute.</p>
+<table class="table table-bordered table-sm">
+<tbody>
+    <tr class="table-active">
+      <td scope="col" class="text-center border-secondary" width="18%">A</td>
+      <td scope="col" class="text-center border-secondary" width="14%">B</td>
+      <td scope="col" class="text-center border-secondary" width="27%">C</td>
+      <td scope="col" class="text-center border-secondary" width="14%">D</td>
+      <td scope="col" class="text-center border-secondary" width="27%">E</td>
+    </tr>
+    <tr>
+      <td class="border-secondary"><b>Key</b></td>
+      <td class="border-secondary">Context</td>
+      <td class="border-secondary"><b>Source</b></td>
+      <td class="border-secondary">Example</td>
+      <td class="border-secondary"><b>es</b></td>
+    </tr>
+    <tr>
+      <td class="border-secondary table-primary">Key_Prize_1</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">{NumJewels:int} jewels</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">{NumJewels:int} joyas</td>
+    </tr>
+    <tr>
+      <td class="border-secondary table-primary">Key_Prize_2</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">{AmountCash:fixed} cash and {NumJewels:int} jewels</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary table-primary">{AmountCash:fixed} dinero y {NumJewels:int} joyas</td>
+    </tr>
+    <tr>
+      <td class="border-secondary">&nbsp;</td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+      <td class="border-secondary"></td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-6" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show " id="nav-code-tab-6" data-toggle="tab" href="#nav-code-6" role="tab" aria-controls="nav-code-6" aria-selected="true">
+				<span class="txt">Code Sample</span>
+			</a>
+			
+			<a class="nav-item nav-link " id="nav-output-tab-6" data-toggle="tab" href="#nav-output-6" role="tab" aria-controls="nav-output-6" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-6" role="tabpanel" aria-labelledby="nav-code-tab-6">
+			
+			<pre class="prettyprint  linenums:7 lang-lua">if success then
+<span class='highlighted'>	local keyTranslation1 = translator:FormatByKey("Key_Prize_1", {NumJewels=100})</span>
+	print(keyTranslation1)
+<span class='highlighted'>	local keyTranslation2 = translator:FormatByKey("Key_Prize_2", {AmountCash=500, NumJewels=100})</span>
+	print(keyTranslation2)
+else</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-6" role="tabpanel" aria-labelledby="nav-output-tab-6">
+			<pre class="prettyprint  nocode">100 joyas
+$500.00 dinero y 100 joyas</pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Best Practices</h2>
+<h3>Disable AutoLocalize<span id="disable-autolocalize"></span></h3>
+<p>When using localization APIs, it’s usually best practice to disable <code>GuiBase2d/AutoLocalize|AutoLocalize</code> on the object where the translations will be used. For example:</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Scenario</th>
+            <th scope="col">Reason to Disable AutoLocalize</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">Displaying an NPC's proper name on a <code>BillboardGui</code> above its head.</td>
+            <td scope="row">The NPC’s name won’t change across languages, so Studio's automatic text capture feature should never grab it.</td>
+        </tr>
+        <tr>
+            <td scope="row">Fetching a translation from the portal and displaying it <span class="text-nowrap">letter-by-letter</span> in a "typewriter" effect.</td>
+            <td scope="row">To prevent Studio's automatic text capture feature from grabbing and adding incomplete words to the portal.</td>
+        </tr>
+    </tbody>
+</table>
+<p>To disable <span class="text-nowrap">auto-localization</span> on a specific GUI object, <span class="text-nowrap">un-check</span> its <code>GuiBase2d/AutoLocalize|AutoLocalize</code> property in Studio or set it to <code>false</code> within a script.</p>
+<h3>Error Handling<span id="error-handling"></span></h3>
+<p>The following helper module catches issues which may exist in your localization entries and handles potential errors caused by the <span class="text-nowrap">web-based</span> functions that fetch a <code>Translator</code>. To use it in your game:</p>
+<ol>
+<li>Create a new <code>ModuleScript</code> within <code>ReplicatedStorage</code>.</li>
+<li>Rename the new script <em>TranslationHelper</em>.</li>
+<li>Copy the following code into the script.</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-7" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-7" data-toggle="tab" href="#nav-output-7" role="tab" aria-controls="nav-output-7" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-7" role="tabpanel" aria-labelledby="nav-code-tab-7">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local TranslationHelper = {}
+
+-- Roblox services
+local LocalizationService = game:GetService("LocalizationService")
+local Players = game:GetService("Players")
+
+-- Local variables
+local player = Players.LocalPlayer
+local sourceLanguageCode = "en"
+
+-- Get translators
+local playerTranslator, fallbackTranslator
+local foundPlayerTranslator = pcall(function()
+	playerTranslator = LocalizationService:GetTranslatorForPlayerAsync(player)
+end)
+local foundFallbackTranslator = pcall(function()
+	fallbackTranslator = LocalizationService:GetTranslatorForLocaleAsync(sourceLanguageCode)
+end)
+
+TranslationHelper.setSourceLanguage = function(languageCode)
+	if sourceLanguageCode ~= languageCode then
+		foundFallbackTranslator = pcall(function()
+			fallbackTranslator = LocalizationService:GetTranslatorForLocaleAsync(sourceLanguageCode)
+			sourceLanguageCode = languageCode
+			return true
+		end)	
+	end
+	return false
+end
+
+-- Translate function
+TranslationHelper.translate = function(text, object)
+	if not object then
+		object = game
+	end
+	local translation = ""
+	local foundTranslation = false
+	if foundPlayerTranslator then
+		return playerTranslator:Translate(object, text)
+	end
+	if foundFallbackTranslator then
+		return fallbackTranslator:Translate(object, text)
+	end
+	return false
+end
+
+-- Translate by key function 
+TranslationHelper.translateByKey = function(key, arguments)
+	local translation = ""
+	local foundTranslation = false
+	
+	-- First tries to translate for the player's language (if a translator was found)
+	if foundPlayerTranslator then
+		foundTranslation = pcall(function()
+			translation = playerTranslator:FormatByKey(key, arguments)
+		end)
+	end
+	if foundFallbackTranslator and not foundTranslation then
+		foundTranslation = pcall(function()
+			translation = fallbackTranslator:FormatByKey(key, arguments)
+		end)
+	end
+	if foundTranslation then
+		return translation
+	else
+		return false
+	end
+end
+
+return TranslationHelper</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-7" role="tabpanel" aria-labelledby="nav-output-tab-7">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-warning" role="alert">
+If your game's source language is not English, change the value of <code>sourceLanguageCode</code> on line&nbsp;9 to a <b class="text-nowrap">fully-supported</b> language code which matches the game's <b>source&nbsp;language</b> setting in the localization portal. Please refer to the language code <a href="#language-code-table">reference&nbsp;table</a> above for acceptable options.
+</div>
+<p>Once the module is placed into <code>ReplicatedStorage</code>, <code>require()</code> it from a <code>LocalScript</code> as shown on line 5 below. Then, whenever needed, call the module’s <code>translate()</code> function as an equivalent to <code>Translator/Translate|Translate()</code> or <code>translateByKey()</code> as an equivalent to <code>Translator/FormatByKey|FormatByKey()</code>.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-8" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-8" data-toggle="tab" href="#nav-output-8" role="tab" aria-controls="nav-output-8" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-8" role="tabpanel" aria-labelledby="nav-code-tab-8">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">-- Roblox services
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- Require translation module
+<span class='highlighted'>local TranslationHelper = require(ReplicatedStorage:WaitForChild("TranslationHelper"))</span>
+
+<span class='highlighted'>local sourceTranslation = TranslationHelper.translate("Source_String")</span>
+<span class='highlighted'>local keyTranslation = TranslationHelper.translateByKey("Key_Name")</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-8" role="tabpanel" aria-labelledby="nav-output-tab-8">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>localization</li>
+		  
+		    <li>language</li>
+		  
+		    <li>translation</li>
+		  
+		    <li>international</li>
+		  
+		    <li>format</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="animating-text.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt07587863affd4557/Animating-Text-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="animating-text.html">Animating Text</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="localization-format-strings.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blta79266f466f1d581/Format-Strings-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="localization-format-strings.html">Localization Format Strings</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="Localization-Support-and-Troubleshooting.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/bltfcc5ab601f427e4d/Localization-Support-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="Localization-Support-and-Troubleshooting.html">Localization FAQ and Troubleshooting</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="localizing-non-text-instances.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt6ccd2420c3ffed2c/Localized-Image-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="localizing-non-text-instances.html">Localizing Non-Text Instances</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="localization-portal-additional-features.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt0a86f39991cb62b0/Localization-Portal-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="localization-portal-additional-features.html">Localization Portal &ndash; Additional Features</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/utilizing-localization-apis by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:29:21 GMT -->
+</html>

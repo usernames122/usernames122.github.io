@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/open-cloud by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:29:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="open-cloud.html"/>
+    <link rel="alternate" hreflang="x-default" href="open-cloud.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="open-cloud.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="open-cloud.html"/>
+    
+      
+        
+          <title> Open Cloud</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p><strong>Open Cloud </strong>enables you to build applications and tools to access your Roblox resources through web APIs.</p>">
+
+
+
+<meta name="keywords" content="open cloud">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Open Cloud">
+	<meta class="swiftype" name="summary" data-type="string" content="<p><strong>Open Cloud </strong>enables you to build applications and tools to access your Roblox resources through web APIs.</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Open Cloud">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/open-cloud.html">OPEN CLOUD</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Open Cloud</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/open-cloud.html">OPEN CLOUD</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Open Cloud</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">15  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p><strong>Open Cloud</strong> enables you to build applications and tools to access your Roblox resources through web APIs. There are several cases in which you may need to programmatically access your creations, including:</p>
+<ul>
+<li>Browsing player data for customer support</li>
+<li>Automating the commit, test, and publish workflow</li>
+<li>Editing models and saving them to Roblox</li>
+</ul>
+<p>While Open Cloud initially supports <a href="#api-access">API key-based access</a> to help automate your internal workflows, the ultimate goal is to improve your efficiency creating content on Roblox through an application ecosystem of tools and services.</p>
+<h2>API Access</h2>
+<p>Open Cloud authenticates and authorizes API access with the use of API keys. Authentication proves that your applications are who they say they are, similar to when you log into Roblox using your username and password. Authorization proves your application has the right to make certain requests.</p>
+<h3 id="creating-an-API-key">Creating an API Key</h3>
+The <a href="https://create.roblox.com/credentials">Creator Dashboard</a> lets you create and configure API keys with granular permissions; for example, you can select an experience you own with its associated resources based on the APIs you want to use. The API key string allows the application to authenticate to Open Cloud on your behalf.
+<p>To create an API key:</p>
+<ol>
+   <li>Navigate to the <b><a href="https://create.roblox.com/credentials">Credentials</a></b> page on the <b><a href="https://create.roblox.com/creations">Creator Dashboard</a></b>.
+   	<ul>
+   		<li>If the API key is for a <b>group</b>, select it under the "Creator" dropdown on the top left. You must be the group owner or assigned to a role within the group that is granted the API key admin permission (<a href="#group-resources">see below</a>)</li>
+   	</ul>
+   </li>
+   <li>On the upper-right of the screen, click the <b>Create API Key</b> button.</li>
+   <li>Enter a unique name for your API key. Use a name that helps you recall its purpose later, such as CICD_KEY, for continuous integration and deployment tooling access.</li></ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt399adfbeec225dfc/OpenCloudAddAPIKeyDialog.jpg" alt="An example image of the New API Key section of the Credentials page with the Name field highlighted." style="width:900px;"/>
+<ol start="4">
+   <li>In the <b>Access Permissions</b> section, select an API from the <b>Select API System</b> menu, and click <b>Add API System</b> for each API you need access to.</li></ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltd40e0d5f76f87ceb/OpenCloudAccessPermissions.jpg" alt="An example image of the Access Permissions section of the Credentials page with the Add API System button highlighted." style="width:900px;"/>
+<ol start="5">
+   <li>Select an experience for the API to have access to.
+<br><br>
+<b>Warning</b>: For security reasons, configure the least amount of APIs and permissions as required. For example, to automate the publishing workflow for an experience, select the Place Management API, the experience, and the Write permission. If the API key is leaked, bad actors are only able to write a new version to all places in the experience. They wouldn't be able to access any other experience or resource.</li></ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt510a11721b0976a5/OpenCloudAddExperience.jpg" alt="An example image of the Access Permissions section of the Credentials page with the Add Experience button highlighted." style="width:900px;"/>
+<ol start="6">
+   <li>In the <b>Security</b> section, explicitly set IP access to the key using <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>, otherwise the API key cannot be used. For more information, see <A href="#CIDR-format">CIDR Format</a>.
+<br><br>
+   <ol type="A">
+  <li><b>Recommended</b>: Find the IP address of your local machine, and add it to the <b>Accepted IP Addresses</b> section. Add additional IP addresses as needed for those that need access.</li>
+  <li><b>Not Recommended</b>: If you don’t have a fixed IP, add 0.0.0.0/0 to the <b>Accepted IP Addresses</b> section to allow any IPs to use your API key. This makes API access easier for many developers, but significantly increases the risk for bad actors to steal your resources.</li></ol></ol>
+<br>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltfbc0d6791f07c07f/OpenCloudSecuritySection.jpg" alt="An example image of the Security section of the Credentials page with the Add IP Address button highlighted." style="width:900px;"/>
+<ol start="7">
+   <li> <b>Optional</b>: To add additional protection for your resources, set an explicit expiration date so your key will automatically stop working after that date.</li></ol>
+<br>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc7d1c5c564b1f3fa/OpenCloudSecurityExpirationDate.jpg" alt="An example image of the Security section of the Credentials page with the Expiration date field highlighted." style="width:900px;"/>
+<ol start="8">
+   <li>Click the <b>Save and Generate key</b> button.</li></ol>
+<br>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt1e6b1c6fbef8dbcb/OpenCloudSaveAndGenerateKey.jpg" alt="An example image of the Security section of the Credentials page with the Save and Generate Key button highlighted." style="width:900px;"/>
+<ol start="9">
+   <li>Copy and save the API key string to a secure location.
+<br><br>
+<b>Warning</b>: The API key string is equivalent to the password of your application. Save it in a secure place (<b>not</b> a public repo of your code) and never share it with untrusted parties e.g. anyone outside of your development team.</li></ol>
+<br>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt5a643154ab839827/OpenCloudCopyAPIKey.jpg" alt="An example image of the Security sections of the Credentials page with the Copy Key highlighted." style="width:800px;"/>
+<p>The API Key is now ready for use! Aside from <a href="#publish-places">publishing a place</a>, you can also use an API Key in a <a href="https://docs.github.com/en/actions">GitHub action</a>.</p>
+<h3 id="group-resources">Group Resources</h3><span id="creating-an-API-key-for-a-group"></span>
+<p>API keys can manage resources that are owned by groups instead of users. To manage API keys within the context of a group, select it in the “Creator” drop-down at the top-left:</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcd5c3acdf402aa5d/OpenCloudCreatorDropdownMenu.jpg" alt="An example image of the Group dropdown menu" style="width:800px;"/>
+<p>An API key created for a group can only access resources that its creator also has access to within that group. For example, in order to create an API key that can publish a place file, the group member’s role must have the <b>Create and edit group experiences</b> permission turned on.</p>
+<h4>Granting Permissions</h4>
+<p>As a group owner, you can grant the <b>Administer all group API keys</b> permission to roles within your group. By assigning a member to such a role, you can allow them to have all the permissions that a group owner can do for API keys, including create, view, edit, revoke, and audit all of the group’s API keys.</p>
+<p>Group owners can also grant the <b>Create group API keys</b> permission to roles within their group, which has a more limited scope: this allows members in this role to create and view keys that they own. They won’t be able to manage others’ keys.</p>
+<h4>Revoking Permissions</h4>
+<p>There are multiple ways a user may lose the ability to manage group API keys:</p>
+<ul>
+	<li>They are assigned to a different role which lacks the permission. This happens during a transfer of group ownership.</li>
+	<li>The permission is disabled on their currently assigned role.</li>
+	<li>They leave or are exiled from the group.</li>
+	<li>Their account is moderated by Roblox and cannot log into the creator dashboard.</li>
+</ul>
+<p>In any of the above cases, API keys generated by that user are given the <b>Revoked</b> status (see <a href="#api-key-status">statuses</a> below). These keys must be regenerated to be used again.</p>
+<h3 id="CIDR-format">CIDR Format</h3>
+To further protect your resources, you must specify IP addresses that are allowed to use the API key with either normal IP addresses or using the <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>. A CIDR IP address looks like a normal IP address except it ends with a slash and a decimal that represents how many bits of the IP address are significant for network routing:
+<br><br>
+<ul>
+<li><b>Normal</b>: 192.168.0.0</li>
+<li><b>CIDR</b>: 192.168.0.0/24</li>
+</ul>
+<br>
+The former part is the IP address and the latter part is the <b>netmask</b>, counting the bits of 1s in binary format. In the example above, <b>24</b> means <b>255.255.255.0</b> (24 1s) and would allow all IPs between <b>192.168.0.0</b> and <b>192.168.0.255</b>. This is particularly useful if you plan to run your applications on a server. 
+<br>
+<br>
+<h3 id="api-key-status">API Key Status</h3>
+An API key starts off as active but can become inactive over its lifetime for various reasons. The statuses an API key has is described on the edit view, and each one is described below. A key can have multiple statuses, such as being both Disabled and Expired, so you may have to take one or more steps resolve all of a key's issues.
+<table class="table table-bordered">
+	<thead  class="thead-dark">
+		<tr><td>Status</td><td>Reason</td><td>How to Resolve</td></tr>
+	</thead>
+	<tr>
+		<td>Active</td>
+		<td>No issues; the key can be used to authenticate Open Cloud API calls.</td>
+		<td class="text-muted">N/A, although you can remove this by switching "Enable Key" off.</td>
+	</tr>
+	<tr>
+		<td>Disabled</td>
+		<td>The key was disabled by the user with the "Enable Key" switch.</td>
+		<td>Switch "Enable Key" on.</td>
+	</tr>
+	<tr>
+		<td>Expired</td>
+		<td>The key's expiration date has passed.</td>
+		<td>Set a new expiration date or use "No Expiration".</td>
+	</tr>
+	<tr>
+		<td>Auto-Expired&dagger;</td>
+		<td>The key has not been used or updated in the past 60 days.</td>
+		<td>Update any of the key's properties such as the name, description, expiration date. Toggling the "Enable Key" switch off and on again also works.</td>
+	</tr>
+	<tr>
+		<td>Revoked</td>
+		<td>For group keys, the account that last generated the key no longer has sufficient access rights to manage the group's keys.</td>
+		<td>Click "Regenerate Key" to get a new secret.</td>
+	</tr>
+	<tr>
+		<td>Moderated</td>
+		<td>The key's secret was last changed by a Roblox admin for security reasons.</td>
+		<td>Click "Regenerate Key" to get a new secret.</td>
+	</tr>
+	<tr>
+		<td>User Moderated</td>
+		<td>The account that last generated the key is under some moderation status.</td>
+		<td>Resolve the moderation issue on the account.</td>
+	</tr>
+</table>
+<p><small class="text-muted">†API keys that aren’t actively used will always automatically expire, even if the Expiration field is set to “No Expiration”. This reduces the risk of an old API key that was leaked from being unintentionally used by a bad actor. If you are no longer using an API key, you should manually disable or delete it.</small></p>
+<h2>Place Management API</h2>
+<p>The <a href="place-management-api-reference.html"><strong>Place Management API</strong></a> fulfills the same functionality as <strong>Publish to Roblox</strong> in Studio. This API updates all existing places of an experience to a new version, making it useful to build a CI/CD pipeline.</p>
+<h3>Publishing Places</h3>
+<p>To publish all places of an experience:</p>
+<ol>
+   <li><A href="#creating-an-API-key">Create an API key</a> that has at least the following permissions for the experience you want to publish:
+<ul>
+<li>Place Management API</li>
+<li>Write</li></ul>
+<li>Add the API Key in the <b>x-api-key</b> header of a POST request to the API. Here’s an example curl command that references an xml Roblox place file at “/home/placefiles/place1.rbxlx”:
+  <pre>$ curl  --verbose --location --request POST 'https://apis.roblox.com/universes/v1/{universeId}/places/{placeId}/versions?versionType=Published' \
+--header 'x-api-key: <your-api-key>' \
+--header 'Content-Type: application/xml' \
+-d @/home/placefiles/place1.rbxlx
+{"versionNumber":9}</pre>
+<p>For binary place files (rbxl) please use the following command:</p>
+<pre>$ curl --verbose  --location --request POST 'https://apis.roblox.com/universes/v1/{universeId}/places/{placeId}/versions?versionType=Published' \
+--header 'x-api-key: <your-api-key>' \
+--header 'Content-Type: application/octet-stream' \
+--data-binary @/home/placefiles/place1.rbxl
+{"versionNumber":9}</pre>
+<p><b>Note</b>:</p>
+<ul>
+<li>Only HTTPS requests are supported.</li>
+<li>To get the universeId, go to <a href="https://www.roblox.com/develop">https://www.roblox.com/develop</a>, find the experience you want to upload, click the <b>Gear</b> button, and then click <b>Configure experience</b>. The universeId will appear in the URL. For example: https://www.roblox.com/universes/configure?id=<b>123456</b>#/#basicSettings</li>
+<li>To get the placeId, follow the steps above, then go to the Places tab and click the place you want to use. The placeId will appear on the URL. For example: https://www.roblox.com/games/<b>987654</b>/My-place</li>
+</ul>
+<br>
+<li>Verify the upload at https://www.roblox.com/places/<b>{place-id}</b>/update#. Replace <b>{place-id}</b> with the real placeId of the experience you want to publish. </li></ol>
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>open cloud</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="place-management-api-reference.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt04220192ca48028b/Open-Cloud-Thumbnail.jpg);"> </span></a>
+          <h3 data-toc-skip><a href="place-management-api-reference.html">Place Management API Reference</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/open-cloud by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:29:53 GMT -->
+</html>

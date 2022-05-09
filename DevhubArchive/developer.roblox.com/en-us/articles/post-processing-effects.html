@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/post-processing-effects by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:31:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="post-processing-effects.html"/>
+    <link rel="alternate" hreflang="x-default" href="post-processing-effects.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="post-processing-effects.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="post-processing-effects.html"/>
+    
+      
+        
+          <title> Post-Processing Effects</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>Quickly improve visuals with customizable filters</p>">
+
+
+
+<meta name="keywords" content="post-processing, effects, environment, lighting, blur">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Post Processing Effects">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>Quickly improve visuals with customizable filters</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Sound, Lighting & FX">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/sound-lighting-fx.html">SOUND, LIGHTING & FX</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Post-Processing Effects</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/sound-lighting-fx.html">SOUND, LIGHTING & FX</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Post-Processing Effects</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.custom-button {
+  opacity: 0.7;
+}
+.custom-button.active {
+  opacity: 1;
+}
+.custom-button.tab-right-margin {
+  margin-right: 1px;
+}
+</style>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Post-processing effects can quickly improve a game’s visuals with a variety of customizable filters. Some applications include adding realism to an outdoor environment with depth of field, or providing players feedback by flashing a screen red when they’re damaged.</p>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+</ol>
+<div class="carousel-inner">
+    <div class="carousel-item active">
+    <img class="d-block w-100" src="../../../dk135eecbplh9.cloudfront.net/assets/blt1efda980407abf5a/postProcessing_outdoorEnv_active.jpg" alt="Outdoor Lighting">
+    </div>
+    <div class="carousel-item">
+    <img class="d-block w-100" src="../../../dk135eecbplh9.cloudfront.net/assets/blt7d28548e407d7c63/postProcessing_indoorEnv.jpg" alt="Indoor Lighting">
+    </div>
+    <div class="carousel-item">
+    <img class="d-block w-100" src="../../../dk135eecbplh9.cloudfront.net/assets/blt7eac062445697a71/postProcessing_outdoorExample_carousel.jpg" alt="Color Correction">
+    </div>
+</div>
+<!--<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+</a>-->
+</div>
+<h2>Adding Effects</h2>
+<p>To add post-processing effects, add them to either the <code>Lighting</code> service or the <code>Camera</code> depending on if you want them displayed to individual players or a whole server.</p>
+<div class="d-flex flex-wrap mb-3">
+<div class="col-auto pl-0 pr-5">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltfc11f1dafacc5591/Post-Processing-Camera-Object.png" class="mb-2 half-sized">
+<figcaption class="figure-caption"><span class="text-nowrap"><b>Workspace.Camera</b> &mdash;</span> Used for effects local to a player, such as a player's camera blurring when their avatar is hit.</figcaption>
+</figure>
+</div>
+<div class="col-auto pl-0 pr-5">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt931e6a9c8132cc7a/Post-Processing-Lighting-Object.png" class="mb-2 half-sized">
+<figcaption class="figure-caption"><span class="text-nowrap"><b>Lighting</b> &mdash;</span> Used for global effects seen by all players, such as sun rays in the environment.</figcaption>
+</figure>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-warning border-warning" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg-warning text-white collapsed" data-toggle="collapse" href="#ref_card-1" role="button" aria-expanded="false" aria-controls="card-1">Performance with Effects »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse " id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h4>When Working in Studio</h4>
+<p>Depending on your Studio settings, some effects may not appear. To check, go to <span class="text-nowrap"><strong>File</strong> → <strong>Settings</strong> → <strong>Rendering</strong>.</span> In <strong>Performance</strong>, set the <strong>Quality Level</strong> options to Level 21, the highest possible.</p>
+<h4>Considerations for Players</h4>
+<p>Effects may differ across devices. On slower or mobile devices, effects may be reduced or not be visible. For more information, see that effect’s API page.</p>
+
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Bloom</h3>
+<p>The <code>BloomEffect</code> simulates a camera viewing a bright light, an effect often used to exaggerate currently existing lights. By increasing the effect’s intensity, any parts with lighter colors (such as white plastic or neon materials) will glow.</p>
+<nav>
+<div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+<a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#bloomOffTab" role="tab">Original</a>
+<a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#bloomOnTab" role="tab">With Bloom</a>
+</div>
+</nav>
+<div class="tab-content">
+<div class="tab-pane active show" id="bloomOffTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt3269e7a90adc238b/postProcessing_bloomExampleOff.jpg" class="img-fluid"></div>
+<div class="tab-pane" id="bloomOnTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt7cdb395e8dc71528/postProcessing_bloomExampleOn.jpg" class="img-fluid"></div>
+</div>
+<h3>Blur</h3>
+<p>The <code>BlurEffect</code> applies a gaussian blur to the entire rendered game world. One practical application is blurring a scene when a player has a GUI menu open.</p>
+<nav>
+<div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+<a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#blurOffTab" role="tab">Original</a>
+<a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#blurOnTab" role="tab">With Blur</a>
+</div>
+</nav>
+<div class="tab-content">
+<div class="tab-pane active show" id="blurOffTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt4d03bc3f63c6ba9c/postProcessing_blurEffect_off_alt.jpg" class="img-fluid"></div>
+<div class="tab-pane" id="blurOnTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blte8900875f2e60fca/postProcessing_blurEffect_on_alt.jpg" class="img-fluid"></div>
+</div>
+<h3>Color Correction</h3>
+<p>Similar to photo editing software, the <code>ColorCorrectionEffect</code> adjusts scene color properties such as saturation, tint color, or contrast. Use this effect to enhance an environment’s appearance or create a specific mood <span class="text-nowrap">(spooky, calm, etc.).</span> It can also be used to provide player feedback, such as making the scene tint red if a player is hit.</p>
+<nav>
+<div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+<a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#colorCorrectOffTab" role="tab">Original</a>
+<a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#colorCorrectOnTab" role="tab">With Color Correction</a>
+</div>
+</nav>
+<div class="tab-content">
+<div class="tab-pane active show" id="colorCorrectOffTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6b9b94935a2fba39/postProcessing_colorCorrection_off.jpg" class="img-fluid"></div>
+<div class="tab-pane" id="colorCorrectOnTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt9052cae7d633886c/postProcessing_colorCorrection_on.jpg" class="img-fluid"></div>
+</div>
+<h3>Depth of Field</h3>
+<p>The <code>DepthOfFieldEffect</code> simulates a camera lens by blurring parts of a scene not in focus. Distant objects can be blurred or this effect can be used to focus on specific parts of a scene, like an item in an <span class="text-nowrap">in-game</span> shop.</p>
+<nav>
+<div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+<a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#depthOffTab" role="tab">Original</a>
+<a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#depthOnTab" role="tab">With Depth of Field</a>
+</div>
+</nav>
+<div class="tab-content">
+<div class="tab-pane active show" id="depthOffTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt5e2515ff78ebbf13/postProcessing_dofImages_off.jpg" class="img-fluid"></div>
+<div class="tab-pane" id="depthOnTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt4a6243db4aa986bf/postProcessing_dofImages_on.jpg" class="img-fluid"></div>
+</div>
+<h3>Sun Rays</h3>
+<p>The <code>SunRaysEffect</code> renders a halo of light, complete with rays around the sun that move based on <code>Lighting/ClockTime|ClockTime</code> or <code>Lighting/TimeOfDay|TimeOfDay</code>. The effect is shaped by objects in the world between the player’s camera and the sun, allowing for realistic visuals of light and shadow.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness();
+	}
+</style>
+
+<div style="padding-bottom: 308px; width:550px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blte043666c150095b8/sunRaysExample_temple_opt.mp4"
+		width="550px"
+		height="308px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blte043666c150095b8/sunRaysExample_temple_opt.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Examples</h2>
+<p>The examples below combine different <span class="text-nowrap">post-processing</span> effects to create different effects that can be used in games. Unless stated, assume that all effects are parented to <code>Lighting</code>.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Outdoor Lighting</h3>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#outdoorLightOffTab" role="tab">Original</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#outdoorLightOnTab" role="tab">With Effects</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="outdoorLightOffTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt913db13139e7a760/postProcessing_outdoorEnv_inactive.jpg" class="img-fluid mb-3"></div>
+  <div class="tab-pane" id="outdoorLightOnTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt1efda980407abf5a/postProcessing_outdoorEnv_active.jpg" class="img-fluid mb-3"></div>
+</div>
+<!-- Setup UI -->
+<div class="mb-3">
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pr-3">
+    <div class="nav flex-column nav-pills mb-1" role="tablist">
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 text-nowrap active show" data-toggle="pill" href="#Outdoor-Lighting-Bloom" role="tab">Bloom</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 text-nowrap" data-toggle="pill" href="#Outdoor-Lighting-DepthOfField" role="tab">Depth of Field</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 text-nowrap" data-toggle="pill" href="#Outdoor-Lighting-ColorCorrection" role="tab">Color Correction</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 text-nowrap" data-toggle="pill" href="#Outdoor-Lighting-SunRays" role="tab">Sun Rays</a>
+    </div>
+  </div>
+  <div class="col pr-3">
+    <div class="tab-content">
+      <!-- Outdoor-Lighting-BloomEffect -->
+      <div class="tab-pane show active" id="Outdoor-Lighting-Bloom" role="tabpanel">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Bloom</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="40%">Intensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.5</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Size</td>
+              <td scope="row" class="studio-item-row text-nowrap">50</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Threshold</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.8</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Outdoor-Lighting-DepthOfField -->
+      <div class="tab-pane" id="Outdoor-Lighting-DepthOfField" role="tabpanel">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">DepthOfField</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="40%">FarIntensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.5</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">FocusDistance</td>
+              <td scope="row" class="studio-item-row text-nowrap">15</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">InFocusRadius</td>
+              <td scope="row" class="studio-item-row text-nowrap">30</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">NearIntensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Outdoor-Lighting-ColorCorrection -->
+      <div class="tab-pane" id="Outdoor-Lighting-ColorCorrection" role="tabpanel">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">ColorCorrection</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="40%">Brightness</td>
+              <td scope="row" class="studio-item-row text-nowrap">0</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Contrast</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.2</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Saturation</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.1</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">TintColor</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(255,250,235);"></div>[255, 250, 235]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Outdoor-Lighting-SunRays -->
+      <div class="tab-pane" id="Outdoor-Lighting-SunRays" role="tabpanel">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">SunRays</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="40%">Intensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.035</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Spread</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- -->
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Indoor Lighting</h3>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#indoorLightOffTab" role="tab">Original</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#indoorLightOnTab" role="tab">With Effects</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="indoorLightOffTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltd2a7559c3bd60683/postProcessing_indoorEnv_off.jpg" class="img-fluid mb-3"></div>
+  <div class="tab-pane" id="indoorLightOnTab" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt7d28548e407d7c63/postProcessing_indoorEnv.jpg" class="img-fluid mb-3"></div>
+</div>
+<!-- Setup UI -->
+<div class="mb-3">
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pr-3">
+    <div class="nav flex-column nav-pills mb-1" role="tablist">
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 text-nowrap active show" data-toggle="pill" href="#Indoor-Lighting-Bloom" role="tab">Bloom</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 text-nowrap" data-toggle="pill" href="#Indoor-Lighting-DepthOfField" role="tab">Depth of Field</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 text-nowrap" data-toggle="pill" href="#Indoor-Lighting-ColorCorrection" role="tab">Color Correction</a>
+    </div>
+  </div>
+  <div class="col pr-3">
+    <div class="tab-content">
+      <!-- Indoor-Lighting-BloomEffect -->
+      <div class="tab-pane show active" id="Indoor-Lighting-Bloom" role="tabpanel">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Bloom</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="40%">Intensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.8</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Size</td>
+              <td scope="row" class="studio-item-row text-nowrap">40</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Threshold</td>
+              <td scope="row" class="studio-item-row text-nowrap">1.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Indoor-Lighting-DepthOfField -->
+      <div class="tab-pane" id="Indoor-Lighting-DepthOfField" role="tabpanel">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">DepthOfField</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="40%">FarIntensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.5</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">FocusDistance</td>
+              <td scope="row" class="studio-item-row text-nowrap">12</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">InFocusRadius</td>
+              <td scope="row" class="studio-item-row text-nowrap">5</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">NearIntensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Indoor-Lighting-ColorCorrection -->
+      <div class="tab-pane" id="Indoor-Lighting-ColorCorrection" role="tabpanel">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">ColorCorrection</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="40%">Brightness</td>
+              <td scope="row" class="studio-item-row text-nowrap">0</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Contrast</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.4</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Saturation</td>
+              <td scope="row" class="studio-item-row text-nowrap">-0.4</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">TintColor</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(220,210,255);"></div>[220, 210, 255]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- -->
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Player Damage Feedback</h3>
+<p>Post-processing effects can be scripted, often with animations using <code>TweenService</code>. This example shows a death effect where the screen blurs and changes color. Its script can be repurposed in different ways, such as <span class="text-nowrap">color-shifting</span> the screen if a player is poisoned, or blurring the screen while a menu is active.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness();
+	}
+</style>
+
+<div style="padding-bottom: 308px; width:550px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt5273e8cbfc2676f9/Showblurscriptexample_web.mp4"
+		width="550px"
+		height="308px"
+		style=""
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt5273e8cbfc2676f9/Showblurscriptexample_web.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>To use the script below, copy its code into a <code>LocalScript</code> within <code>StarterPlayerScripts</code>.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-1" data-toggle="tab" href="#nav-code-1" role="tab" aria-controls="nav-code-1" aria-selected="true">
+				<span class="txt">DeathBlurEffect</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+
+local player = Players.LocalPlayer
+
+-- Create effects and parent them to the player's current camera
+local blurEffect = Instance.new("BlurEffect")
+blurEffect.Parent = workspace.CurrentCamera
+local colorCorrectionEffect = Instance.new("ColorCorrectionEffect")
+colorCorrectionEffect.Parent = workspace.CurrentCamera
+
+-- Effect constants
+local EFFECT_DELAY = 0  -- Seconds
+local EFFECT_DURATION = 6  -- Seconds
+local TINT_COLOR = Color3.fromRGB(200, 45, 45)
+local BLUR_INTENSITY = 56  -- From 0 to 56 (full blur)
+
+-- Create a "TweenInfo" used for the duration of both the blur and color effects
+local deathEffectInfo = TweenInfo.new(
+	EFFECT_DURATION,
+	Enum.EasingStyle.Linear,
+	Enum.EasingDirection.Out,
+	0,
+	false,
+	EFFECT_DELAY)
+
+-- Create tweens using specific goals for blur and color
+local tweenBlurGoal = {
+	Size = BLUR_INTENSITY,
+	-- Other properties to customize based off the "BlurEffect" instance
+}
+local tweenColorGoal = {
+	TintColor = TINT_COLOR
+	-- Other properties to customize based off the "ColorCorrectionEffect" instance
+}
+local tweenBlur = TweenService:Create(blurEffect, deathEffectInfo, tweenBlurGoal)
+local tweenColor = TweenService:Create(colorCorrectionEffect, deathEffectInfo, tweenColorGoal)
+
+local function playDeathTween()
+	blurEffect.Enabled = true
+	colorCorrectionEffect.Enabled = true
+	tweenBlur:Play()
+	tweenColor:Play()
+end
+
+local function setupDeathTween(character)
+	
+	local humanoid = character:WaitForChild("Humanoid")
+
+	if tweenBlur and tweenBlur.PlaybackState == Enum.PlaybackState.Playing then
+		tweenBlur:Cancel()
+		tweenColor:Cancel()
+	end
+
+	-- Disable the effects and set them to starting values
+	blurEffect.Enabled = false
+	blurEffect.Size = 0
+	colorCorrectionEffect.Enabled = false
+	colorCorrectionEffect.TintColor = Color3.fromRGB(255, 255, 255)
+
+	-- Create the "Died" event connection for the tween
+	humanoid.Died:Connect(function()
+		playDeathTween()
+	end)
+end
+
+-- Event connections
+player.CharacterAdded:Connect(setupDeathTween)
+
+if player.Character then
+	setupDeathTween(player.Character)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>post-processing</li>
+		  
+		    <li>effects</li>
+		  
+		    <li>environment</li>
+		  
+		    <li>lighting</li>
+		  
+		    <li>blur</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="atmosphere.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt24b8281d27a898f5/Atmosphere-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="atmosphere.html">Atmosphere Controls</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/post-processing-effects by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:31:12 GMT -->
+</html>

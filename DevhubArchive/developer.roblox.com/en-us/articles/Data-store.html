@@ -1,0 +1,2971 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/Data-store by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:26:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="Data-store.html"/>
+    <link rel="alternate" hreflang="x-default" href="Data-store.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="Data-store.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="Data-store.html"/>
+    
+      
+        
+          <title> Data Stores</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>Explore data stores,&nbsp;a data&nbsp;storage feature for Roblox games</p>">
+
+
+
+<meta name="keywords" content="data, storage">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Data Stores">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>Explore data stores,&nbsp;a data&nbsp;storage feature for Roblox games</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Coding and Scripts">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/coding-scripts.html">CODING AND SCRIPTS</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Data Stores</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/coding-scripts.html">CODING AND SCRIPTS</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Data Stores</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">30  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.custom-button {
+  opacity: 0.7;
+}
+.custom-button.active {
+  opacity: 1;
+}
+.custom-button.tab-right-margin {
+  margin-right: 1px;
+}
+</style>
+<p><code>DataStoreService</code> lets you store <strong>data that needs to persist between sessions</strong>, such as items in a player’s inventory or skill points. Data stores are shared <strong>per experience</strong>, so any place in an experience, including places on different servers, can access and change the same data.</p>
+<h2>Enabling Studio Access</h2>
+<p>By default, experiences tested in Studio cannot access data stores, so you must first enable them.</p>
+<ol>
+<li>Make sure your experience is published <span class="text-nowrap">(<b>File</b> &rarr; <b>Publish to Roblox</b>)</span> to enable Studio access.</li>
+<li>From the <b>Home</b> tab, open the <b>Game Settings</b> window.
+<li>In the <b>Security</b> section, turn on <b>Enable Studio Access to API Services</b>.</li></ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt9d47535d561b8f98/e2d1dbc1f9f9d1b35ade9344fe9f1cb6.png" class="img-fluid half-sized list-indent">
+<ol start=4>
+<li>Click <b>Save</b> to register your changes.</li></ol>
+<div class="alert alert-danger mb-4" role="alert">
+Accessing data stores in Studio can be dangerous for live games because Studio accesses the same data stores as the client application. To avoid overwriting production data, you should <b>not</b> enable this setting for live games&nbsp;&mdash; instead, enable it for a separate test version of the game.
+</div>
+<h2>Accessing a Data Store</h2>
+<p>Once you include <code>DataStoreService</code> in a script, access a data store by <strong>name</strong> using the <code>DataStoreService/GetDataStore|GetDataStore()</code> function. For example:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-1" data-toggle="tab" href="#nav-code-1" role="tab" aria-controls="nav-code-1" aria-selected="true">
+				<span class="txt">Access Data Store</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			
+			<pre class="prettyprint  linenums:01 lang-lua"><span class='highlighted'>local DataStoreService = game:GetService("DataStoreService")</span>
+
+<span class='highlighted'>local experienceStore = DataStoreService:GetDataStore("PlayerExperience")</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-warning mb-3" role="alert">
+<p>The server can only access data stores through <code>Script|Scripts</code>. Attempting <span class="text-nowrap">client-side</span> access in a <code>LocalScript</code> will cause an error.</p>
+</div><span id="scope"></span>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="margin-bottom: -5px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg-primary text-white collapsed" data-toggle="collapse" href="#ref_card-1" role="button" aria-expanded="false" aria-controls="card-1">Scope »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse " id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Every key in a data store has a default “global” scope, but you can further organize keys by setting a unique string as a scope for the second parameter of <code>DataStoreService/GetDataStore|GetDataStore()</code>; this will automatically prepend the scope to all keys in all operations done on the data store.</p>
+<p>The scope categorizes your data with a string and a separator with “<samp>/</samp>”, such as:</p>
+<table class="table table-striped table-bordered w-50">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Scope</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><samp>houses/User_1234</samp></td>
+            <td scope="row">houses</td>
+        </tr>
+        <tr>
+            <td scope="row"><samp>pets/User_1234</samp></td>
+            <td scope="row">pets</td>
+        </tr>
+        <tr>
+            <td scope="row"><samp>inventory/User_1234</samp></td>
+            <td scope="row">inventory</td>
+        </tr>
+    </tbody>
+</table>
+<p>The combination of <span class="text-nowrap"><strong>datastore name</strong> + <strong>scope</strong> + <strong>key</strong></span> uniquely identifies a key and all three values are required to identify a key if it has a scope. For example, a global key named <b><samp>User_1234</samp></b> can be read as follows:</p>
+<pre class="linenums:1">local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+
+local inventoryStore = DataStoreService:GetDataStore(&quot;PlayerInventory&quot;)
+
+local success, currentGold = pcall(function()
+	return inventoryStore:GetAsync(<span class='highlighted'>&quot;User_1234&quot;</span>)
+end)</pre>
+<p>By contrast, if key <b><samp>User_1234</samp></b> has a scope of <b><samp>gold</samp></b>, you can only read it as:</p>
+<pre class="linenums:1">local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+
+local inventoryStore = DataStoreService:GetDataStore(&quot;PlayerInventory&quot;, <span class='highlighted'>&quot;gold&quot;</span>)
+
+local success, currentGold = pcall(function()
+	return inventoryStore:GetAsync(<span class='highlighted'>&quot;User_1234&quot;</span>)
+end)</pre>
+
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Managing a Data Store</h2>
+<h3>Setting Data</h3>
+<p>A data store is essentially a dictionary, similar to a Lua table. A unique <strong>key</strong> indexes each value in the data store, such as a player’s unique <code>Player/UserId</code> or a named string for a game promo.</p>
+<div class="container" style="padding-left:0px;">
+<div class="row">
+<div class="col-12 col-md-6">
+  <table class="table table-striped table-bordered mt-0 mb-2">
+    <thead class="thead-dark">
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+    <td>
+        31250608
+    </td>
+    <td>
+        50
+    </td>
+    </tr>
+    <tr>
+    <td>
+        351675979
+    </td>
+    <td>
+        20
+    </td>
+    </tr>
+    <tr>
+    <td>
+        505306092
+    </td>
+    <td>
+        78000
+    </td>
+    </tr>
+    </tbody>
+    </table>
+<figure class="figure w-100">
+<figcaption class="figure-caption text-center">Player&nbsp;Data</figcaption>
+</figure>
+</div>
+<div class="col-12 col-md-6 ">
+  <table class="table table-striped table-bordered mt-0 mb-2">
+        <thead class="thead-dark">
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+        <td>
+            ActiveSpecialEvent
+        </td>
+        <td>
+            SummerParty2
+        </td>
+        </tr>
+        <tr>
+        <td>
+            ActivePromoCode
+        </td>
+        <td>
+            BONUS123
+        </td>
+        </tr>
+        <tr>
+        <td>
+            CanAccessPartyPlace
+        </td>
+        <td>
+            true
+        </td>
+        </tr>
+        </tbody>
+    </table>
+<figure class="figure w-100">
+<figcaption class="figure-caption text-center">Promo&nbsp;Data</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>To create a new entry, call <code>GlobalDataStore/SetAsync|SetAsync()</code> with the <strong>key name</strong> and a <strong>value</strong>.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-2" data-toggle="tab" href="#nav-code-2" role="tab" aria-controls="nav-code-2" aria-selected="true">
+				<span class="txt">Set Data Store Key/Value</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local DataStoreService = game:GetService("DataStoreService")
+
+local experienceStore = DataStoreService:GetDataStore("PlayerExperience")
+
+<span class='highlighted'>local success, errorMessage = pcall(function()</span>
+	<span class='highlighted'>experienceStore:SetAsync("User_1234", 50)</span>
+<span class='highlighted'>end)</span>
+if not success then
+	print(errorMessage)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-warning mb-3" role="alert">
+Functions like <code>GlobalDataStore/SetAsync|SetAsync()</code> that access a data store's contents are network calls that may occasionally fail. As shown above, it's recommended that these calls be wrapped in <b><code>pcall()</code></b> to catch and handle errors.
+</div>
+<h3>Reading Data</h3>
+<p>The <code>GlobalDataStore/GetAsync|GetAsync()</code> function reads the value of a data store entry. It requires just the key name of the entry.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-3" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-3" data-toggle="tab" href="#nav-code-3" role="tab" aria-controls="nav-code-3" aria-selected="true">
+				<span class="txt">Read Data Store Key/Value</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-3" data-toggle="tab" href="#nav-output-3" role="tab" aria-controls="nav-output-3" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-3" role="tabpanel" aria-labelledby="nav-code-tab-3">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local DataStoreService = game:GetService("DataStoreService")
+
+local experienceStore = DataStoreService:GetDataStore("PlayerExperience")
+ 
+<span class='highlighted'>local success, currentExperience = pcall(function()</span>
+	<span class='highlighted'>return experienceStore:GetAsync("User_1234")</span>
+<span class='highlighted'>end)</span>
+if success then
+	print(currentExperience)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-3" role="tabpanel" aria-labelledby="nav-output-tab-3">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-warning mb-3" role="alert">
+<code>GlobalDataStore/GetAsync|GetAsync()</code> caches the data for 4 seconds, so the returned value is not guaranteed to be the one saved on Roblox servers.
+</div>
+<h3>Incrementing Data</h3>
+<p><code>GlobalDataStore/IncrementAsync|IncrementAsync()</code> changes a <strong>numerical value</strong> in a data store. This function requires the key name of the entry and a number indicating how much to change the value.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-4" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-4" data-toggle="tab" href="#nav-code-4" role="tab" aria-controls="nav-code-4" aria-selected="true">
+				<span class="txt">Increment Data Store Key/Value</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-4" data-toggle="tab" href="#nav-output-4" role="tab" aria-controls="nav-output-4" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-4" role="tabpanel" aria-labelledby="nav-code-tab-4">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local DataStoreService = game:GetService("DataStoreService")
+
+local experienceStore = DataStoreService:GetDataStore("PlayerExperience")
+
+<span class='highlighted'>local success, newExperience = pcall(function()</span>
+	<span class='highlighted'>return experienceStore:IncrementAsync("Player_1234", 1)</span>
+<span class='highlighted'>end)</span>
+if success then
+	print(newExperience)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-4" role="tabpanel" aria-labelledby="nav-output-tab-4">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Updating Data</h3>
+<p><code>GlobalDataStore/UpdateAsync|UpdateAsync()</code> changes any stored value in a data store. This function requires the key name of the entry plus a <strong>callback function</strong> which defines how the entry should be updated. This callback takes the current value and returns the new value, based on whatever logic you define.</p>
+<div class="alert alert-warning" role="alert">
+The callback function passed into <code>GlobalDataStore/UpdateAsync|UpdateAsync()</code> is <b>not</b> permitted to yield, so it cannot contain any yielding function like <code>wait()</code>.
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-5" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-5" data-toggle="tab" href="#nav-code-5" role="tab" aria-controls="nav-code-5" aria-selected="true">
+				<span class="txt">Update Data Store Key/Value</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-5" data-toggle="tab" href="#nav-output-5" role="tab" aria-controls="nav-output-5" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-5" role="tabpanel" aria-labelledby="nav-code-tab-5">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local DataStoreService = game:GetService("DataStoreService")
+
+local nicknameStore = DataStoreService:GetDataStore("Nicknames")
+
+<span class='highlighted'>local function makeNameUpper(currentName)</span>
+	<span class='highlighted'>local nameUpper = string.upper(currentName)</span>
+	<span class='highlighted'>return nameUpper</span>
+<span class='highlighted'>end</span>
+
+<span class='highlighted'>local success, updatedName = pcall(function()</span>
+	<span class='highlighted'>return nicknameStore:UpdateAsync("User_1234", makeNameUpper)</span>
+<span class='highlighted'>end)</span>
+if success then
+	print("Uppercase Name:", updatedName)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-5" role="tabpanel" aria-labelledby="nav-output-tab-5">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="margin-bottom: -5px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">Set vs. Update</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-2">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p><code>GlobalDataStore/SetAsync|SetAsync()</code> is best for a quick update of a specific key, and it only counts against the write <a href="#limits">limit</a>. However, it may cause data inconsistency if two servers attempt to set the same key at the same time.</p>
+<p><code>GlobalDataStore/UpdateAsync|UpdateAsync()</code> is safer for handling multi-server attempts because it reads the current key value (from whatever server last updated it) before making any changes. However, it’s somewhat slower because it reads before it writes, and it also counts against both the read and write limit.</p>
+
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>Removing Data</h3>
+<p><code>GlobalDataStore/RemoveAsync|RemoveAsync()</code> removes an entry and returns the value that was associated with the key.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-6" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-6" data-toggle="tab" href="#nav-code-6" role="tab" aria-controls="nav-code-6" aria-selected="true">
+				<span class="txt">Remove Data Store Key/Value</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-6" data-toggle="tab" href="#nav-output-6" role="tab" aria-controls="nav-output-6" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-6" role="tabpanel" aria-labelledby="nav-code-tab-6">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local DataStoreService = game:GetService("DataStoreService")
+
+local nicknameStore = DataStoreService:GetDataStore("Nicknames")
+
+<span class='highlighted'>local success, removedValue = pcall(function()</span>
+	<span class='highlighted'>return nicknameStore:RemoveAsync("User_1234")</span>
+<span class='highlighted'>end)</span>
+if success then
+	print(removedValue)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-6" role="tabpanel" aria-labelledby="nav-output-tab-6">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Ordered Data Stores</h2>
+<p>By default, data stores do not sort their content, but sometimes it’s necessary to get data in an ordered fashion, such as persistent leaderboard stats. You can achieve this by calling <code>DataStoreService/GetOrderedDataStore|GetOrderedDataStore()</code> instead of <span class="text-nowrap"><code>DataStoreService/GetDataStore|GetDataStore()</code>.</span></p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-7" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-7" data-toggle="tab" href="#nav-code-7" role="tab" aria-controls="nav-code-7" aria-selected="true">
+				<span class="txt">Get Ordered Data Store</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-7" data-toggle="tab" href="#nav-output-7" role="tab" aria-controls="nav-output-7" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-7" role="tabpanel" aria-labelledby="nav-code-tab-7">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local DataStoreService = game:GetService("DataStoreService")
+
+<span class='highlighted'>local characterAgeStore = DataStoreService:GetOrderedDataStore("CharacterAges")</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-7" role="tabpanel" aria-labelledby="nav-output-tab-7">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Ordered data stores support the same basic functions as default data stores, plus the unique <code>OrderedDataStore/GetSortedAsync|GetSortedAsync()</code> function. This retrieves <strong>multiple sorted keys</strong> based on a specific sorting order, page size, and minimum/maximum values.</p>
+<p>The following example sorts character data into pages with three entries each in descending order, then loops through the pages and outputs each character’s name/age.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-8" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show " id="nav-code-tab-8" data-toggle="tab" href="#nav-code-8" role="tab" aria-controls="nav-code-8" aria-selected="true">
+				<span class="txt">Get Ordered Data Store</span>
+			</a>
+			
+			<a class="nav-item nav-link " id="nav-output-tab-8" data-toggle="tab" href="#nav-output-8" role="tab" aria-controls="nav-output-8" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-8" role="tabpanel" aria-labelledby="nav-code-tab-8">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local DataStoreService = game:GetService("DataStoreService")
+
+local characterAgeStore = DataStoreService:GetOrderedDataStore("CharacterAges")
+
+-- Populate ordered data store
+local characters = {
+	Mars = 19,
+	Janus = 20,
+	Diana = 18,
+	Venus = 25,
+	Neptune = 62
+}
+for char, age in pairs(characters) do
+	local success, errorMessage = pcall(function()
+		characterAgeStore:SetAsync(char, age)
+	end)
+	if not success then
+		print(errorMessage)
+	end
+end
+
+-- Sort data by descending order into pages of three entries each
+<span class='highlighted'>local success, pages = pcall(function()</span>
+	<span class='highlighted'>return characterAgeStore:GetSortedAsync(false, 3)</span>
+<span class='highlighted'>end)</span>
+if success then
+	while true do
+		-- Get the current (first) page
+<span class='highlighted'>		local entries = pages:GetCurrentPage()</span>
+		-- Iterate through all key-value pairs on page
+		<span class='highlighted'>for _, entry in pairs(data) do</span>
+			<span class='highlighted'>print(entry.key .. " : " .. tostring(entry.value))</span>
+		<span class='highlighted'>end</span>
+		-- Check if last page has been reached
+		<span class='highlighted'>if pages.IsFinished then</span>
+			<span class='highlighted'>break</span>
+		<span class='highlighted'>else</span>
+			print("----------")
+			-- Advance to next page
+<span class='highlighted'>			pages:AdvanceToNextPageAsync()</span>
+		end
+	end
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-8" role="tabpanel" aria-labelledby="nav-output-tab-8">
+			<pre class="prettyprint  nocode">Neptune: 62
+Venus: 25
+Janus: 20
+----------------
+Mars: 19
+Diana: 18</pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Metadata<span id="metadata"></span></h2>
+<p>There are two types of metadata associated with keys:</p>
+<table class="table table-striped table-bordered">
+	<tbody>
+		<tr>
+			<td class="text-nowrap"><b>Service-Defined</b></td>
+			<td>Every object has default <span class="text-nowrap">read-only</span> metadata such as the most recent update time and creation time.</td>
+		</tr>
+		<tr>
+			<td><b>User-Defined</b></td>
+			<td>Through the <code>DataStoreSetOptions</code> object and its <code>DataStoreSetOptions/SetMetadata|SetMetadata()</code> function, you can include custom metadata for tagging and categorization.</td>
+		</tr>
+	</tbody>
+</table>
+<p>Metadata is managed by expanding the <code>GlobalDataStore/SetAsync|SetAsync()</code>, <code>GlobalDataStore/GetAsync|GetAsync()</code>, <code>GlobalDataStore/UpdateAsync|UpdateAsync()</code>, <code>GlobalDataStore/IncrementAsync|IncrementAsync()</code>, and <code>GlobalDataStore/RemoveAsync|RemoveAsync()</code> functions.</p>
+<ul>
+<li><code>GlobalDataStore/SetAsync|SetAsync()</code> accepts optional third and fourth arguments:
+<ul>
+<li>Table of <code>Player/UserId|UserIds</code>, highly recommended to assist with <code>articles/managing personal information|GDPR</code> tracking/removal.</li>
+<li>A <code>DataStoreSetOptions</code> object on which you can define custom metadata using its <code>DataStoreSetOptions/SetMetadata|SetMetadata()</code> function.</li>
+</ul>
+</li>
+</ul>
+<div class="list-indent mb-4">
+<pre class="linenums:1">local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+
+local experienceStore = DataStoreService:GetDataStore(&quot;PlayerExperience&quot;)
+
+<span class='highlighted'>local setOptions = Instance.new(&quot;DataStoreSetOptions&quot;)</span>
+<span class='highlighted'>setOptions:SetMetadata({[&quot;ExperienceElement&quot;] = &quot;Fire&quot;})</span>
+
+local success, errorMessage = pcall(function()
+	experienceStore:SetAsync(&quot;User_1234&quot;, 50, <span class='highlighted'>{1234}, setOptions</span>)
+end)
+if not success then
+	print(errorMessage)
+end</pre>
+</div>
+<ul>
+<li><code>GlobalDataStore/GetAsync|GetAsync()</code>, <code>GlobalDataStore/IncrementAsync|IncrementAsync()</code>, and <code>GlobalDataStore/RemoveAsync|RemoveAsync()</code> return a second value <span class="text-nowrap">(<code>DataStoreKeyInfo</code> object)</span> that contains both <span class="text-nowrap">service-defined</span> properties and functions to fetch <span class="text-nowrap">user-defined</span> metadata:
+<ul>
+<li><code>DataStoreKeyInfo/GetUserIds|DataStoreKeyInfo:GetUserIds()</code> — Fetches the table of <code>Player/UserId|UserIds</code> that was passed to <code>GlobalDataStore/SetAsync|SetAsync()</code>.</li>
+<li><code>DataStoreKeyInfo/GetMetadata|DataStoreKeyInfo:GetMetadata()</code> — Fetches user-defined metadata that was passed to <code>GlobalDataStore/SetAsync|SetAsync()</code> through <code>DataStoreSetOptions/SetMetadata|SetMetadata()</code>.</li>
+<li><code>DataStoreKeyInfo/Version</code> — Version of the key.</li>
+<li><code>DataStoreKeyInfo/CreatedTime</code> — Time the key was created, formatted as the number of milliseconds since epoch.</li>
+<li><code>DataStoreKeyInfo/UpdatedTime</code> — Last time the key was updated, formatted as the number of milliseconds since epoch.</li>
+</ul>
+</li>
+</ul>
+<div class="list-indent mb-4">
+<pre class="linenums:1">local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+
+local experienceStore = DataStoreService:GetDataStore(&quot;PlayerExperience&quot;)
+ 
+local success, currentExperience, <span class='highlighted'>keyInfo</span> = pcall(function()
+	return experienceStore:GetAsync(&quot;User_1234&quot;)
+end)
+if success then
+	print(currentExperience)
+	<span class='highlighted'>print(keyInfo.Version)</span>
+	<span class='highlighted'>print(keyInfo.CreatedTime)</span>
+	<span class='highlighted'>print(keyInfo.UpdatedTime)</span>
+	<span class='highlighted'>print(keyInfo:GetUserIds())</span>
+	<span class='highlighted'>print(keyInfo:GetMetadata())</span>
+end</pre>
+</div>
+<ul>
+<li>The <strong>callback function</strong> of <code>GlobalDataStore/UpdateAsync|UpdateAsync()</code> takes an additional parameter <span class="text-nowrap">(<code>DataStoreKeyInfo</code> object)</span> that describes the current key state. It returns the modified value, the key’s associated <code>Player/UserId|UserIds</code>, and the key’s metadata.</li>
+</ul>
+<div class="list-indent mb-4">
+<pre class="linenums:1">local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+
+local nicknameStore = DataStoreService:GetDataStore(&quot;Nicknames&quot;)
+
+local function makeNameUpper(currentName, <span class='highlighted'>keyInfo</span>)
+	local nameUpper = string.upper(currentName)
+	<span class='highlighted'>local userIDs = keyInfo:GetUserIds()</span>
+	<span class='highlighted'>local metadata = keyInfo:GetMetadata()</span>
+	<span class='highlighted'>return nameUpper, userIDs, metadata</span>
+end
+
+local success, updatedName, <span class='highlighted'>keyInfo</span> = pcall(function()
+	return nicknameStore:UpdateAsync(&quot;User_1234&quot;, makeNameUpper)
+end)
+if success then
+	print(updatedName)
+	<span class='highlighted'>print(keyInfo.Version)</span>
+	<span class='highlighted'>print(keyInfo.CreatedTime)</span>
+	<span class='highlighted'>print(keyInfo.UpdatedTime)</span>
+	<span class='highlighted'>print(keyInfo:GetUserIds())</span>
+	<span class='highlighted'>print(keyInfo:GetMetadata())</span>
+end</pre>
+</div>
+<div class="alert alert-danger mb-3" role="alert">
+<p>You must always update metadata definitions with a value, even if there are no changes to the current value; otherwise the current value will be lost. This applies to <code>GlobalDataStore/SetAsync|SetAsync()</code>, <code>GlobalDataStore/IncrementAsync|IncrementAsync()</code>, and <code>GlobalDataStore/UpdateAsync|UpdateAsync()</code>.</p>
+</div>
+<p>User-defined metadata has the following limits:</p>
+<ul>
+<li>Key length: up to 50 characters.</li>
+<li>Value length: up to 250 characters.</li>
+<li>No limit for the total number of key-value pairs but the total size cannot exceed 300 characters.</li>
+</ul>
+<h2>Versioning<span id="versioning"></span></h2>
+<p>With versioning, <code>GlobalDataStore/SetAsync|SetAsync()</code> and <code>GlobalDataStore/UpdateAsync|UpdateAsync()</code> create new versions instead of overwriting existing data, and <code>GlobalDataStore/GetAsync|GetAsync()</code> reads the latest version. <code>DataStoreService</code> periodically checks the timestamps of each version and removes versions older than 30 days, but retains the latest version indefinitely.</p>
+<p>There are three new APIs for versioning operations:</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Function</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><code>DataStore/ListVersionsAsync|ListVersionsAsync()</code></td>
+            <td scope="row">Lists all versions for a key by returning a <code>DataStoreVersionPages</code> instance that you can use to enumerate all version numbers. You can filter versions based on a time range as shown in the code example below.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>DataStore/GetVersionAsync|GetVersionAsync()</code></td>
+            <td scope="row">Retrieves a specific version of a key using its version number.</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><code>DataStore/RemoveVersionAsync|RemoveVersionAsync()</code></td>
+            <td scope="row">Deletes a specific version of a key.</td>
+        </tr>
+    </tbody>
+</table>
+<div class="alert alert-primary mb-3" role="alert">
+<p><code>DataStore/RemoveVersionAsync|RemoveVersionAsync()</code> also creates a “tombstone” version while also retaining the previous version. For example, if you call <code>RemoveAsync(&quot;User_1234&quot;)</code>, an attempt to call <code>GetAsync(&quot;User_1234&quot;)</code> will return <code>nil</code>. However, you can still use <code>DataStore/ListVersionsAsync|ListVersionsAsync()</code> and <code>DataStore/GetVersionAsync|GetVersionAsync()</code> to retrieve the older version, assuming it has not expired.</p>
+</div>
+<p>Versioning is convenient for user support. For example, if a user reports that a problem occurred at <b class="text-nowrap">2020-10-09T01:42</b>, you can revert to a previous version using the code below.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="top-panel">
+		<div class="nav nav-tabs" id="code-nav-9" role="tablist" style="border-bottom: 0px;">
+			
+			<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-9" data-toggle="tab" href="#nav-code-9" role="tab" aria-controls="nav-code-9" aria-selected="true">
+				<span class="txt">Restore Closest Key Version</span>
+			</a>
+			
+			<a class="nav-item nav-link hidden-elem" id="nav-output-tab-9" data-toggle="tab" href="#nav-output-9" role="tab" aria-controls="nav-output-9" aria-selected="false">
+				<span class="txt">Expected Output</span>
+			</a>
+			<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right; padding-bottom: 5px;">
+				<span class="txt">Expand</span>
+				<i class="expand-collapse-icon inline-icon"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-9" role="tabpanel" aria-labelledby="nav-code-tab-9">
+			
+			<pre class="prettyprint  linenums:01 lang-lua">local DataStoreService = game:GetService("DataStoreService")
+
+local experienceStore = DataStoreService:GetDataStore("PlayerExperience")
+
+<span class='highlighted'>local DATA_STORE_KEY = "User_1234"</span>
+
+<span class='highlighted'>local maxDate = DateTime.fromUniversalTime(2020, 10, 09, 01, 42)</span>
+
+-- Get the version closest to the given time
+local listSuccess, pages = pcall(function()
+    return experienceStore:ListVersionsAsync(DATA_STORE_KEY, Enum.SortDirection.Descending, nil, maxDate.UnixTimestampMillis)
+end)
+if listSuccess then
+    local items = pages:GetCurrentPage()
+    if table.getn(items) > 0 then
+        -- Read the closest version
+        local closestEntry = items[1]
+        local success, value, info = pcall(function()
+            return experienceStore:GetVersionAsync(DATA_STORE_KEY, closestEntry.Version)
+        end)
+        -- Restore current value by overwriting with the closest version
+        if success then
+            local setOptions = Instance.new("DataStoreSetOptions")
+            setOptions:SetMetadata(info:GetMetadata())
+            experienceStore:SetAsync(DATA_STORE_KEY, value, nil, setOptions)
+        end
+    else
+        -- No entries found
+    end
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-9" role="tabpanel" aria-labelledby="nav-output-tab-9">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">Copy Code</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">Light Theme</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="Light Theme"></i>
+					<i class="dark-theme-icon icon" caption="Dark Theme"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Listing and Prefixes<span id="listing"></span></h2>
+<p>Data stores allow for <strong>listing by prefix</strong> (the first <strong>n</strong> characters of a name, such as <span class="text-nowrap">“d”, “do”, or “dog”</span> for any key or data store with a <span class="text-nowrap">prefix of “dog”).</span></p>
+<p>You can specify a prefix when listing all data stores or keys, and only objects matching that prefix will be returned. Both functions return a <code>DataStoreListingPages</code> object that you can use to enumerate the list.</p>
+<table class="table table-striped table-bordered mb-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Function</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row" class="text-nowrap"><code>DataStoreService/ListDataStoresAsync|ListDataStoresAsync()</code></td>
+            <td scope="row">Lists all data stores.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>DataStore/ListKeysAsync|ListKeysAsync()</code></td>
+            <td scope="row">Lists all keys in a data store.</td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="margin-bottom: -5px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg-primary text-white collapsed" data-toggle="collapse" href="#ref_card-3" role="button" aria-expanded="false" aria-controls="card-3">AllScopes Property »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse " id="ref_card-3">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p><code>DataStoreOptions</code> contains an <code>DataStoreOptions/AllScopes|AllScopes</code> property that allows you to return keys from all <a href="#scope">scopes</a> in a convenient list; you can then use a list item’s <code>DataStoreKey/KeyName|KeyName</code> property for common data store operations like <code>GlobalDataStore/GetAsync|GetAsync()</code> and <code>GlobalDataStore/RemoveAsync|RemoveAsync()</code>. <strong>When you use this property, the second parameter of <code>DataStoreService/GetDataStore|GetDataStore()</code> must be an empty <span class="text-nowrap">string (<code>&quot;&quot;</code>).</strong></span></p>
+<pre class="linenums:1">local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+
+local options = Instance.new(&quot;DataStoreOptions&quot;)
+<span class='highlighted'>options.AllScopes = true</span>
+
+local ds = DataStoreService:GetDataStore(&quot;DS1&quot;, <span class='highlighted'>&quot;&quot;</span>, options)</pre>
+<div class="alert alert-primary mb-4" role="alert">
+<p>When you use the <code>DataStoreOptions/AllScopes|AllScopes</code> property, <code>DataStore/ListKeysAsync|ListKeysAsync()</code> returns every key with their scope as the prefix argument, such as  <samp>global/player_data_1234</samp> or <samp>houses/house3</samp>. The default scope is <samp>global</samp>.</p>
+</div>
+<p>If you enable the <code>DataStoreOptions/AllScopes|AllScopes</code> property and create a new key in the data store, you must always specify a scope for that key in the format of <samp>scope/keyname</samp>, otherwise the APIs will throw an error. For example, <samp>gold/player_34545</samp> will be acceptable with <samp>gold</samp> as the scope, but <samp>player_34545</samp> will lead to an error.</p>
+<p>Consider the following data set:</p>
+<table class="table table-striped table-bordered w-50">
+    <tbody>
+        <tr>
+            <td scope="row" class="w-50"><samp>global/K1</samp></td>
+            <td scope="row" class="w-50"><samp>house/K1</samp></td>
+        </tr>
+        <tr>
+            <td scope="row"><samp>global/L2</samp></td>
+            <td scope="row"><samp>house/L2</samp></td>
+        </tr>
+        <tr>
+            <td scope="row"><samp>global/M3</samp></td>
+            <td scope="row"><samp>house/M3</samp></td>
+        </tr>
+    </tbody>
+</table>
+<p>To list these keys either by prefix, scope, both, or neither, reference the following patterns:</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#Opt1" role="tab">All Scopes + No Prefix</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#Opt2" role="tab">All Scopes + Prefix</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#Opt3" role="tab">Scope + Prefix</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#Opt4" role="tab">Scope Only</a>
+  </div>
+</nav>
+<div class="tab-content">
+<!-- All Scopes + No Prefix -->
+<div class="tab-pane active show" id="Opt1" role="tabpanel">
+<table class="table table-bordered mb-0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Code Pattern</th>
+            <th scope="col">Page&nbsp;Items</th>
+        </tr>
+    </thead>
+<tbody>
+<tr>
+<td scope="row">
+<pre class="linenums:1">local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+
+local options = Instance.new(&quot;DataStoreOptions&quot;)
+<span class='highlighted'>options.AllScopes = true</span>
+
+local ds = DataStoreService:GetDataStore(&quot;DS1&quot;, <span class='highlighted'>&quot;&quot;</span>, options)
+
+local listSuccess, pages = pcall(function()
+	<span class='highlighted'>return ds:ListKeysAsync()</span>
+end)</pre>
+</td>
+<td scope="row">
+<br>
+<samp>
+global/K1<br>
+global/L2<br>
+global/M3<br>
+house/K1<br>
+house/L2<br>
+house/M3
+</samp>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- All Scopes + Prefix -->
+<div class="tab-pane" id="Opt2" role="tabpanel">
+<table class="table table-bordered mb-0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Code Pattern</th>
+            <th scope="col">Page&nbsp;Items</th>
+        </tr>
+    </thead>
+<tbody>
+<tr>
+<td scope="row">
+<pre class="linenums:1">local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+
+local options = Instance.new(&quot;DataStoreOptions&quot;)
+<span class='highlighted'>options.AllScopes = true</span>
+
+local ds = DataStoreService:GetDataStore(&quot;DS1&quot;, <span class='highlighted'>&quot;&quot;</span>, options)
+
+-- Since search is by prefix, it can be g, gl, glo, glob, globa, or global 
+local listSuccess, pages = pcall(function()
+	return ds:ListKeysAsync(<span class='highlighted'>&quot;global&quot;</span>)
+end)</pre>
+</td>
+<td scope="row">
+<br>
+<samp>
+global/K1<br>
+global/L2<br>
+global/M3
+</samp>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Scope + Prefix -->
+<div class="tab-pane" id="Opt3" role="tabpanel">
+<table class="table table-bordered mb-0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Code Pattern</th>
+            <th scope="col">Page&nbsp;Items</th>
+        </tr>
+    </thead>
+<tbody>
+<tr>
+<td scope="row">
+<pre class="linenums:1">local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+
+local ds = DataStoreService:GetDataStore(&quot;DS1&quot;, <span class='highlighted'>&quot;house&quot;</span>)
+
+local listSuccess, pages = pcall(function()
+	return ds:ListKeysAsync(<span class='highlighted'>&quot;K&quot;</span>)
+end)</pre>
+</td>
+<td scope="row">
+<br>
+<samp>K1</samp> (there is only one key in the scope <samp>house</samp> that starts with <samp>K</samp>)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Scope Only -->
+<div class="tab-pane" id="Opt4" role="tabpanel">
+<table class="table table-bordered mb-0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Code Pattern</th>
+            <th scope="col">Page&nbsp;Items</th>
+        </tr>
+    </thead>
+<tbody>
+<tr>
+<td scope="row">
+<pre class="linenums:1">local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+
+local ds = DataStoreService:GetDataStore(&quot;DS1&quot;, <span class='highlighted'>&quot;house&quot;</span>)
+
+local listSuccess, pages = pcall(function()
+	return ds:ListKeysAsync()
+end)</pre>
+</td>
+<td scope="row">
+<br>
+<samp>
+K1<br>
+L2<br>
+M3
+</samp>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Error Codes</h2>
+<p>Requests to data stores may occasionally fail due to poor connectivity or other issues. Wrapping data store functions in <code>pcall()</code> will handle any errors and return a message with an error code.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="margin-bottom: -10px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg-primary text-white collapsed" data-toggle="collapse" href="#ref_card-4" role="button" aria-expanded="false" aria-controls="card-4">Error Code Reference »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse " id="ref_card-4">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table table-striped table-bordered mb-0">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col" class="text-nowrap">Error Code</th>
+			<th scope="col">Error Message</th>
+			<th scope="col" class="w-50">Notes</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>101</td>
+			<td>Key name can't be empty.</td>
+			<td>Check if the key input into the data store function is an empty string.</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Key name exceeds the 50 character limit.</td>
+			<td>Check if the key input into the data store function exceeds a length of 50.</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td><b>X</b> is not allowed in DataStore.</td>
+			<td>An invalid value of type <b>X</b> was returned by a bad update function.</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Cannot store <b>X</b> in DataStore.</td>
+			<td>A value of type <b>X</b> returned by the update function did not serialize.</td>
+		</tr>
+		<tr>
+			<td>105</td>
+			<td>Serialized value converted byte size exceeds max size 64*1024 bytes.</td>
+			<td>Character count in string cannot exceed 65,536 characters.</td>
+		</tr>
+		<tr>
+			<td>106</td>
+			<td>MaxValue and MinValue must be integers.</td>
+			<td>If you're passing a minimum or maximum value to <code>OrderedDataStore/GetSortedAsync|GetSortedAsync()</code> for an <code>OrderedDataStore</code>, both values must be integers.</td>
+		</tr>
+		<tr>
+			<td>106</td>
+			<td>PageSize must be within a predefined range.</td>
+			<td>The maximum page size for an <code>OrderedDataStore</code> is 100.</td>
+		</tr>
+		<tr>
+			<td>301</td>
+			<td>GetAsync request dropped. Request was throttled, but throttled request queue was full.</td>
+			<td><code>GlobalDataStore/GetAsync|GetAsync()</code> request has exceeded the maximum queue size and Roblox is unable to process the requests at the current throughput.</td>
+		</tr>
+		<tr>
+			<td>302</td>
+			<td>SetAsync request dropped. Request was throttled, but throttled request queue was full.</td>
+			<td><code>GlobalDataStore/SetAsync|SetAsync()</code> request has exceeded the maximum queue size and Roblox is unable to process the requests at the current throughput.</td>
+		</tr>
+		<tr>
+			<td>303</td>
+			<td>IncrementAsync request dropped. Request was throttled, but throttled request queue was full.</td>
+			<td><code>GlobalDataStore/IncrementAsync|IncrementAsync()</code> request has exceeded the maximum queue size and Roblox is unable to process the requests at the current throughput.</td>
+		</tr>
+		<tr>
+			<td>304</td>
+			<td>UpdateAsync request dropped. Request was throttled, but throttled request queue was full.</td>
+			<td><code>GlobalDataStore/UpdateAsync|UpdateAsync()</code> request has exceeded the maximum queue size and Roblox is unable to process the requests at the current throughput.</td>
+		</tr>
+		<tr>
+			<td>305</td>
+			<td>GetSorted request dropped. Request was throttled, but throttled request queue was full.</td>
+			<td><code>OrderedDataStore/GetSortedAsync|GetSortedAsync()</code> request has exceeded the maximum queue size and Roblox is unable to process the requests at the current throughput.</td>
+		</tr>
+		<tr>
+			<td>306</td>
+			<td>RemoveAsync request dropped. Request was throttled, but throttled request queue was full.</td>
+			<td><code>GlobalDataStore/RemoveAsync|RemoveAsync()</code> request has exceeded the maximum queue size and Roblox is unable to process the requests at the current throughput.</td>
+		</tr>
+		<tr>
+			<td>401</td>
+			<td>Request Failed. DataModel Inaccessible when the game is shutting down.</td>
+			<td><code>DataModel</code> is uninitialized because the game is shutting down.</td>
+		</tr>
+		<tr>
+			<td>402</td>
+			<td>Request Failed. LuaWebService Inaccessible when the game is shutting down.</td>
+			<td><code>LuaWebService</code> is uninitialized because the game is shutting down.</td>
+		</tr>
+		<tr>
+			<td>403</td>
+			<td>Cannot write to DataStore from Studio if API access is not enabled.</td>
+			<td>API access must be active in order to use data stores in Studio.
+		</tr>
+		<tr>
+			<td>404</td>
+			<td>OrderedDataStore does not exists.</td>
+			<td>The <code>OrderedDataStore</code> associated with this request has been removed.</td>
+		</tr>
+		<tr>
+			<td>501</td>
+			<td>Can't parse response, data may be corrupted.</td>
+			<td>System is unable to parse value from response. Data may be corrupted.</td>
+		</tr>
+		<tr>
+			<td>502</td>
+			<td>API Services rejected request with error: <b>X</b>.</td>
+			<td>Error <b>X</b> occurred when processing on Roblox servers. Depending on the response, you may want to retry the request at a later time.</td>
+		</tr>
+		<tr>
+			<td>503</td>
+			<td>DataStore Request successful, but key not found.</td>
+			<td>The key requested was not found in the data store. Ensure the data for the key is set first, then try again.</td>
+		</tr>
+		<tr>
+			<td>504</td>
+			<td>Datastore Request successful, but the response was not formatted correctly.</td>
+			<td>Data retrieved from <code>GlobalDataStore</code> was malformed. Data may be corrupted.</td>
+		</tr>
+		<tr>
+			<td>505</td>
+			<td>OrderedDatastore Request successful, but the response was not formatted correctly.</td>
+			<td>Data retrieved from <code>OrderedDataStore</code> was malformed. Data may be corrupted.</td>
+		</tr>
+		<tr>
+			<td>(TBD)</td>
+			<td>Metadata attribute size exceeds 300 bytes limit.</td>
+			<td>The serialized metadata size exceeds the limit. The value 300 is dynamic, if the size changes, the value will also change.</td>
+		</tr>
+		<tr>
+			<td>(TBD)</td>
+			<td>UserID size exceeds limit of 4.</td>
+			<td>The caller provided too many user IDs in the user IDs array.</td>
+		</tr>
+		<tr>
+			<td>(TBD)</td>
+			<td>Attribute userId format is invalid.</td>
+			<td>The user ID provided is not a number.</td>
+		</tr>
+		<tr>
+			<td>(TBD)</td>
+			<td>Attribute metadata format is invalid.</td>
+			<td>The metadata is not a table.</td>
+		</tr>
+	</tbody>
+</table>
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Limits<span id="limits"></span></h2>
+<p>There are also <strong>limits</strong> applied to the data store model. If an experience exceeds these limits, the service will automatically throttle the experience’s data store usage, causing requests to be placed in a <a href="#queues">queue</a>.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#ServerLimits" role="tab">Server Limits</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#DataLimits" role="tab">Data Limits</a>
+  </div>
+</nav>
+<div class="tab-content">
+<!-- Server Limits -->
+<div class="tab-pane active show" id="ServerLimits" role="tabpanel">
+<div class="border border-secondary px-3 py-2">
+Each server is allowed a certain number of data store requests based on the request type and number of players (more&nbsp;data is needed for more&nbsp;players).
+<table class="table table-striped table-bordered mt-3 mb-3">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col" class="text-nowrap">Request Type</th>
+			<th scope="col">Functions</th>
+			<th scope="col" class="text-nowrap">Requests per Minute</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><b>Get</b></td>
+			<td><code>GlobalDataStore/GetAsync|GetAsync()</code></td>
+			<td class="text-nowrap">60 + numPlayers &times; 10</td>
+		</tr>
+		<tr>
+			<td><b>Set</b> (limit is shared among all listed functions)</td>
+			<td><code>GlobalDataStore/SetAsync|SetAsync()</code><br><code>GlobalDataStore/IncrementAsync|IncrementAsync()</code><br><code>GlobalDataStore/UpdateAsync|UpdateAsync()</code><br><code>GlobalDataStore/RemoveAsync|RemoveAsync()</code></td>
+			<td class="text-nowrap">60 + numPlayers &times; 10</td>
+		</tr>
+		<tr>
+			<td><b>Get Sorted</b></td>
+			<td><code>OrderedDataStore/GetSortedAsync|GetSortedAsync()</code></td>
+			<td class="text-nowrap">5 + numPlayers &times; 2</td>
+		</tr>
+		<tr>
+			<td><b>Get Version</b></td>
+			<td><code>DataStore/GetVersionAsync|GetVersionAsync()</code></td>
+			<td class="text-nowrap">5 + numPlayers &times; 2</td>
+		</tr>
+		<tr>
+			<td><b>List</b></td>
+			<td><code>DataStoreService/ListDataStoresAsync|ListDataStoresAsync()</code><br><code>DataStore/ListKeysAsync|ListKeysAsync()</code><br><code>DataStore/ListVersionsAsync|ListVersionsAsync()</code></td>
+			<td class="text-nowrap">5 + numPlayers &times; 2</td>
+		</tr>
+		<tr>
+			<td><b>Remove</b></td>
+			<td><code>DataStore/RemoveVersionAsync|RemoveVersionAsync()</code></td>
+			<td class="text-nowrap">5 + numPlayers &times; 2</td>
+		</tr>
+	</tbody>
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">Request Type</th>
+			<th scope="col">Functions</th>
+			<th scope="col">Cooldown</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><b>Set</b> (same&nbsp;key)</td>
+			<td><code>GlobalDataStore/SetAsync|SetAsync()</code><br><code>GlobalDataStore/IncrementAsync|IncrementAsync()</code><br><code>GlobalDataStore/UpdateAsync|UpdateAsync()</code><br><code>GlobalDataStore/RemoveAsync|RemoveAsync()</code></td>
+			<td class="text-nowrap">6 seconds between write requests.</td>
+		</tr>
+	</tbody>
+</table>
+<div class="alert alert-primary mb-2" role="alert">
+You can query request budget on a <span class="text-nowrap">per-method</span> basis with <code>DataStoreService/GetRequestBudgetForRequestType|GetRequestBudgetForRequestType()</code>.
+</div>
+<div class="alert alert-warning" role="alert">
+<code>DataStore/RemoveVersionAsync|RemoveVersionAsync()</code> does not have the 6s cool down period for write requests.
+</div>
+</div>
+</div>
+<!-- Data Limits -->
+<div class="tab-pane" id="DataLimits" role="tabpanel">
+<div class="border border-secondary px-3 py-2">
+Along with request frequency, data stores limit how much data can be used per entry. The data store name, key name, and <a href="#scope">scope</a> must all be under a certain character length, as well as the amount of data stored.
+<table class="table table-striped table-bordered mt-3 mb-3">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">Component</th>
+			<th scope="col" class="text-nowrap">Maximum Number of Characters</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Data Store Name</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>Key Name</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>Scope</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>Data (Key Value)</td>
+			<td>4,000,000</td>
+		</tr>
+	</tbody>
+</table>
+<div class="alert alert-primary mb-2" role="alert">
+Since the data store name, key name, and scope are strings, their length can be checked with <code>string.len()</code>. The data (key&nbsp;value) is also stored as a string, regardless of its initial type. The size of data can be checked with the <code>HttpService/JSONEncode|JSONEncode()</code> function that converts Lua data into a serialized JSON table.
+</div>
+</div>
+</div>
+</div>
+<br><span id="queues"></span>
+<p>When a <a href="#limits">limit</a> is reached, further requests are placed into one of four queues: <strong>set</strong>, <strong>ordered set</strong>, <strong>get</strong>, and <strong>ordered get</strong>. Requests in a queue are handled in the order they are received and the called function continues to yield as long as its request is queued. If the data store key itself is throttled, the request is temporarily skipped but still in the queue. Each queue has a limit of 30 requests and, when this limit is exceeded, the requests fail with an <a href="#error-codes">error code</a> in the 301–306 range indicating that the request was dropped entirely.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Caching</h2>
+<p>Keys cache locally for 4 seconds after the first read. A <code>GlobalDataStore/GetAsync|GetAsync()</code> call within these 4 seconds returns a value from the cache. Modifications to the key by <code>GlobalDataStore/SetAsync|SetAsync()</code> or <code>GlobalDataStore/UpdateAsync|UpdateAsync()</code> apply to the cache immediately and restart the 4 second timer.</p>
+<p><code>DataStore/GetVersionAsync|GetVersionAsync()</code>, <code>DataStore/ListVersionsAsync|ListVersionsAsync()</code>, <code>DataStore/ListKeysAsync|ListKeysAsync()</code>, and <code>DataStoreService/ListDataStoresAsync|ListDataStoresAsync()</code> don’t implement caching and will always fetch the latest data from the service.</p>
+<div class="alert alert-danger mb-4" role="alert">
+Caching is local to a particular data store instance, so different data stores can have their caches in different states. For example, if you access a key twice through two different data store instances, such as getting a data store with a specified scope and another through with the <code>DataStoreOptions/AllScopes|AllScopes</code> property enabled, each data store instance will have its own cache. If you change the value of that key in one data store instance and not the other, you will have inconsistent data.
+</div>
+<h2>Best Practices</h2>
+<p>The following guidelines will help you manage your data more efficiently and take advantage of future improvements.</p>
+<h3>Create Fewer Data Stores</h3>
+<p>Data stores behave similarly to tables in databases. Minimize the number of data stores in an experience and put related data in each data store. This approach allows you to configure each data store individually (versioning and indexing/querying) to improve the service’s efficiency to operate the data; as more features become available, this approach also allows you to more easily manage data stores.</p>
+<h3>Use a Single Object for Related Data</h3>
+<p>Since the increased maximum object size is 4 MB, there should be enough space to follow this rule. You can fetch all relevant data in one call and use the quota (limit) more efficiently. Additionally, <code>GlobalDataStore/SetAsync|SetAsync()</code> updates all data, so all data for the same player is always in sync. The versioning system versions individual objects rather than the whole data store. When restoring to older versions, <span class="text-nowrap">self-contained</span> objects are now consistent and useful.</p>
+<h3>Use Key Prefixes to Organize Your Data</h3>
+<p>You can filter keys with a certain <a href="#listing-and-prefixes">prefix</a> when calling <code>DataStore/ListKeysAsync|ListKeysAsync()</code>. Consider an experience that supports players having multiple character profiles; you can save keys with a prefix such as <samp>/User_1234/profiles/warrior</samp> and <samp>/User_1234/profiles/mage</samp> and use a prefix search with <samp>/User_1234/profiles</samp> to get a list of all profiles.</p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>data</li>
+		  
+		    <li>storage</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/Data-store by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:26:45 GMT -->
+</html>

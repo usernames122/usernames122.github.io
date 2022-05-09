@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/atmosphere by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:29:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="atmosphere.html"/>
+    <link rel="alternate" hreflang="x-default" href="atmosphere.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="atmosphere.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="atmosphere.html"/>
+    
+      
+        
+          <title> Atmosphere Controls</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>How to create&nbsp;atmospheres for dramatic settings and&nbsp;visual realism</p>">
+
+
+
+<meta name="keywords" content="atmosphere, environment, lighting, fog, sunset, sunrise">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Atmosphere">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>How to create&nbsp;atmospheres for dramatic settings and&nbsp;visual realism</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Sound, Lighting & FX">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/sound-lighting-fx.html">SOUND, LIGHTING & FX</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Atmosphere Controls</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/sound-lighting-fx.html">SOUND, LIGHTING & FX</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Atmosphere Controls</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">5  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.custom-button {
+  opacity: 0.7;
+}
+.custom-button.active {
+  opacity: 1;
+}
+.custom-button.tab-right-margin {
+  margin-right: 1px;
+}
+</style>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>The <code>Atmosphere</code> object pushes Roblox closer toward realistic environments where sunlight scatters in different ways depending on density and other air particle properties. It simulates <span class="text-nowrap">real-world</span> “aerial perspective” and lets you control light transmission from the background sky through distant objects. Furthermore, it controls haze and glare conditions, letting you tune a perfect sunset, foggy afternoon, and more.</p>
+<h2>Setup</h2>
+<p>Atmospheric settings rely on both a <code>Sky</code> and <code>Atmosphere</code> object located in the <code>Lighting</code> service. If these objects do not exist, insert them.</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltdd45b4547def9101/Atmosphere-Sky-Objects.png" class="img-fluid half-sized">
+<h2>Atmosphere Properties</h2>
+<h3>Density</h3>
+<p><code>Atmosphere/Density|Density</code> defines the amount of particles in the air. The higher the density, the more particles and the more objects/terrain will be obscured by them. Note that density does not <strong>directly</strong> affect the <span class="text-nowrap"><code>articles/Custom Skyboxes|skybox</code> —</span> it merely affects objects/terrain and visibility of the skybox through them.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#DensityA" role="tab">Density = 0</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#DensityB" role="tab">Density = 0.35</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="DensityA" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltf99d55d704c3d0b6/Atmosphere-Density-A.jpg" class="img-fluid mb-4"></div>
+  <div class="tab-pane" id="DensityB" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt6b8b16519d05e550/Atmosphere-Density-B.jpg" class="img-fluid mb-4"></div>
+</div>
+<h3>Offset</h3>
+<p><code>Atmosphere/Offset|Offset</code> controls how light transmits between the camera and the sky background. Increase this value to create a horizon silhouette against the sky or reduce it to blend distant objects into the sky for an endless and seamless open world.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#OffsetA" role="tab">Offset = 0</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#OffsetB" role="tab">Offset = 1</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="OffsetA" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt8bcf21dadce6c222/Atmosphere-Offset-A.jpg" class="img-fluid mb-3"></div>
+  <div class="tab-pane" id="OffsetB" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt06e241270abbf082/Atmosphere-Offset-B.jpg" class="img-fluid mb-3"></div>
+</div>
+<div class="alert alert-warning mb-4" role="alert">
+Offset should be balanced against <code>Atmosphere/Density|Density</code> and carefully tested in your place. A low offset may cause "ghosting" where the skybox can be seen through objects/terrain. This can be corrected by increasing the offset, which more clearly silhouettes distant objects/terrain against the sky, but too much offset may reveal <span class="text-nowrap">level-of-detail</span> "popping" for far distant terrain and meshes.
+</div>
+<h3>Haze</h3>
+<p><code>Atmosphere/Haze|Haze</code> defines the haziness of the atmosphere with a visible effect both above the horizon and into the distance. This can be combined with <code>Atmosphere/Color|Color</code> to create environmental moods, like a smoky tint for a polluted alien planet.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#HazeA" role="tab">Haze = 1</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#HazeB" role="tab">Haze = 2.8</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="HazeA" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt9c7bbb3698988ef3/Atmosphere-Haze-A.jpg" class="img-fluid mb-4"></div>
+  <div class="tab-pane" id="HazeB" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt40e8e32caec63528/Atmosphere-Haze-B.jpg" class="img-fluid mb-4"></div>
+</div>
+<h3>Color</h3>
+<p><code>Atmosphere/Color|Color</code> changes the atmosphere hue for subtle environmental moods. This is best combined with increased <code>Atmosphere/Haze|Haze</code> to expand the visible effect.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#ColorA" role="tab">Color = [255, 255, 255]</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#ColorB" role="tab">Color = [250, 200, 255]</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="ColorA" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt8d36b3ccf5bb8919/Atmosphere-Color-A.jpg" class="img-fluid mb-4"></div>
+  <div class="tab-pane" id="ColorB" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc42075d69e827e8d/Atmosphere-Color-B.jpg" class="img-fluid mb-4"></div>
+</div>
+<h3>Glare</h3>
+<p><code>Atmosphere/Glare|Glare</code> specifies the atmospheric glow/glare around the sun. More glare results in an increased effect of sunlight cast onto the sky and world.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#GlareA" role="tab">Glare = 0</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#GlareB" role="tab">Glare = 1</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="GlareA" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltb5567a982b107e42/Atmosphere-Glare-A.jpg" class="img-fluid mb-3"></div>
+  <div class="tab-pane" id="GlareB" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt8c0ba9496ed24b54/Atmosphere-Glare-B.jpg" class="img-fluid mb-3"></div>
+</div>
+<div class="alert alert-warning mb-4" role="alert">
+<code>Atmosphere/Glare|Glare</code> must be combined with a <code>Atmosphere/Haze|Haze</code> level higher than 0 to see any effect.
+</div>
+<h3>Decay</h3>
+<p><code>Atmosphere/Decay|Decay</code> defines the hue of the atmosphere away from the sun which moves across the sky based on <code>Lighting/ClockTime|ClockTime</code> or <code>Lighting/TimeOfDay|TimeOfDay</code>, gradually falling off from <code>Atmosphere/Color|Color</code> towards this value.</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#DecayA" role="tab">Decay = [255, 255, 255]</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#DecayB" role="tab">Decay = [255, 90, 80]</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="DecayA" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt8c0ba9496ed24b54/Atmosphere-Glare-B.jpg" class="img-fluid mb-3"></div><!-- Decay A was identical to Glare B -->
+  <div class="tab-pane" id="DecayB" role="tabpanel"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltb3c09e390b8fe81f/Atmosphere-Decay-B.jpg" class="img-fluid mb-3"></div>
+</div>
+<div class="alert alert-warning mb-4" role="alert">
+<code>Atmosphere/Decay|Decay</code> must be combined with <code>Atmosphere/Haze|Haze</code> and <code>Atmosphere/Glare|Glare</code> levels higher than 0 to see any effect.
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Example Atmospheres</h2>
+<p>The following combinations of <code>Lighting</code>, <code>Sky</code>, <code>Atmosphere</code>, <code>Clouds</code>, and other properties/objects may be useful in creating a base setting for your experience.</p>
+<div class="alert alert-primary mt-4 mb-3" role="alert">
+The properties for each object are <b>changes</b> to their defaults. If these objects exist in your place and have already been modified, you may need to delete and recreate them to achieve the example atmospheres.
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <hr>
+<h3>Sahara Sunset</h3>
+<div class="mb-4">
+<div class="row">
+  <div class="col">
+    <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt3b93ef7813d00089/Atmosphere-Sahara-Sunset-V2.jpg" class="img-fluid mb-3 lightbox rounded-0">
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+    <div class="nav flex-column nav-pills mb-1" role="tablist">
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 active show" data-toggle="pill" href="#SaharaSunset-Lighting" role="tab">Lighting</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#SaharaSunset-Atmosphere" role="tab">Atmosphere</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#SaharaSunset-Sky" role="tab">Sky</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#SaharaSunset-Clouds" role="tab">Clouds</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#SaharaSunset-ColorCorrection" role="tab">Color Correction</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#SaharaSunset-SunRays" role="tab">Sun Rays</a>
+    </div>
+    <div class="tab-content">
+      <!-- Lighting -->
+      <div class="tab-pane active show" id="SaharaSunset-Lighting">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Lighting</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">OutdoorAmbient</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(100,70,70);"></div>[100, 70, 70]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">ClockTime</td>
+              <td scope="row" class="studio-item-row text-nowrap">17.7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Atmosphere -->
+      <div class="tab-pane" id="SaharaSunset-Atmosphere">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Atmosphere</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Density</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.35</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Color</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(250,180,120);"></div>[250, 180, 120]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Decay</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(255,0,200);"></div>[255, 0, 200]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Glare</td>
+              <td scope="row" class="studio-item-row text-nowrap">1</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Haze</td>
+              <td scope="row" class="studio-item-row text-nowrap">2.1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Sky -->
+      <div class="tab-pane" id="SaharaSunset-Sky">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Sky</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">MoonTextureId</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444320592</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxBk</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444884337</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxDn</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444884785</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxFt</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444884337</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxLf</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444884337</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxRt</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444884337</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxUp</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6412503613</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">SunAngluarSize</td>
+              <td scope="row" class="studio-item-row text-nowrap">10</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SunTextureId</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6196665106</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Clouds -->
+      <div class="tab-pane" id="SaharaSunset-Clouds">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Clouds</b> <span class="text-nowrap">(child of <b>Terrain</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Cover</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.6</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Density</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.1</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Color</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(255,200,255);"></div>[255, 200, 255]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- ColorCorrection -->
+      <div class="tab-pane" id="SaharaSunset-ColorCorrection">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">ColorCorrection</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Contrast</td>
+              <td scope="row" class="studio-item-row text-nowrap">2</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Saturation</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.2</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">TintColor</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(200,150,220);"></div>[200, 150, 220]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- SunRays -->
+      <div class="tab-pane" id="SaharaSunset-SunRays">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">SunRays</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Intensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.08</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Spread</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.75</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- (next effect) -->
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <hr>
+<h3>Night Cove</h3>
+<div class="mb-4">
+<div class="row">
+  <div class="col">
+    <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt944e0a5bba42c972/Atmosphere-Night-Cove-V2.jpg" class="img-fluid mb-3 lightbox rounded-0">
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+    <div class="nav flex-column nav-pills mb-1" role="tablist">
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 active show" data-toggle="pill" href="#NightCove-Lighting" role="tab">Lighting</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#NightCove-Atmosphere" role="tab">Atmosphere</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#NightCove-Sky" role="tab">Sky</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#NightCove-Clouds" role="tab">Clouds</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#NightCove-ColorCorrection" role="tab">Color Correction</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#NightCove-Terrain" role="tab">Terrain</a>
+    </div>
+    <div class="tab-content">
+      <!-- Lighting -->
+      <div class="tab-pane active show" id="NightCove-Lighting">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Lighting</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">OutdoorAmbient</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(0,160,250);"></div>[0, 160, 250]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">ClockTime</td>
+              <td scope="row" class="studio-item-row text-nowrap">20</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Atmosphere -->
+      <div class="tab-pane" id="NightCove-Atmosphere">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Atmosphere</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Density</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.4</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Color</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(0,140,200);"></div>[0, 140, 200]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Haze</td>
+              <td scope="row" class="studio-item-row text-nowrap">2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Sky -->
+      <div class="tab-pane" id="NightCove-Sky">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Sky</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">CelestialBodiesShown</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(37,37,37);"></div></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxBk</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444884337</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxDn</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444884785</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxFt</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444884337</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxLf</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444884337</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxRt</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6444884337</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SkyboxUp</td>
+              <td scope="row" class="studio-item-row text-nowrap">rbxassetid://6412503613</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Clouds -->
+      <div class="tab-pane" id="NightCove-Clouds">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Clouds</b> <span class="text-nowrap">(child of <b>Terrain</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Cover</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.75</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Density</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.06</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- ColorCorrection -->
+      <div class="tab-pane" id="NightCove-ColorCorrection">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">ColorCorrection</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Contrast</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.1</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Saturation</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.15</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Terrain -->
+      <div class="tab-pane" id="NightCove-Terrain">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Terrain</b> <span class="text-nowrap">(child of <b>Workspace</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">WaterColor</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(0,140,150);"></div>[0, 140, 150]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">WaterTransparency</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.75</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- (next effect) -->
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <hr>
+<h3>Tranquil Forest</h3>
+<div class="mb-4">
+<div class="row">
+  <div class="col">
+    <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt8671714c3bccde31/Atmosphere-Tranquil-Forest.jpg" class="img-fluid mb-3 lightbox rounded-0">
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+    <div class="nav flex-column nav-pills mb-1" role="tablist">
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 active show" data-toggle="pill" href="#TranquilForest-Lighting" role="tab">Lighting</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#TranquilForest-Atmosphere" role="tab">Atmosphere</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#TranquilForest-Bloom" role="tab">Bloom</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#TranquilForest-ColorCorrection" role="tab">Color Correction</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#TranquilForest-DepthOfField" role="tab">Depth of Field</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#TranquilForest-SunRays" role="tab">Sun Rays</a>
+    </div>
+    <div class="tab-content">
+      <!-- Lighting -->
+      <div class="tab-pane active show" id="TranquilForest-Lighting">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Lighting</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Ambient</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(120,125,100);"></div>[120, 125, 100]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Brightness</td>
+              <td scope="row" class="studio-item-row text-nowrap">3</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">EnvironmentDiffuseScale</td>
+              <td scope="row" class="studio-item-row text-nowrap">1</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">EnvironmentSpecularScale</td>
+              <td scope="row" class="studio-item-row text-nowrap">1</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">OutdoorAmbient</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(0,0,0);"></div>[0, 0, 0]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">ShadowSoftness</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.15</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Technology</td>
+              <td scope="row" class="studio-item-row text-nowrap">ShadowMap</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">ClockTime</td>
+              <td scope="row" class="studio-item-row text-nowrap">16</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Atmosphere -->
+      <div class="tab-pane" id="TranquilForest-Atmosphere">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Atmosphere</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Density</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.225</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Offset</td>
+              <td scope="row" class="studio-item-row text-nowrap">1</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Color</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(40,190,200);"></div>[40, 190, 200]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Decay</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(50,40,145);"></div>[50, 40, 145]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Glare</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.55</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Haze</td>
+              <td scope="row" class="studio-item-row text-nowrap">1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Bloom -->
+      <div class="tab-pane" id="TranquilForest-Bloom">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Bloom</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Intensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.65</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Size</td>
+              <td scope="row" class="studio-item-row text-nowrap">8</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Threshold</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.9</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- ColorCorrection -->
+      <div class="tab-pane" id="TranquilForest-ColorCorrection">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">ColorCorrection</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Contrast</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.05</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Saturation</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- DepthOfField -->
+      <div class="tab-pane" id="TranquilForest-DepthOfField">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">DepthOfField</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">FarIntensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.25</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">FocusDistance</td>
+              <td scope="row" class="studio-item-row text-nowrap">250</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">InFocusRadius</td>
+              <td scope="row" class="studio-item-row text-nowrap">50</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">NearIntensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- SunRays -->
+      <div class="tab-pane" id="TranquilForest-SunRays">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">SunRays</b> <span class="text-nowrap">(child of <b>Lighting</b>)</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Intensity</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.025</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Spread</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.25</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>atmosphere</li>
+		  
+		    <li>environment</li>
+		  
+		    <li>lighting</li>
+		  
+		    <li>fog</li>
+		  
+		    <li>sunset</li>
+		  
+		    <li>sunrise</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="post-processing-effects.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt8de033f779c1c848/Post-Processing-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="post-processing-effects.html">Post-Processing Effects</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="Custom-Skyboxes.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt5cde724b1c4f85b7/Skybox-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="Custom-Skyboxes.html">Custom Skyboxes</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/atmosphere by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:30:05 GMT -->
+</html>

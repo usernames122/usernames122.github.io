@@ -1,0 +1,33 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sat, 07 May 2022 18:00:41 at https://developer.roblox.com +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qiC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://developer.roblox.com -O1 "G:\DevhubArchive\DevhubArchive" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+18:00:42	Warning: 	HTML file (624 bytes) retransferred due to lack of cache: https://developer.roblox.com/
+18:00:42	Warning: 	Redirecting to resource for https://developer.roblox.com/robots.txt
+18:00:42	Warning: 	File has moved from https://developer.roblox.com/robots.txt to https://dk135eecbplh9.cloudfront.net/public/robots.txt
+18:00:42	Warning: 	Redirecting to resource for https://developer.roblox.com/
+18:00:42	Warning: 	File has moved from https://developer.roblox.com/ to /en-us/
+18:00:58	Warning: 	Redirecting to resource for https://developer.roblox.com/zh-cn/
+18:00:58	Warning: 	File has moved from https://developer.roblox.com/zh-cn/ to /en-us/
+18:07:00	Error: 	"Not Found" (404) at link https://dk135eecbplh9.cloudfront.net/public/css/select2.png (from https://dk135eecbplh9.cloudfront.net/public/css/select2.css)
+18:07:00	Error: 	"Not Found" (404) at link https://dk135eecbplh9.cloudfront.net/public/css/select2-spinner.gif (from https://dk135eecbplh9.cloudfront.net/public/css/select2.css)
+18:07:00	Error: 	"Not Found" (404) at link https://dk135eecbplh9.cloudfront.net/public/css/select2x2.png (from https://dk135eecbplh9.cloudfront.net/public/css/select2.css)
+18:07:00	Error: 	"Not Found" (404) at link https://dk135eecbplh9.cloudfront.net/public/images/banner.jpg (from https://dk135eecbplh9.cloudfront.net/public/css/main.css)
+18:09:08	Error: 	"Not Found" (404) at link https://dk135eecbplh9.cloudfront.net/public/static/images/loader.gif?q=1544016445575 (from https://developer.roblox.com/en-us/learn-roblox/all-tutorials)
+19:23:56	Warning: 	Redirecting to resource for https://developer.roblox.com/resources/developer-modules/
+19:23:56	Warning: 	File has moved from https://developer.roblox.com/resources/developer-modules/ to /en-us/resources/developer-modules/
+20:25:49	Error: 	"Not Found" (404) at link https://dk135eecbplh9.cloudfront.net/assets/blt2e767397c28fecda/KeyframeSequence_-_Copy.png (from https://developer.roblox.com/en-us/api-reference/class/Keyframe)
+21:05:31	Error: 	"Not Found" (404) at link https://dk135eecbplh9.cloudfront.net/assets/60feee1161f38746a5779267/Screenshot_7.png (from https://developer.roblox.com/en-us/api-reference/class/RodConstraint)
+21:24:15	Error: 	"Not Found" (404) at link https://dk135eecbplh9.cloudfront.net/assets/blt843cbffbfc114ea4/ParticleEmitter_FromScratch.gif (from https://developer.roblox.com/en-us/api-reference/class/ParticleEmitter)
+21:24:15	Error: 	"Not Found" (404) at link https://dk135eecbplh9.cloudfront.net/assets/blt3634602492a8e3eb/Smoke.png (from https://developer.roblox.com/en-us/api-reference/class/Smoke)
+21:24:38	Error: 	"Not Found" (404) at link https://dk135eecbplh9.cloudfront.net/assets/bltb4fd95f7dbbb308a/Sparkles.png (from https://developer.roblox.com/en-us/api-reference/class/Sparkles)
+22:27:53	Error: 	Unable to write HTML file G:/DevhubArchive/DevhubArchive/developer.roblox.com/en-us/api-reference/event/VRService/NavigationRequested.html: No space left on device
+22:27:53	Error: 	* * Fatal write error, giving up
+22:27:53	Error: 	Exit requested by engine
+
+HTTrack Website Copier/3.49-2 mirror complete in 4 hours 27 minutes 12 seconds : 6726 links scanned, 6658 files written (1448761050 bytes overall), 6658 files updated [325365598 bytes received at 20294 bytes/sec], 1289348072 bytes transferred using HTTP compression in 5399 files, ratio 10%, 220.9 requests per connection
+(13 errors, 9 warnings, 0 messages)

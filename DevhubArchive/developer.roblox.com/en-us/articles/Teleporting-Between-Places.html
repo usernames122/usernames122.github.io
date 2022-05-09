@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/Teleporting-Between-Places by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 16:09:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="Teleporting-Between-Places.html"/>
+    <link rel="alternate" hreflang="x-default" href="Teleporting-Between-Places.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="Teleporting-Between-Places.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="Teleporting-Between-Places.html"/>
+    
+      
+        
+          <title> Teleporting Between Places</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>Move players from one game place to another</p>">
+
+
+
+<meta name="keywords" content="teleport, place, transport">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Teleporting Between Places">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>Move players from one game place to another</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Gameplay">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/gameplay.html">GAMEPLAY</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Teleporting Between Places</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/gameplay.html">GAMEPLAY</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Teleporting Between Places</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">5  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Very large worlds may perform better when <strong>teleportation</strong> is implemented. For instance, if a fantasy world has several towns, a castle, multiple large dungeons, and a vast haunted forest, making each a separate <code>articles/games and places|place</code> and teleporting players between them at specific points would improve performance.</p>
+<p>In Roblox, <code>TeleportService/TeleportAsync</code> handles teleporting players between places in a universe or even to another experience.  This method accepts three parameters:</p>
+<ul>
+<li>The place ID that the player(s) teleport to.</li>
+<li>An array containing the <code>Player</code> instances to teleport.</li>
+<li>An optional <code>TeleportOptions</code> instance that contains properties for the <code>TeleportService/TeleportAsync|TeleportAsync</code> call, as well as a function to specify teleport data.</li>
+</ul>
+<pre class="linenums:1">local Players = game:GetService(&quot;Players&quot;)
+local TeleportService = game:GetService(&quot;TeleportService&quot;)
+ 
+local TARGET_PLACE_ID = 1818 -- replace with your own place ID
+ 
+local playerToTeleport = Players:GetPlayers()[1] -- get the first player in the game
+ 
+TeleportService:TeleportAsync(TARGET_PLACE_ID, {playerToTeleport})</pre>
+<div class="alert alert-primary" role="alert">
+<p><strong>Enabling Third Party Teleports</strong><br>
+For security purposes, the ability to teleport a player to an experience owned by a third party is <strong>disabled</strong> by default. To enable third-party teleports, open Game Settings &gt; Security and enable “Allow Third Party Teleports.”</p>
+<p><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt1950fc3e7fa4258d/enableGameSettings.png" alt="Enabling Allow Third Party Teleports in Game Settings"></p>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-warning border-warning" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-warning text-white">Usage Notes</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <ul class="pl-4 ml-1 mb-0">
+<li><code>TeleportService/TeleportAsync|TeleportAsync</code> is restricted to <b class="text-nowrap">server-side</b> invocation to reduce <span class="text-nowrap">client-side</span> exploitation.</li>
+<li><code>TeleportService</code> functionality does not work during playtesting in <span class="text-nowrap">Roblox Studio —</span> to test the concepts in this article, you must publish the game and play it in the Roblox application.</li>
+</ul>
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>Handling Failed Teleports<span id="handling-failed-teleports"></span></h2>
+<p>Much like any call that involves network requests, teleports have the potential to fail and throw an error. Always wrap teleports in a protected call (<code>pcall</code>) and retry if failed.</p>
+<p>Even if a call succeeds and the teleport initiates, it can still fail at the last moment without throwing an error and leave the player in the server. When this happens, <code>TeleportService/TeleportInitFailed</code> is fired.</p>
+<p>Because the logic required to safely teleport a player is complex, this example integrates it into a <code>ModuleScript</code> for easy reuse.</p>
+<pre class="linenums:1">local TeleportService = game:GetService(&quot;TeleportService&quot;)
+ 
+local ATTEMPT_LIMIT = 5
+local RETRY_DELAY = 1
+local FLOOD_DELAY = 15
+ 
+local function SafeTeleport(placeId, players, options)
+    local attemptIndex = 0
+    local success, result -- define pcall results outside of loop so results can be reported later on
+ 
+    repeat
+        success, result = pcall(function()
+            return TeleportService:TeleportAsync(placeId, players, options) -- teleport the player in a protected call to prevent erroring
+        end)
+        attemptIndex += 1
+        if not success then
+            task.wait(RETRY_DELAY)
+        end
+    until success or attemptIndex == ATTEMPT_LIMIT -- stop trying to teleport if call was successful, or if retry limit has been reached
+ 
+    if not success then
+        warn(result) -- print the failure reason to output
+    end
+ 
+    return success, result
+end
+ 
+local function handleFailedTeleport(player, teleportResult, errorMessage, targetPlaceId, teleportOptions)
+    if teleportResult == Enum.TeleportResult.Flooded then
+        task.wait(FLOOD_DELAY)
+    elseif teleportResult == Enum.TeleportResult.Failure then
+        task.wait(RETRY_DELAY)
+    else
+        -- if the teleport is invalid, don't retry, just report the error
+        error((&quot;Invalid teleport [%s]: %s&quot;):format(teleportResult.Name, errorMessage))
+    end
+ 
+    SafeTeleport(targetPlaceId, {player}, teleportOptions)
+end
+ 
+TeleportService.TeleportInitFailed:Connect(handleFailedTeleport)
+ 
+return SafeTeleport</pre>
+<p>This function has a limit on the amount of times it retries, because if the teleport fails several times in a row, there is likely an error in the code as opposed to an occasional network hiccup.</p>
+<p><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt3aa4718fef2ca11b/SafeTeleport.png" alt="SafeTeleport module is in ServerScriptService"></p>
+<p>Putting this function into a <code>ModuleScript</code> allows its use from anywhere in the game. Since it receives the exact same arguments as the <code>TeleportService/TeleportAsync|TeleportAsync</code> function, the rest of the examples in this article use it.</p>
+<pre class="linenums:1">local Players = game:GetService(&quot;Players&quot;)
+local ServerScriptService = game:GetService(&quot;ServerScriptService&quot;)
+ 
+local SafeTeleport = require(ServerScriptService.SafeTeleport)
+ 
+local TARGET_PLACE_ID = 1818 -- replace with your own place ID
+ 
+local playerToTeleport = Players:GetPlayers()[1] -- get the first player in the game
+ 
+SafeTeleport(TARGET_PLACE_ID, {playerToTeleport})</pre>
+<h2>Using Teleport Options<span id="using-teleport-options"></span></h2>
+<p><code>TeleportOptions</code> is an instance that allows further customization of teleports. For example, enabling the <code>TeleportOptions/ShouldReserveServer</code> property creates a new server for the teleporting player(s).</p>
+<pre class="linenums:1">local Players = game:GetService(&quot;Players&quot;)
+local ServerScriptService = game:GetService(&quot;ServerScriptService&quot;)
+ 
+local SafeTeleport = require(ServerScriptService.SafeTeleport)
+ 
+local playersToTeleport = Players:GetPlayers()
+ 
+local teleportOptions = Instance.new(&quot;TeleportOptions&quot;)
+ 
+teleportOptions.ShouldReserveServer = true
+ 
+SafeTeleport(game.PlaceId, playersToTeleport, teleportOptions)</pre>
+<h2>Teleporting to Specific Servers<span id="teleporting-to-specific-servers"></span></h2>
+<p>Providing additional information to the <code>TeleportService/TeleportAsync|TeleportAsync</code> function enables teleporting players to specific servers.</p>
+<p><img src="../../../dk135eecbplh9.cloudfront.net/assets/blte8326a2d334c8626/playerTeleportDiagram.png" alt="Diagram of Teleport Options and Destinations"></p>
+<p>If no attempt is made to direct the player to a particular server, they are sorted into any public server. If the <code>TeleportOptions/ServerInstanceId|ServerInstanceId</code> property of the <code>TeleportOptions</code> object contains a valid instance ID, the player is teleported to that public server. If the <code>TeleportOptions/ReservedServerAccessCode|ReservedServerAccessCode</code> of the <code>TeleportOptions</code> object is set to a valid code, the player is teleported to that reserved server. If <code>TeleportOptions/ShouldReserveServer</code> is true, the player is teleported to a newly reserved server.</p>
+<h2>Instance IDs vs Reserved Server Codes<span id="instance-ids-vs-reserved-server-codes"></span></h2>
+<p>Though instance IDs and reserved server codes are similar in concept, they behave differently from one another.</p>
+<p>The <strong>Instance ID</strong> is a unique identifier for the server, stored in <code>DataModel/JobId</code>. For <strong>public servers</strong>, this is used to teleport players into the server.</p>
+<p>A <strong>reserved server code</strong> is a unique code used to enter a <strong>reserved server</strong>. This code can only be obtained from <code>TeleportService/ReserveServer</code> or a <code>TeleportAsyncResult</code> instance. The only way a player can join a reserved server is being teleported with the reserved server code.</p>
+<h2>Teleporting to a Specific Public Server<span id="teleporting-to-a-specific-public-server"></span></h2>
+<p>This example teleports a player to a specific public server using the server’s instance ID.</p>
+<pre class="linenums:1">local Players = game:GetService(&quot;Players&quot;)
+local ServerScriptService = game:GetService(&quot;ServerScriptService&quot;)
+ 
+local SafeTeleport = require(ServerScriptService.SafeTeleport)
+ 
+local playerToTeleport = Players:GetPlayers()[1] -- get the first player in the game
+local targetServerId = &quot;game.JobId of the server you want to move the player to&quot;
+ 
+local teleportOptions = Instance.new(&quot;TeleportOptions&quot;)
+teleportOptions.ServerInstanceId = targetServerId
+ 
+SafeTeleport(game.PlaceId, {playerToTeleport}, teleportOptions)</pre>
+<p>The target server will need to broadcast its server ID in order for another server to know where to teleport the player, typically through a service like <code>MessagingService</code>.</p>
+<h2>Teleporting to a Reserved Server<span id="teleporting-to-a-reserved-server"></span></h2>
+<p>This example reserves a server and teleports a player to it using the generated reserved server code.</p>
+<pre class="linenums:1">local Players = game:GetService(&quot;Players&quot;)
+local ServerScriptService = game:GetService(&quot;ServerScriptService&quot;)
+ 
+local SafeTeleport = require(ServerScriptService.SafeTeleport)
+ 
+local playerToTeleport = Players:GetPlayers()[1] -- get the first player in the game
+local reservedServerCode = TeleportService:ReserveServer(game.PlaceId)
+ 
+local teleportOptions = Instance.new(&quot;TeleportOptions&quot;)
+teleportOptions.ReservedServerAccessCode = reservedServerCode
+ 
+SafeTeleport(game.PlaceId, {playerToTeleport}, teleportOptions)</pre>
+<h2>Sending Teleport Data<span id="sending-teleport-data"></span></h2>
+<p>When a player is teleported between places, any local data associated with that player is discarded. To handle data persistence between places, consider the following:</p>
+<ul>
+<li>If your game utilizes <strong>secure</strong> player data like in-game currency or inventory, implement data stores or memory stores to maintain data from place to place.</li>
+<li>To pass basic <strong>non-secure</strong> data from place to place, call <code>TeleportOptions/SetTeleportData|SetTeleportData</code> on the <code>TeleportOptions</code> instance before passing it through to <code>TeleportService/TeleportAsync|TeleportAsync</code>. Keep in mind an exploiter can spoof this information.</li>
+</ul>
+<pre class="linenums:1">local Players = game:GetService(&quot;Players&quot;)
+local ServerScriptService = game:GetService(&quot;ServerScriptService&quot;)
+ 
+local SafeTeleport = require(ServerScriptService.SafeTeleport)
+local RNG = Random.new()
+ 
+local playerToTeleport = Players:GetPlayers()[1] -- get the first player in the game
+ 
+local teleportData = {
+    randomNumber = RNG:NextInteger(1, 100);
+}
+ 
+local teleportOptions = Instance.new(&quot;TeleportOptions&quot;)
+teleportOptions:SetTeleportData(teleportData)
+ 
+SafeTeleport(game.PlaceId, {playerToTeleport}, teleportOptions)</pre>
+<p>To get a player’s teleport data once they arrive, use the <code>Player/GetJoinData</code> function, which returns a dictionary including the teleport data sent with the player.</p>
+<pre class="linenums:1">local Players = game:GetService(&quot;Players&quot;)
+ 
+local function onPlayerAdded(player)
+    local joinData = player:GetJoinData()
+    local teleportData = joinData.TeleportData
+    local randomNumber = teleportData.randomNumber
+ 
+    print(player.Name .. &quot;joined with the number&quot; .. randomNumber)
+end
+ 
+Players.PlayerAdded:Connect(onPlayerAdded)</pre>
+<h2>Creating Custom Teleport Screens<span id="creating-custom-teleport-screens"></span></h2>
+<p>When a player is being teleported to another place, they will see the standard Roblox loading screen while the new place loads in. To improve immersion, add a custom teleport screen by calling <code>TeleportService/SetTeleportGui</code> on the client and passing through the <code>ScreenGui</code> to use before teleporting the player.</p>
+<pre class="linenums:1">local TeleportService = game:GetService(&quot;TeleportService&quot;)
+local ReplicatedStorage = game:GetService(&quot;ReplicatedStorage&quot;)
+ 
+local teleportGui = ReplicatedStorage.TeleportGui
+ 
+TeleportService:SetTeleportGui(teleportGui)</pre>
+<p>This example sets a premade <code>ScreenGui</code> located in <code>ReplicatedStorage</code> as the teleport screen. When the player teleports, they see the screen while the game loads. Any scripts inside of the <code>ScreenGui</code> will not be run.</p>
+<p><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt76c1d791c28d9c2f/teleportGuiInReplicatedStorage.png" alt="TeleportGui in ReplicatedStorage"></p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>teleport</li>
+		  
+		    <li>place</li>
+		  
+		    <li>transport</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="Custom-Loading-Screens.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt06f77b2267cfebf8/Loading-Screen-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="Custom-Loading-Screens.html">Custom Loading Screens</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/Teleporting-Between-Places by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 16:09:05 GMT -->
+</html>

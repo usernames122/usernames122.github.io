@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/constraint-movers by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:27:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="constraint-movers.html"/>
+    <link rel="alternate" hreflang="x-default" href="constraint-movers.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="constraint-movers.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="constraint-movers.html"/>
+    
+      
+        
+          <title> Mover Constraints</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>How to move objects via constraint‑based body movers</p>">
+
+
+
+<meta name="keywords" content="constraint, body mover, velocity, torque, force">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Constraint Movers">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>How to move objects via constraint‑based body movers</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Creating">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/creating.html">CREATING</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Mover Constraints</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/creating.html">CREATING</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Mover Constraints</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.left-col-table-width {
+  width: 27%;
+}
+.inline-video-padding {
+  margin-top: 10px;
+  margin-bottom: -3px;
+}
+.inline-video-caption {
+  font-size: 14px;
+  color: rgb(108, 117, 125);
+}
+.note-style {
+  font-size: 14px;
+  line-height: 1.5;
+}
+</style>
+<p>The physics engine includes several <code>Constraint|constraints</code> that apply force or torque to move one or more assemblies. This article outlines every mover constraint and how to create them using Studio’s <strong>Create</strong> button <span class="text-nowrap">drop-down.</span></p>
+<div class="alert alert-warning mt-3 mb-4" role="alert">
+<div class="container p-0">
+<div class="row">
+<div class="col">For a clearer visualization of all mover constraints in this article, toggle on <b class="text-nowrap">Constraint Details</b> and <b class="text-nowrap">Draw On Top</b> from the <b>Model</b> tab.</div>
+<div class="col-auto"><img src="../../../dk135eecbplh9.cloudfront.net/assets/blt78fc622fb6286ccd/Mover-Constraints-Visualization-Options.png" class="img-fluid half-sized my-1 ml-3"></div>
+</div>
+</div>
+</div>
+<h2>Creating Constraints</h2>
+<p>All mover constraints must connect one or two <code>Attachment|Attachments</code>. To create a constraint using the tool workflow:</p>
+<ol>
+<li>From the <strong>Model</strong> tab, access the <strong>Create</strong> button’s <span class="text-nowrap">drop-down</span> menu and select the desired constraint type.</li>
+</ol>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blta6f1ffa761c496c5/Mover-Constraints-Create-Dropdown.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>On a part, click to place the first attachment and then, if the constraint requires a second attachment, click to place it. This will complete the connection with the chosen constraint type.</li>
+</ol>
+<div class="list-indent">
+<div class="d-flex flex-wrap">
+<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 pl-0 pr-4">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt4a4a8790a1bce07a/Constraint-AngularVelocity-Labeled.jpg" class="img-fluid mb-2">
+<figcaption class="figure-caption text-center"><code>AngularVelocity</code></figcaption>
+</figure>
+</div>
+<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 pl-0 pr-4">
+<figure class="figure">
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/bltc96921c3bc9dd504/Constraint-AlignPosition-Labeled.jpg" class="img-fluid mb-2">
+<figcaption class="figure-caption text-center"><code>AlignPosition</code></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="alert alert-primary mt-2 mb-4 list-indent" role="alert">
+For increased accuracy, you can create and position one or both attachments in advance and then <span class="text-nowrap">hover-and-click</span> over each to connect the new constraint. This method will use the selected attachments instead of creating new attachments.
+</div>
+<h2>Constraint Details</h2>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!-- LINEAR VELOCITY -->
+<h3>Linear Velocity</h3>
+<p>The <code>LinearVelocity</code> constraint applies force on a part/assembly to maintain a constant velocity. It can be set to apply force along a <code>datatype/Vector3</code>, line, or 2D plane.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt2be6cc8adfccf208/LinearVelocity-Demo.mp4"
+		width="864px"
+		height="486px"
+		style="margin-top: 5px; margin-bottom: 10px;"
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt2be6cc8adfccf208/LinearVelocity-Demo.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+The <code>LinearVelocity</code> constraint applies a force that attempts to maintain a constant linear velocity. If you want to control the amount of force applied, use a <a href="#vector-force">VectorForce</a> constraint. Alternatively, if you only need <b>initial</b> linear velocity, set the <code>BasePart/AssemblyLinearVelocity|AssemblyLinearVelocity</code> property directly on the part/assembly.
+</div>
+<table class="table table-bordered mb-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="left-col-table-width">Property</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><code>LinearVelocity/MaxForce|MaxForce</code></td>
+            <td scope="row">Maximum magnitude of the force vector the constraint can apply.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LinearVelocity/RelativeTo|RelativeTo</code></td>
+<td scope="row">
+If set to <b>World</b>, force will be applied in world coordinates, independent of the parent or attachment orientations. If set to <b>Attachment0</b> or <b>Attachment1</b>, force will be applied relative to <code>Constraint/Attachment0|Attachment0</code> or <code>Constraint/Attachment1|Attachment1</code> respectively.
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt69a607ee46f4c868/LinearVelocity-RelativeTo-World.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>World</b></span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/bltcddb230984cfb3b1/LinearVelocity-RelativeTo-Attachment0.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>Attachment0</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LinearVelocity/VelocityConstraintMode|VelocityConstraintMode</code></td>
+            <td scope="row">The default mode is <b>Vector</b>, meaning that force is applied along all three axes as set by <code>LinearVelocity/VectorVelocity|VectorVelocity</code>. The mode can alternatively be set to <b>Line</b> which applies force along just one normalized axis <span class="text-nowrap">(<code>LinearVelocity/LineDirection|LineDirection</code>).</span> Lastly, the mode can be set to <b>Plane</b> which applies force as a <span class="text-nowrap">bi-directional</span> <code>datatype/Vector2</code> <span class="text-nowrap">(<code>LinearVelocity/PlaneVelocity|PlaneVelocity</code>)</span> across the plane.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LinearVelocity/VectorVelocity|VectorVelocity</code></td>
+            <td scope="row"><code>datatype/Vector3</code> velocity value when <code>LinearVelocity/VelocityConstraintMode|VelocityConstraintMode</code> is set to <b>Vector</b>.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LinearVelocity/LineDirection|LineDirection</code></td>
+            <td scope="row">The normalized <code>datatype/Vector3</code> direction for constraining the velocity along a line, when <code>LinearVelocity/VelocityConstraintMode|VelocityConstraintMode</code> is set to <b>Line</b>.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LinearVelocity/LineVelocity|LineVelocity</code></td>
+            <td scope="row">Float value of the velocity when <code>LinearVelocity/VelocityConstraintMode|VelocityConstraintMode</code> is set to <b>Line</b>.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LinearVelocity/PlaneVelocity|PlaneVelocity</code></td>
+            <td scope="row"><code>datatype/Vector2</code> value of the velocity in each tangent direction of the plane, when <code>LinearVelocity/VelocityConstraintMode|VelocityConstraintMode</code> is set to <b>Plane</b>.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LinearVelocity/PrimaryTangentAxis|PrimaryTangentAxis</code></td>
+            <td scope="row">The primary axis in the plane, when <code>LinearVelocity/VelocityConstraintMode|VelocityConstraintMode</code> is set to <b>Plane</b>. If <code>LinearVelocity/RelativeTo|RelativeTo</code> is set to <b>Attachment0</b> or <b>Attachment1</b>, applied force depends on that attachment's <span class="text-nowrap"><code>Attachment/Axis|Axis</code>.</span></td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LinearVelocity/SecondaryTangentAxis|SecondaryTangentAxis</code></td>
+            <td scope="row">The secondary axis in the plane, when <code>LinearVelocity/VelocityConstraintMode|VelocityConstraintMode</code> is set to <b>Plane</b>. If <code>LinearVelocity/RelativeTo|RelativeTo</code> is set to <b>Attachment0</b> or <b>Attachment1</b>, applied force depends on that attachment's <span class="text-nowrap"><code>Attachment/SecondaryAxis|SecondaryAxis</code>.</span></td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!-- ANGULAR VELOCITY -->
+<h3>Angular Velocity</h3>
+<p>The <code>AngularVelocity</code> constraint applies torque on a part/assembly to maintain an angular velocity.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blte808dd8d42c71274/AngularVelocity-Demo.mp4"
+		width="864px"
+		height="486px"
+		style="margin-top: 5px; margin-bottom: 10px;"
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blte808dd8d42c71274/AngularVelocity-Demo.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+The <code>AngularVelocity</code> constraint applies a torque that attempts to maintain a constant angular velocity. If you want to control the amount of torque applied, use a <a href="#torque">Torque</a> constraint. Alternatively, if you only need <b>initial</b> angular velocity, set the <code>BasePart/AssemblyAngularVelocity|AssemblyAngularVelocity</code> property directly on the part/assembly.
+</div>
+<table class="table table-bordered mb-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="left-col-table-width">Property</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><code>AngularVelocity/AngularVelocity|AngularVelocity</code></td>
+            <td scope="row"><code>datatype/Vector3|Vector3</code> force applied to achieve and maintain an angular velocity.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AngularVelocity/MaxTorque|MaxTorque</code></td>
+            <td scope="row">Maximum torque the constraint can apply.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AngularVelocity/RelativeTo|RelativeTo</code></td>
+<td scope="row">
+If set to <b>World</b>, the angular velocity vector is used as is. If set to <b>Attachment1</b>&nbsp;&mdash; and the constraint's <code>Constraint/Attachment1|Attachment1</code> property is set to another attachment&nbsp;&mdash; the angular velocity will be affected by that of the other attachment as seen by how the <span class="text-nowrap">upper-left</span> red part's velocity affects the attached blue part's velocity.<sup>1</sup>
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt9bbdbb36830d1f86/AngularVelocity-RelativeTo-World.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>World</b></span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt33b0dc5054d3c7ff/AngularVelocity-RelativeTo-Attachment1.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>Attachment1</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+    </tbody>
+</table>
+<div class="container mb-4">
+<div class="row">
+<div class="col-auto note-style pl-2 pr-1 mx-0"><sup>1</sup></div>
+<div class="col note-style px-0">Setting <b>RelativeTo</b> to <b>Attachment1</b> also exposes the <b>ReactionTorqueEnabled</b> property; see <code>AngularVelocity/ReactionTorqueEnabled|ReactionTorqueEnabled</code> for details.</div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!-- ALIGN POSITION -->
+<h3>Align Position</h3>
+<p>The <code>AlignPosition</code> constraint applies force to move two attachments together, or to move one attachment to a goal position. As indicated by the name, it only affects the position of the attachments, not their orientation (to align attachments by orientation, see <a href="#align-orientation">Align Orientation</a>).</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt71677536a87fc68a/AlignPosition-Demo.mp4"
+		width="864px"
+		height="486px"
+		style="margin-top: 5px; margin-bottom: 10px;"
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt71677536a87fc68a/AlignPosition-Demo.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+By default, the constraint only applies force to <code>Constraint/Attachment0|Attachment0</code>, although this behavior can be controlled through <code>AlignPosition/ReactionForceEnabled|ReactionForceEnabled</code>.
+</div>
+<table class="table table-bordered mb-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="left-col-table-width">Property</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><code>AlignPosition/ApplyAtCenterOfMass|ApplyAtCenterOfMass</code></td>
+            <td scope="row">By default, force is applied to either parent at its attachment location. To apply force at each parent's center of mass regardless of where their attachments are, toggle <code>AlignPosition/ApplyAtCenterOfMass|ApplyAtCenterOfMass</code>.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignPosition/MaxVelocity|MaxVelocity</code></td>
+            <td scope="row">Maximum velocity the constraint can use to reach its goal.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignPosition/MaxForce|MaxForce</code></td>
+            <td scope="row">Maximum force the constraint can use to reach its goal.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignPosition/Responsiveness|Responsiveness</code></td>
+            <td scope="row">How quickly the constraint will attempt to reach its goal. Higher values equal quicker alignment.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignPosition/ApplyAtCenterOfMass|ApplyAtCenterOfMass</code></td>
+<td scope="row">
+By default, force is applied to either parent at its attachment location. To apply force at each parent's center of mass regardless of where <code>Constraint/Attachment0|Attachment0</code> and <code>Constraint/Attachment1|Attachment1</code> are, toggle on <code>AlignPosition/ApplyAtCenterOfMass|ApplyAtCenterOfMass</code>.
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt9a57bac0728dd12f/AlignPosition-ApplyAtCenterOfMass-False.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>false</b> (default)</span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt428f884bd0263bbe/AlignPosition-ApplyAtCenterOfMass-True.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>true</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignPosition/RigidityEnabled|RigidityEnabled</code></td>
+            <td scope="row">When set to <b>true</b>, the solver will react as quickly as possible to complete the alignment, effectively "snapping" the attachment(s) into place. If <b>false</b>, the force will be determined by the <code>AlignPosition/MaxVelocity|MaxVelocity</code>, <code>AlignPosition/MaxForce|MaxForce</code>, and <code>AlignPosition/Responsiveness|Responsiveness</code> values.<sup>2</sup></td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignPosition/ReactionForceEnabled|ReactionForceEnabled</code></td>
+<td scope="row">
+By default, the constraint only applies force to <code>Constraint/Attachment0|Attachment0</code>, while <code>Constraint/Attachment1|Attachment1</code> remains unaffected. However, force can be applied to both attachments in equal and opposite directions by enabling <code>AlignPosition/ReactionForceEnabled|ReactionForceEnabled</code>.
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt2d55a1c165bdc153/AlignPosition-ReactionForceEnabled-False.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>false</b> (default)</span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt2719b19e5faf892c/AlignPosition-ReactionForceEnabled-True.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>true</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignPosition/Mode|Mode</code></td>
+            <td scope="row">The way the constraint determines its goal position.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignPosition/Position|Position</code></td>
+            <td scope="row">The goal to move <code>Constraint/Attachment0|Attachment0</code> to when using <code>Enum/PositionAlignmentMode|OneAttachment</code> mode.<sup>3</sup></td>
+        </tr>
+    </tbody>
+</table>
+<div class="container mb-4">
+<div class="row">
+<div class="col-auto note-style pl-2 pr-1 mx-0"><sup>2</sup></div>
+<div class="col note-style px-0">The <code>AlignPosition/MaxVelocity|MaxVelocity</code>, <code>AlignPosition/MaxForce|MaxForce</code>, and <code>AlignPosition/Responsiveness|Responsiveness</code> properties only appear in Studio <span class="text-nowrap">(<b>Compliance</b> section)</span> if <code>AlignPosition/RigidityEnabled|RigidityEnabled</code> is <b>false</b>.</div>
+</div>
+<div class="row">
+<div class="col-auto note-style pl-2 pr-1 mx-0"><sup>3</sup></div>
+<div class="col note-style px-0">The Position property only appears in Studio if the constraint's <code>AlignPosition/Mode|Mode</code> is <code>Enum/PositionAlignmentMode|OneAttachment</code>.</div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!-- ALIGN ORIENTATION -->
+<h3>Align Orientation</h3>
+<p>The <code>AlignOrientation</code> constraint applies a torque to align two attachments or to align one attachment with a goal orientation. As indicated by the name, it only affects the <strong>orientation</strong> of the attachments, not their position (to align attachments positionally, see <a href="#align-position">Align Position</a>).</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt29cae6eefd417a1b/AlignOrientation-Demo.mp4"
+		width="864px"
+		height="486px"
+		style="margin-top: 5px; margin-bottom: 10px;"
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt29cae6eefd417a1b/AlignOrientation-Demo.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+By default, the constraint only applies torque to <code>Constraint/Attachment0|Attachment0</code>, although this behavior can be controlled through <code>AlignOrientation/ReactionTorqueEnabled|ReactionTorqueEnabled</code>.
+</div>
+<table class="table table-bordered mb-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="left-col-table-width">Property</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><code>AlignOrientation/MaxAngularVelocity|MaxAngularVelocity</code></td>
+            <td scope="row">Maximum angular velocity the constraint can use to reach its goal.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignOrientation/MaxTorque|MaxTorque</code></td>
+            <td scope="row">Maximum torque the constraint can use to reach its goal.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignOrientation/Responsiveness|Responsiveness</code></td>
+            <td scope="row">How quickly the constraint will attempt to reach its goal. Higher values equal quicker alignment.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignOrientation/PrimaryAxisOnly|PrimaryAxisOnly</code></td>
+<td scope="row">
+If <b>false</b>, the constraint will apply torque about all 3&nbsp;axes to achieve alignment. If <b>true</b>, torque will only occur when the primary axes&nbsp;&mdash; visually represented by the <span class="text-nowrap">upward-pointing</span> arrows&nbsp;&mdash; become misaligned.<sup>4</sup>
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/bltfe75a628ec80e7e4/AlignOrientation-PrimaryAxisOnly-False.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>false</b> (default)</span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt4a219969f0186948/AlignOrientation-PrimaryAxisOnly-True.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>true</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignOrientation/RigidityEnabled|RigidityEnabled</code></td>
+            <td scope="row">When <b>true</b>, the solver will react as quickly as possible to complete the alignment, effectively "snapping" the attachment(s) into place. If <b>false</b>, the force will be determined by the <code>AlignOrientation/MaxAngularVelocity|MaxAngularVelocity</code>, <code>AlignOrientation/MaxTorque|MaxTorque</code>, and <code>AlignOrientation/Responsiveness|Responsiveness</code> values.<sup>5</sup></td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignOrientation/ReactionTorqueEnabled|ReactionTorqueEnabled</code></td>
+<td scope="row">
+By default, the constraint only applies torque to <code>Constraint/Attachment0|Attachment0</code>, while <code>Constraint/Attachment1|Attachment1</code> remains unaffected. However, torque can be applied to both attachments in equal and opposite directions by enabling <code>AlignOrientation/ReactionTorqueEnabled|ReactionTorqueEnabled</code>.
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/bltbd96fe444d5ef0af/AlignOrientation-ReactionTorqueEnabled-False.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>false</b> (default)</span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blta6f743e92a44945e/AlignOrientation-ReactionTorqueEnabled-True.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>true</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignOrientation/Mode|Mode</code></td>
+            <td scope="row">The way the constraint determines its goal orientation.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignOrientation/PrimaryAxis|PrimaryAxis</code></td>
+            <td scope="row">The direction of the X-Axis of the goal orientation.<sup>6</sup></td>
+        </tr>
+        <tr>
+            <td scope="row"><code>AlignOrientation/SecondaryAxis|SecondaryAxis</code></td>
+            <td scope="row">The direction of the Y-Axis of the goal orientation.<sup>6</sup></td>
+        </tr>
+    </tbody>
+</table>
+<div class="container mb-4">
+<div class="row">
+<div class="col-auto note-style pl-2 pr-1 mx-0"><sup>4</sup></div>
+<div class="col note-style px-0">Enabling <b>PrimaryAxisOnly</b> also exposes the <b>AlignType</b> property; see <code>AlignOrientation|AlignType|AlignType</code> for details.</div>
+</div>
+<div class="row mt-2">
+<div class="col-auto note-style pl-2 pr-1 mx-0"><sup>5</sup></div>
+<div class="col note-style px-0">The <code>AlignOrientation/MaxAngularVelocity|MaxAngularVelocity</code>, <code>AlignOrientation/MaxTorque|MaxTorque</code>, and <code>AlignOrientation/Responsiveness|Responsiveness</code> properties only appear in Studio <span class="text-nowrap">(<b>Compliance</b> section)</span> if <code>AlignOrientation/RigidityEnabled|RigidityEnabled</code> is <b>false</b>.</div>
+</div>
+<div class="row mt-2">
+<div class="col-auto note-style pl-2 pr-1 mx-0"><sup>6</sup></div>
+<div class="col note-style px-0">The PrimaryAxis and SecondaryAxis properties only appear in Studio if the constraint's <code>AlignOrientation/Mode|Mode</code> is <code>Enum/OrientationAlignmentMode|OneAttachment</code>.</div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!-- VECTOR FORCE -->
+<h3>Vector Force</h3>
+<p>The <code>VectorForce</code> constraint applies constant force to a part/assembly. The direction and strength of the force is determined by a <code>datatype/Vector3</code> and can be relative to an attachment on the part, another attachment, or the world coordinate system.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt6c940f1d5321202c/VectorForce-Demo.mp4"
+		width="864px"
+		height="486px"
+		style="margin-top: 5px; margin-bottom: 10px;"
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt6c940f1d5321202c/VectorForce-Demo.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+Because the <code>VectorForce</code> constraint applies <b>constant</b> force and acceleration, very high speeds may result if no other forces are involved.<!--If you want to maintain a constant velocity over time, use a <a href="#linear-velocity">Linear&nbsp;Velocity</a> constraint. Alternatively, if--> If you only need <b>initial</b> velocity, set the <code>BasePart/AssemblyLinearVelocity|AssemblyLinearVelocity</code> property directly on the part/assembly.
+</div>
+<table class="table table-bordered mb-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="left-col-table-width">Property</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><code>VectorForce/Force|Force</code></td>
+            <td scope="row"><code>datatype/Vector3|Vector3</code> specifying the strength and direction of force.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>VectorForce/ApplyAtCenterOfMass|ApplyAtCenterOfMass</code></td>
+<td scope="row">
+By default, force is applied to the part/assembly at the location of <code>Constraint/Attachment0|Attachment0</code>. Thus, if its center of mass is not aligned with the direction/point of force, torque will be applied as well.
+<div class="mt-2">To apply force at the center of mass regardless of where <code>Constraint/Attachment0|Attachment0</code> is, toggle on <code>VectorForce/ApplyAtCenterOfMass|ApplyAtCenterOfMass</code>.</div>
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/bltfc5603648d4fb447/VectorForce-ApplyAtCenterOfMass-False.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>false</b> (default)</span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/bltc15fe32746c09368/VectorForce-ApplyAtCenterOfMass-True.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>true</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>VectorForce/RelativeTo|RelativeTo</code></td>
+<td scope="row">
+By default, force is applied relative to <code>Constraint/Attachment0|Attachment0</code>. If the parent part/assembly rotates, the force will change direction to match the adjusted orientation of the attachment; visualize this behavior in how the thruster of a rocket pushes it forward, regardless of the rocket's rotation.
+<div class="mt-2">If set to <b>World</b>, force will be applied in world coordinates, independent of the parent or attachment orientations; visualize this behavior as a directional force like the wind blowing against an object.</div>
+<div class="mt-2">If set to <b>Attachment1</b>, force will be applied relative to <code>Constraint/Attachment1|Attachment1</code> and, if the attachment rotates, change to match its orientation.</div>
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt1b2c7601e8e68e39/VectorForce-RelativeTo-Attachment0.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>Attachment0</b> (default)</span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/bltbf13ef99e774f9f9/VectorForce-RelativeTo-World.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>World</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!-- TORQUE -->
+<h3>Torque</h3>
+<p>A <code>Torque</code> constraint applies constant torque to a part/assembly from its center of mass.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/blt9d47bc51c1893edd/Torque-Demo.mp4"
+		width="864px"
+		height="486px"
+		style="margin-top: 5px; margin-bottom: 10px;"
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/blt9d47bc51c1893edd/Torque-Demo.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+Because the <code>Torque</code> constraint applies <b>constant</b> torque and angular acceleration, very high speeds may result if no other forces are involved. If you want to maintain a constant velocity over time, use an <a href="#angular-velocity">Angular&nbsp;Velocity</a> constraint. Alternatively, if you only need <b>initial</b> velocity, set the <code>BasePart/AssemblyAngularVelocity|AssemblyAngularVelocity</code> property directly on the part/assembly.
+</div>
+<table class="table table-bordered mb-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="left-col-table-width">Property</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><code>Torque/Torque|Torque</code></td>
+            <td scope="row"><code>datatype/Vector3|Vector3</code> specifying the strength and direction of torque.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>Torque/RelativeTo|RelativeTo</code></td>
+<td scope="row">
+By default, torque is applied relative to <code>Constraint/Attachment0|Attachment0</code>. If the parent part/assembly rotates, the torque will change direction to match the adjusted orientation of the attachment.
+<div class="mt-2">If set to <b>World</b>, torque will be applied in world coordinates, independent of the parent or attachment orientations.</div>
+<div class="mt-2">If set to <b>Attachment1</b>, torque will be applied relative to <code>Constraint/Attachment1|Attachment1</code> and, if the attachment rotates, change to match its orientation.</div>
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blte44f87b5221569b7/Torque-RelativeTo-Attachment0.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>Attachment0</b> (default)</span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt373fd4a8c6d1fd76/Torque-RelativeTo-World.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>World</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!-- LINE FORCE -->
+<h3>Line Force</h3>
+<p>The <code>LineForce</code> constraint applies a force along the theoretical line connecting its two <code>Attachment|Attachments</code>. As the end points (attachments) move, the direction of force will change accordingly.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+	
+
+
+
+	
+
+
+
+	
+		
+		
+	
+
+	
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+
+
+
+
+<style>
+	video::-webkit-media-controls-panel {
+		background-image: none !important;
+   	filter: brightness(1);
+	}
+</style>
+
+<div style="padding-bottom: 486px; width:864px;"
+	
+		class="rich_video"
+	
+>
+	<video
+		src="https://dk135eecbplh9.cloudfront.net/assets/bltbab6e11ee978d961/LineForce-Demo.mp4"
+		width="864px"
+		height="486px"
+		style="margin-top: 5px; margin-bottom: 10px;"
+
+		
+			controls
+		
+
+		
+
+		
+
+		>
+
+		Uh oh! Your browser doesn't appear to support embedded videos!
+		Here is a <a href="https://dk135eecbplh9.cloudfront.net/assets/bltbab6e11ee978d961/LineForce-Demo.mp4">direct link</a> to the video instead.
+	</video>
+</div>
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table table-bordered mb-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="left-col-table-width">Property</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><code>LineForce/Magnitude|Magnitude</code></td>
+            <td scope="row">Magnitude of the force.</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LineForce/ApplyAtCenterOfMass|ApplyAtCenterOfMass</code></td>
+<td scope="row">
+By default, force is applied to either parent at its attachment location. To focus the line force end points (and&nbsp;thus the direction of&nbsp;force) at each parent's center of mass, toggle on <code>LineForce/ApplyAtCenterOfMass|ApplyAtCenterOfMass</code>.
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/bltd71fa9023c034400/LineForce-ApplyAtCenterOfMass-False.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>false</b> (default)</span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt6a216d884d7c3847/LineForce-ApplyAtCenterOfMass-True.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>true</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LineForce/InverseSquareLaw|InverseSquareLaw</code></td>
+<td scope="row">
+When <b>true</b>, the force magnitude is multiplied by the inverse square of the distance, meaning the force will increase exponentially as the two attachments get closer together, like magnets. When using this setting, it's recommended that you set a <code>LineForce/MaxForce|MaxForce</code> threshold to prevent infinite force if the attachments align precisely.
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blta99f7135427297d4/LineForce-InverseSquareLaw-False.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>false</b> (default)</span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt67370caaa6f5ce32/LineForce-InverseSquareLaw-True.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>true</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>LineForce/ReactionForceEnabled|ReactionForceEnabled</code></td>
+<td scope="row">
+By default, the constraint only applies force to <code>Constraint/Attachment0|Attachment0</code>, while <code>Constraint/Attachment1|Attachment1</code> remains unaffected. However, force can be applied to both attachments in equal and opposite directions by enabling <code>LineForce/ReactionForceEnabled|ReactionForceEnabled</code>.
+<div class="container p-0">
+<div class="row">
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/bltfa728e9a5d2b3101/LineForce-ReactionForceEnabled-False.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>false</b> (default)</span>
+</div>
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<video src="https://dk135eecbplh9.cloudfront.net/assets/blt0b23cb4b1718f8fd/LineForce-ReactionForceEnabled-True.mp4" class="inline-video-padding mb-0" controls="" width="100%"></video>
+<span class="inline-video-caption text-center d-block mt-0 mb-2"><b>true</b></span>
+</div>
+</div>
+</div>
+</td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>constraint</li>
+		  
+		    <li>body mover</li>
+		  
+		    <li>velocity</li>
+		  
+		    <li>torque</li>
+		  
+		    <li>force</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="understanding-assemblies.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt7ee3bddca1822dc1/Assemblies-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="understanding-assemblies.html">Understanding Assemblies</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/constraint-movers by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:27:26 GMT -->
+</html>

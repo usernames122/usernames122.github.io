@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+<!-- Mirrored from developer.roblox.com/en-us/articles/The-Script-Analysis-Tool by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:27:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="canonical" href="The-Script-Analysis-Tool.html"/>
+    <link rel="alternate" hreflang="x-default" href="The-Script-Analysis-Tool.html"/>
+
+    
+      <link rel="alternate" hreflang="en-us" href="The-Script-Analysis-Tool.html"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="The-Script-Analysis-Tool.html"/>
+    
+      
+        
+          <title> Script Analysis Tool</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="en-us">
+
+
+
+<meta name="description" content="<p>Debug your code and learn to read error messages using the script analysis tool</p>">
+
+
+
+<meta name="keywords" content="coding, lua, error, warning">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="The Script Analysis Tool">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>Debug your code and learn to read error messages using the script analysis tool</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Coding and Scripts">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="../../../browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="../../../cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="../../../cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="../../../dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='../../../dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="../../../dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('../../../dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="../../index.html" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="../../index.html">Home</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">Tutorials</h5>
+      <div>
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                <span>All Content</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                <span>Analytics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                <span>Coding and Scripts</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                <span>Creating</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                <span>Cross-Platform</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                <span>Gameplay</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/international.html">
+                <span>International</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                <span>Marketing</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                <span>Monetization</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                <span>Open Cloud</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                <span>Optimization</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                <span>Sound, Lighting & FX</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                <span>Studio Basics</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                <span>User Interface</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../onboarding.html">
+                      <span>Learn</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../learn-roblox/all-tutorials.html">
+                      <span>Articles</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../api-reference.html">
+                      <span>API Reference</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="../resources.html">
+                      <span>Resources</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com/">
+                      <span>Community</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="#">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="#">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="Search">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <div class="d-flex justify-content-xl-center swatch-yellow">
+    <span class="text-center deprecation-banner">
+        The Developer Hub is now deprecated and information on this page may no longer be accurate. 
+            To see our new and improved documentation, please click 
+            <a id="new-site-deprecation-banner" href="https://create.roblox.com/docs">here</a>. 
+            You can read more about the future of documentation 
+            <a href="https://devforum.roblox.com/t/the-future-of-creator-documentation-docs-site-beta/1746047">
+            here</a>.
+    </span>
+</div>
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">Collapse Sidebar</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">Tutorials</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/all-tutorials.html">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/analytics.html">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/coding-scripts.html">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/creating.html">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/cross-platform.html">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/gameplay.html">
+                      <span>Gameplay</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/international.html">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/marketing.html">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/monetization.html">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/open-cloud.html">
+                      <span>Open Cloud</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/optimization.html">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/sound-lighting-fx.html">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/studio-basics.html">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="../learn-roblox/user-interface.html">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/coding-scripts.html">CODING AND SCRIPTS</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Script Analysis Tool</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Hide content</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">Show content</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/all-tutorials.html">Learn Roblox</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="../learn-roblox/coding-scripts.html">CODING AND SCRIPTS</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Script Analysis Tool</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  min</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.script-analysis-message {
+  padding-left: 48px;
+}
+.script-analysis-link {
+  color: #35b5ff;
+  padding-right: 2px;
+  text-decoration: underline;
+}
+</style>
+<p>Roblox Studio contains a static script analyzer that validates code, flags all issues that will completely prevent the script from running, and warns you about issues that are likely to cause a bug. To display the script analysis panel, toggle <b class="text-nowrap">Script Analysis</b> from the <strong>View</strong> tab:</p>
+<img src="../../../dk135eecbplh9.cloudfront.net/assets/blt5932e896e70ded73/ScriptAnalysisToolbar-V2.png" class="img-fluid half-sized">
+<h2>Warnings</h2>
+<p>In addition to <span class="text-nowrap">script-halting</span> errors, the analyzer may report the following warnings:</p>
+<h3 class="mt-3">W001: Unknown global 'name'</h3><span id="W001"></span>
+<p>Any identifier in Lua is assumed to refer to a global variable. Unfortunately, this means that it’s easy to mistype a variable name and introduce a bug. Normally you would discover this error by running the code, but the script analyzer highlights it as a likely problem:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local displayName = "Roblox"
+
+<span class='highlighted'>print(displaName)</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table studio-table mb-4">
+<tbody>
+<tr>
+<td scope="row" class="studio-item-row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+  <div class="studio-row-indent"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcceb6f5190082ce0/Studio-Dark-Chevron-Explorer-D.png" class="half-sized m-0"></div>
+  <div class="studio-row-indent"><b>StarterGui.LocalScript</b></div>
+</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W001</span>:</span> (3,7) Unknown global 'displaName'</div>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mt-3">W002: Global 'old' is deprecated, use 'new' instead</h3><span id="W002"></span>
+<p>Roblox exposes several <span class="text-nowrap">built-in</span> global variables to scripts. Some of them are deprecated, so you should use the <span class="text-nowrap">non-deprecated</span> alternative when prompted. For example, API naming conventions in Roblox declare <code>game</code> as the correct reference, while the capitalized <code>Game</code> is deprecated:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local part = Game.workspace.Part</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table studio-table mb-4">
+<tbody>
+<tr>
+<td scope="row" class="studio-item-row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+  <div class="studio-row-indent"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcceb6f5190082ce0/Studio-Dark-Chevron-Explorer-D.png" class="half-sized m-0"></div>
+  <div class="studio-row-indent"><b>StarterGui.LocalScript</b></div>
+</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W002</span>:</span> (1,14) Global 'Game' is deprecated, use 'game' instead</div>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mt-3">W003: Global 'name' is only used in the enclosing function; consider changing it to local</h3><span id="W003"></span>
+<p>As mentioned above, Lua identifiers are treated as global by default. Whenever possible, you should declare a variable/function with <code>local</code>, but it’s easy to forget this practice and make everything global. This can lead to further issues when scripting, for instance a global variable declaration overwriting an <span class="text-nowrap">identically-named</span> function.</p>
+<p>To assist you with local variable declarations, the script analyzer issues a warning if a global variable is only used in one function:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-3" role="tabpanel" aria-labelledby="nav-code-tab-3">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local function testFunc(a)
+
+	if a < 5 then
+		b = 1
+	else
+		b = 2
+	end
+	print(b)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-3" role="tabpanel" aria-labelledby="nav-output-tab-3">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table studio-table mb-4">
+<tbody>
+<tr>
+<td scope="row" class="studio-item-row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+  <div class="studio-row-indent"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcceb6f5190082ce0/Studio-Dark-Chevron-Explorer-D.png" class="half-sized m-0"></div>
+  <div class="studio-row-indent"><b>StarterGui.LocalScript</b></div>
+</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W003</span>:</span> (4,3) Global 'b' is only used in the enclosing function; consider changing it to local</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>To resolve this, simply <span class="text-nowrap">forward-declare</span> the variable <code>b</code> above the conditional statement where it’s used:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-4" role="tabpanel" aria-labelledby="nav-code-tab-4">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local function testFunc(a)
+
+<span class='highlighted'>	local b</span>
+	if a < 5 then
+		b = 1
+	else
+		b = 2
+	end
+	print(b)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-4" role="tabpanel" aria-labelledby="nav-output-tab-4">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-3">W006: Statement spans multiple lines; use indentation to silence</h3><span id="W006"></span>
+<p>Lua does not require semicolons to end lines/statements, nor does it prevent you from breaking a statement into multiple lines. This can lead to confusing code, for instance:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-5" role="tabpanel" aria-labelledby="nav-code-tab-5">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local Players = game:GetService("Players")
+
+<span class='highlighted'>local label = "Name: " ..</span>
+-- Concatenate local player
+<span class='highlighted'>tostring(Players.LocalPlayer)</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-5" role="tabpanel" aria-labelledby="nav-output-tab-5">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table studio-table mb-4">
+<tbody>
+<tr>
+<td scope="row" class="studio-item-row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+  <div class="studio-row-indent"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcceb6f5190082ce0/Studio-Dark-Chevron-Explorer-D.png" class="half-sized m-0"></div>
+  <div class="studio-row-indent"><b>StarterGui.LocalScript</b></div>
+</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W006</span>:</span> (5,1) Statement spans multiple lines; use indentation to silence</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Whenever you have a legitimate use for breaking statements into multiple lines, you should indent your code to make the intent clear:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-6" role="tabpanel" aria-labelledby="nav-code-tab-6">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local Players = game:GetService("Players")
+
+<span class='highlighted'>local label = "Name: " ..</span>
+	-- Concatenate local player
+<span class='highlighted'>	tostring(Players.LocalPlayer)</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-6" role="tabpanel" aria-labelledby="nav-output-tab-6">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-3">W010: Built-in global 'name' is overwritten here; consider using a local or changing the name</h3><span id="W010"></span>
+<p>Both Lua and Roblox define a certain set of global variables and functions. Overwriting them is possible due to Lua’s dynamic nature, but it can lead to critical bugs like this:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-7" role="tabpanel" aria-labelledby="nav-code-tab-7">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local function testFunc()
+	-- Here, the built-in wait function is overwritten with a number
+<span class='highlighted'>	wait = 1</span>
+	print(wait)
+end
+
+testFunc()
+
+-- This will now trigger a runtime error
+<span class='highlighted'>wait(1)</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-7" role="tabpanel" aria-labelledby="nav-output-tab-7">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table studio-table mb-4">
+<tbody>
+<tr>
+<td scope="row" class="studio-item-row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+  <div class="studio-row-indent"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcceb6f5190082ce0/Studio-Dark-Chevron-Explorer-D.png" class="half-sized m-0"></div>
+  <div class="studio-row-indent"><b>StarterGui.LocalScript</b></div>
+</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W010</span>:</span> (3,2) Built-in global 'wait' is overwritten here; consider using a local or changing the name</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>To fix this, either put the <code>wait</code> variable into local scope or change its name:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-8" role="tabpanel" aria-labelledby="nav-code-tab-8">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local function testFunc()
+	-- Now the variable is local and won't overwrite the built-in wait function
+<span class='highlighted'>	local wait = 1</span>
+	print(wait)
+end
+
+testFunc()</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-8" role="tabpanel" aria-labelledby="nav-output-tab-8">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-3">W011: Placeholder value '_' is read here; consider using a named variable</h3><span id="W011"></span>
+<p>An established convention in many languages, including Lua, is to use <code>_</code> as a placeholder for a variable name, such as when a function returns multiple results but you only need one of them (line 7). However, attempting to output the variable (line 9) will result in a warning, so choose a more descriptive name than <code>_</code> if you need to use the variable in any manner.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-9" role="tabpanel" aria-labelledby="nav-code-tab-9">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local function getSumAndDifference(a, b)
+	local sum = a + b
+	local diff = a - b
+	return sum, diff
+end
+
+<span class='highlighted'>local _, diff = getSumAndDifference(5, 10)</span>
+
+<span class='highlighted'>print(_, diff)</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-9" role="tabpanel" aria-labelledby="nav-output-tab-9">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table studio-table mb-4">
+<tbody>
+<tr>
+<td scope="row" class="studio-item-row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+  <div class="studio-row-indent"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcceb6f5190082ce0/Studio-Dark-Chevron-Explorer-D.png" class="half-sized m-0"></div>
+  <div class="studio-row-indent"><b>StarterGui.LocalScript</b></div>
+</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W011</span>:</span> (9,7) Placeholder value '_' is read here; consider using a named variable</div>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mt-3">W012: Unreachable code</h3><span id="W012"></span>
+<p>If any statement in your code is “unreachable,” the analyzer will warn you as follows:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-10" role="tabpanel" aria-labelledby="nav-code-tab-10">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local function testFunc(val)
+	if val then
+		return true
+	else
+		return false
+	end
+<span class='highlighted'>	print(val)</span>
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-10" role="tabpanel" aria-labelledby="nav-output-tab-10">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table studio-table mb-4">
+<tbody>
+<tr>
+<td scope="row" class="studio-item-row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+  <div class="studio-row-indent"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcceb6f5190082ce0/Studio-Dark-Chevron-Explorer-D.png" class="half-sized m-0"></div>
+  <div class="studio-row-indent"><b>StarterGui.LocalScript</b></div>
+</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W012</span>:</span> (7,2) Unreachable code (previous statement always returns)</div>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mt-3">W013: Unknown type 'name'</h3><span id="W013"></span>
+<p>Various API calls rely on passing a class name as a string. To help prevent bugs, the analyzer verifies that the given type exists. If you see a warning like this, fix the type.</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-11" role="tabpanel" aria-labelledby="nav-code-tab-11">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local part = Instance.new("Oart")  -- Should be "Part"
+
+if type(1) == "Vector3" then  -- Lua type() function can not return "Vector3"
+
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-11" role="tabpanel" aria-labelledby="nav-output-tab-11">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table studio-table mb-4">
+<tbody>
+<tr>
+<td scope="row" class="studio-item-row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+  <div class="studio-row-indent"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcceb6f5190082ce0/Studio-Dark-Chevron-Explorer-D.png" class="half-sized m-0"></div>
+  <div class="studio-row-indent"><b>StarterGui.LocalScript</b></div>
+</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W013</span>:</span> (1,27) Unknown type 'Oart'</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W013</span>:</span> (3,15) Unknown type 'Vector3' (expected primitive type)</div>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mt-3">W014: For loop should iterate backwards; did you forget to specify -1 as step?</h3><span id="W014"></span>
+<p>If you want to iterate <strong>backwards</strong> in a <code>for</code> loop, such as count down from 5 to 1, it’s easy to forget the <span class=""><code>-1</code></span> step parameter. The analyzer will flag these occurrences as follows:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-12" role="tabpanel" aria-labelledby="nav-code-tab-12">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua"><span class='highlighted'>for i = 5, 1 do</span>
+	print(i)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-12" role="tabpanel" aria-labelledby="nav-output-tab-12">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table studio-table mb-4">
+<tbody>
+<tr>
+<td scope="row" class="studio-item-row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+  <div class="studio-row-indent"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcceb6f5190082ce0/Studio-Dark-Chevron-Explorer-D.png" class="half-sized m-0"></div>
+  <div class="studio-row-indent"><b>StarterGui.LocalScript</b></div>
+</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W014</span>:</span> (1,9) For loop should iterate backwards; did you forget to specify -1 as step?</div>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mt-3">W015: Assigning [num] values to [num] variables...</h3><span id="W015"></span>
+<p>If you declare multiple variables in one statement, but do not assign the same number of values, the analyzer will either prompt you to assign <code>nil</code> to extra variables or remind you that some values are unused:</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-13" role="tabpanel" aria-labelledby="nav-code-tab-13">
+			
+			<div class="expandable-area">
+				<a href="javascript:void(0)" class="expanded-button copy" data-placement="bottom">
+					<div class="copy-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button view">
+					<div class="expand-button"></div>
+				</a>
+				<a href="javascript:void(0)" class="expanded-button theme-wrap">
+					<div class="theme-icons">
+					<i class="light-theme-icon icon"></i>
+					<i class="dark-theme-icon icon"></i>
+					</div>
+				</a>
+			</div>
+			
+			<pre class="prettyprint no-border linenums:01 lang-lua">local a, b, c = 1, 2  -- Three variables declared but only two values assigned
+local d, e = 4, 5, 6  -- Only two variables declared but three values assigned</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-13" role="tabpanel" aria-labelledby="nav-output-tab-13">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <table class="table studio-table mb-4">
+<tbody>
+<tr>
+<td scope="row" class="studio-item-row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+  <div class="studio-row-indent"><img src="../../../dk135eecbplh9.cloudfront.net/assets/bltcceb6f5190082ce0/Studio-Dark-Chevron-Explorer-D.png" class="half-sized m-0"></div>
+  <div class="studio-row-indent"><b>StarterGui.LocalScript</b></div>
+</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W015</span>:</span> (1,1) Assigning 2 values to 3 variables initializes extra variables with nil; add 'nil' to value list to silence</div>
+<div class="pt-1 script-analysis-message"><span class="text-nowrap"><span class="script-analysis-link">W015</span>:</span> (2,1) Assigning 3 values to 2 variables leaves some values unused</div>
+</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+	<div class="tags-wrap" data-swiftype-index='false'>
+	  <span class="lbl">Tags: </span>
+	  <ul class="tags-list">
+	  	
+		    <li>coding</li>
+		  
+		    <li>lua</li>
+		  
+		    <li>error</li>
+		  
+		    <li>warning</li>
+		  
+	  </ul>
+	</div>
+
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">Related Articles</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="Debugging.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt34029b4d20fbf40c/Debugging-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="Debugging.html">Debugging Tools</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="game-testing.html"><span class="related-article-img" style="background-image: url(../../../dk135eecbplh9.cloudfront.net/assets/blt33af09af338dd4ee/Game-Test-Modes-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="game-testing.html">Testing Modes</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>How this site use cookies</h1>
+        <div class="privacy-content">
+          <p>This Platform uses cookies to offer you a better experience, to personalize content, to provide social media features and to analyse the traffic on our site. For further information, including information on how to prevent or manage the use of cookies on this Platform, please refer to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy and Cookie Policy</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">Okay</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">You are leaving Roblox</div>
+        <p>Please press Continue to go to: <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn secondary-btn" data-dismiss="modal">Back</a>
+        <a href="#" class="btn primary-btn continue-link" target="_blank">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com/" target="_self" class="footer-logo ptxl mbl">
+              <img src="../../../dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2022 Roblox Corporation. All Rights Reserved.</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>COMPANY</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">About Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Careers</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">Technology</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">Terms of Use</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">Privacy Policy</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">Parents</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>DEVELOPERS</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="../onboarding.html" target="_self">Learn</a>
+                  </li>
+                
+                  <li>
+                    <a href="../learn-roblox/all-tutorials.html" target="_self">Articles</a>
+                  </li>
+                
+                  <li>
+                    <a href="../api-reference.html" target="_self">API Reference</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/" target="_blank">Community</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">Developers Announcements</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">Search</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" style="height: 101%;"
+                        placeholder="Search" tabindex="-1">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="nav-tabs-wrap">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            All results
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API Documentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="articles">
+                            Tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" role="tab"
+                            aria-selected="false" data-name="videos">
+                            Videos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+
+<!-- Mirrored from developer.roblox.com/en-us/articles/The-Script-Analysis-Tool by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 May 2022 17:27:03 GMT -->
+</html>
