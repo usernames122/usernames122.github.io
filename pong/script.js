@@ -25,6 +25,9 @@ let player2Y = canvas.height / 2 - paddleHeight / 2;
 let player1Score = 0;
 let player2Score = 0;
 
+// Keyboard input handling
+const keys = {};
+
 // Update paddle positions
 function updatePaddles() {
     // Player 1 controls
@@ -111,7 +114,6 @@ function gameLoop() {
 gameLoop();
 
 // Keyboard input handling
-const keys = {};
 document.addEventListener("keydown", (event) => {
     keys[event.keyCode] = true;
 });
